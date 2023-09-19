@@ -1,76 +1,79 @@
-'use strict';
+"use strict";
 
 /* common
 ============================== */
-const mediaQuery = window.matchMedia('(min-width: 768px)');
+const mediaQuery = window.matchMedia("(min-width: 768px)");
 
 /* splash
 ============================== */
-const splash = document.querySelector('#splash');
-const splashText = document.querySelector('#splash__text');
-const space = document.querySelector('#space');
+const splash = document.querySelector("#splash");
+const splashText = document.querySelector("#splash__text");
+const space = document.querySelector("#space");
 
 var bar = new ProgressBar.Line(splash__text, {
-    easing: 'easeInOut',
-    duration: 2000,
-    strokeWidth: 6,
-    color: '#fffdf7',
-    trailWidth: 3,
-    trailColor: '#3e3e3e',
-    svgStyle: { width: '80%' },
-    text: {
-        style: {
-            position: 'absolute',
-            left: '50%',
-            top: '50%',
-            padding: '0',
-            margin: '-50px 0 0 0',
-            transform: 'translate(-50%, -50%)',
-            'font-size': '1.5rem',
-            color: '#fffdf7',
-            font: 'Bruno Ace'
-        },
-        autoStyleContainer: false
+  easing: "easeInOut",
+  duration: 2000,
+  strokeWidth: 6,
+  color: "#fffdf7",
+  trailWidth: 3,
+  trailColor: "#3e3e3e",
+  svgStyle: { width: "80%" },
+  text: {
+    style: {
+      position: "absolute",
+      left: "50%",
+      top: "50%",
+      padding: "0",
+      margin: "-50px 0 0 0",
+      transform: "translate(-50%, -50%)",
+      "font-size": "1.5rem",
+      color: "#fffdf7",
+      font: "Bruno Ace",
     },
-    step: function (state, bar) {
-        bar.setText(Math.round(bar.value() * 100) + '%');
-    }
+    autoStyleContainer: false,
+  },
+  step: function (state, bar) {
+    bar.setText(Math.round(bar.value() * 100) + "%");
+  },
 });
 
 bar.text.style.fontFamily = '"Bruno Ace", Helvetica, sans-serif';
 
 bar.animate(1.0, function () {
-    const splashFadeOutKeyframes = {
-        opacity: [1, 0]
-    }
-    splashText.animate(splashFadeOutKeyframes, 100).finished.then(() => {
-        splashText.style.display = 'none';
-    })
-    window.warp = window.warp == 1 ? 0 : 1;
-    executeFrame();
-    setTimeout(() => {
-        splash.animate(splashFadeOutKeyframes, 300).finished.then(() => {
-            splash.style.display = 'none';
-        });
-    }, 1500);
-    setTimeout(() => {
-        stroke.play();
-    }, 3000)
+  const splashFadeOutKeyframes = {
+    opacity: [1, 0],
+  };
+  splashText.animate(splashFadeOutKeyframes, 100).finished.then(() => {
+    splashText.style.display = "none";
+  });
+  window.warp = window.warp == 1 ? 0 : 1;
+  executeFrame();
+  setTimeout(() => {
+    splash.animate(splashFadeOutKeyframes, 300).finished.then(() => {
+      splash.style.display = "none";
+    });
+  }, 1500);
+  setTimeout(() => {
+    stroke.play();
+  }, 3000);
 });
 
 //CodePenからの引用
 //based on an Example by @curran
-window.requestAnimFrame = (function () { return window.requestAnimationFrame })();
+window.requestAnimFrame = (function () {
+  return window.requestAnimationFrame;
+})();
 var canvas = document.getElementById("space");
 var c = canvas.getContext("2d");
 
 var numStars = 1900;
-var radius = '0.' + Math.floor(Math.random() * 9) + 1;
+var radius = "0." + Math.floor(Math.random() * 9) + 1;
 var focalLength = canvas.width * 2;
 var warp = 0;
 var centerX, centerY;
 
-var stars = [], star;
+var stars = [],
+  star;
 var i;
 
 var animate = true;
@@ -78,67 +81,65 @@ var animate = true;
 initializeStars();
 
 function executeFrame() {
-
-    if (animate)
-        requestAnimFrame(executeFrame);
-    moveStars();
-    drawStars();
+  if (animate) requestAnimFrame(executeFrame);
+  moveStars();
+  drawStars();
 }
 
 function initializeStars() {
-    centerX = canvas.width / 2;
-    centerY = canvas.height / 2;
+  centerX = canvas.width / 2;
+  centerY = canvas.height / 2;
 
-    stars = [];
-    for (i = 0; i < numStars; i++) {
-        star = {
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            z: Math.random() * canvas.width,
-            o: '0.' + Math.floor(Math.random() * 99) + 1
-        };
-        stars.push(star);
-    }
+  stars = [];
+  for (i = 0; i < numStars; i++) {
+    star = {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      z: Math.random() * canvas.width,
+      o: "0." + Math.floor(Math.random() * 99) + 1,
+    };
+    stars.push(star);
+  }
 }
 
 function moveStars() {
-    for (i = 0; i < numStars; i++) {
-        star = stars[i];
-        star.z--;
+  for (i = 0; i < numStars; i++) {
+    star = stars[i];
+    star.z--;
 
-        if (star.z <= 0) {
-            star.z = canvas.width;
-        }
+    if (star.z <= 0) {
+      star.z = canvas.width;
     }
+  }
 }
 
 function drawStars() {
-    var pixelX, pixelY, pixelRadius;
+  var pixelX, pixelY, pixelRadius;
 
-    // Resize to the screen
-    if (canvas.width != window.innerWidth || canvas.width != window.innerWidth) {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        initializeStars();
-    }
-    if (warp == 0) {
-        c.fillStyle = "rgba(0,10,20,1)";
-        c.fillRect(0, 0, canvas.width, canvas.height);
-    }
-    c.fillStyle = "rgba(209, 255, 255, " + radius + ")";
-    for (i = 0; i < numStars; i++) {
-        star = stars[i];
+  // Resize to the screen
+  if (canvas.width != window.innerWidth || canvas.width != window.innerWidth) {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    initializeStars();
+  }
+  if (warp == 0) {
+    c.fillStyle = "rgba(0,10,20,1)";
+    c.fillRect(0, 0, canvas.width, canvas.height);
+  }
+  c.fillStyle = "rgba(209, 255, 255, " + radius + ")";
+  for (i = 0; i < numStars; i++) {
+    star = stars[i];
 
-        pixelX = (star.x - centerX) * (focalLength / star.z);
-        pixelX += centerX;
-        pixelY = (star.y - centerY) * (focalLength / star.z);
-        pixelY += centerY;
-        pixelRadius = 1 * (focalLength / star.z);
+    pixelX = (star.x - centerX) * (focalLength / star.z);
+    pixelX += centerX;
+    pixelY = (star.y - centerY) * (focalLength / star.z);
+    pixelY += centerY;
+    pixelRadius = 1 * (focalLength / star.z);
 
-        c.fillRect(pixelX, pixelY, pixelRadius, pixelRadius);
-        c.fillStyle = "rgba(209, 255, 255, " + star.o + ")";
-        //c.fill();
-    }
+    c.fillRect(pixelX, pixelY, pixelRadius, pixelRadius);
+    c.fillStyle = "rgba(209, 255, 255, " + star.o + ")";
+    //c.fill();
+  }
 }
 
 executeFrame();
@@ -146,76 +147,110 @@ executeFrame();
 /* background
 ============================== */
 const params__snow = {
-    "particles": {
-        "number": {
-            "value": 500,//この数値を変更すると星の数が増減できる
-            "density": {
-                "enable": true,
-                "value_area": 800
-            }
-        },
-        "color": {
-            "value": ["#000000", "#808080", "#C0C0C0", "#FFFFFF", "#0000FF", "#000080", "#008080", "#008000", "#00FF00", "#00FFFF", "#FFFF00", "#FF0000", "#FF00FF", "#808000", "#800080", "#800000"]
-        },
-        "shape": {
-            "type": "polygon",//形状は画像を指定
-            "stroke": {
-                "width": 0,
-                "color": ["#000000", "#808080", "#C0C0C0", "#FFFFFF", "#0000FF", "#000080", "#008080", "#008000", "#00FF00", "#00FFFF", "#FFFF00", "#FF0000", "#FF00FF", "#808000", "#800080", "#800000"]
-            },
-        },
-        "opacity": {
-            "value": 1,
-            "random": true,
-            "anim": {
-                "enable": true,
-                "speed": 3,
-                "opacity_min": 0,
-                "sync": false
-            }
-        },
-        "size": {
-            "value": 1,
-            "random": true,
-            "anim": {
-                "enable": false,
-                "speed": 20,
-                "size_min": 0.1,
-                "sync": false
-            }
-        },
-        "line_linked": {
-            "enable": false,
-        },
-        "move": {
-            "enable": true,
-            "speed": 1,//この数値を小さくするとゆっくりな動きになる
-            "direction": "none",//下に向かって落ちる
-            "random": true,//動きはランダム
-            "straight": true,//動きをとどめない
-            "out_mode": "out",//画面の外に出るように描写
-            "bounce": false,//跳ね返りなし
-            "attract": {
-                "enable": false,
-                "rotateX": 600,
-                "rotateY": 600
-            }
-        }
+  particles: {
+    number: {
+      value: 500, //この数値を変更すると星の数が増減できる
+      density: {
+        enable: true,
+        value_area: 800,
+      },
     },
-    "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-            "onhover": {
-                "enable": false,
-            },
-            "onclick": {
-                "enable": false,
-            },
-            "resize": true
-        },
+    color: {
+      value: [
+        "#000000",
+        "#808080",
+        "#C0C0C0",
+        "#FFFFFF",
+        "#0000FF",
+        "#000080",
+        "#008080",
+        "#008000",
+        "#00FF00",
+        "#00FFFF",
+        "#FFFF00",
+        "#FF0000",
+        "#FF00FF",
+        "#808000",
+        "#800080",
+        "#800000",
+      ],
     },
-    "retina_detect": true
-}
+    shape: {
+      type: "polygon", //形状は画像を指定
+      stroke: {
+        width: 0,
+        color: [
+          "#000000",
+          "#808080",
+          "#C0C0C0",
+          "#FFFFFF",
+          "#0000FF",
+          "#000080",
+          "#008080",
+          "#008000",
+          "#00FF00",
+          "#00FFFF",
+          "#FFFF00",
+          "#FF0000",
+          "#FF00FF",
+          "#808000",
+          "#800080",
+          "#800000",
+        ],
+      },
+    },
+    opacity: {
+      value: 1,
+      random: true,
+      anim: {
+        enable: true,
+        speed: 3,
+        opacity_min: 0,
+        sync: false,
+      },
+    },
+    size: {
+      value: 1,
+      random: true,
+      anim: {
+        enable: false,
+        speed: 20,
+        size_min: 0.1,
+        sync: false,
+      },
+    },
+    line_linked: {
+      enable: false,
+    },
+    move: {
+      enable: true,
+      speed: 1, //この数値を小さくするとゆっくりな動きになる
+      direction: "none", //下に向かって落ちる
+      random: true, //動きはランダム
+      straight: true, //動きをとどめない
+      out_mode: "out", //画面の外に出るように描写
+      bounce: false, //跳ね返りなし
+      attract: {
+        enable: false,
+        rotateX: 600,
+        rotateY: 600,
+      },
+    },
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: {
+        enable: false,
+      },
+      onclick: {
+        enable: false,
+      },
+      resize: true,
+    },
+  },
+  retina_detect: true,
+};
 
 particlesJS("particles-js", params__snow);
 
@@ -223,156 +258,134 @@ particlesJS("particles-js", params__snow);
 ============================== */
 particlesJS("drawer-background", params__snow);
 
-const hamburger = $('.hamburger__menu');
-const headerNav = $('.header__nav');
+const hamburger = $(".hamburger__menu");
+const headerNav = $(".header__nav");
 
-hamburger.on('click', function () {
-    if (headerNav.hasClass('is-open')) {
-        $('body').css('overflowY', 'visible')
-        $(this).attr('aria-expanded', 'false')
-    } else {
-        $('body').css('overflowY', 'hidden')
-        $(this).attr('aria-expanded', 'true')
-    }
-    $('.drawer-background, .hamburger__icon, .header__nav, #nav__list').toggleClass('is-open');
+hamburger.on("click", function () {
+  if (headerNav.hasClass("is-open")) {
+    $("body").css("overflowY", "visible");
+    $(this).attr("aria-expanded", "false");
+  } else {
+    $("body").css("overflowY", "hidden");
+    $(this).attr("aria-expanded", "true");
+  }
+  $(
+    ".drawer-background, .hamburger__icon, .header__nav, #nav__list"
+  ).toggleClass("is-open");
 
-    return false;
-})
+  return false;
+});
 
-headerNav.on('click', function () {
-    if (headerNav.hasClass('is-open')) {
-        $('.drawer-background, .hamburger__icon, .header__nav, #nav__list').removeClass('is-open');
-        $('body').css('overflowY', 'visible')
-        hamburger.attr('aria-expanded', 'false')
-    }
+headerNav.on("click", function () {
+  if (headerNav.hasClass("is-open")) {
+    $(
+      ".drawer-background, .hamburger__icon, .header__nav, #nav__list"
+    ).removeClass("is-open");
+    $("body").css("overflowY", "visible");
+    hamburger.attr("aria-expanded", "false");
+  }
 
-    return false;
+  return false;
 });
 
 /* scrolldown-show
 ------------------------------ */
-const scrollDown = document.querySelector('.scrolldown');
+const scrollDown = document.querySelector(".scrolldown");
 
 const fadeInKeyframes = {
-    opacity: [0, 1]
+  opacity: [0, 1],
 };
 
 const fadeOutKeyframes = {
-    opacity: [1, 0]
+  opacity: [1, 0],
 };
 
 setTimeout(() => {
-    scrollDown.style.display = 'block';
-    scrollDown.animate(fadeInKeyframes, 500);
+  scrollDown.style.display = "block";
+  scrollDown.animate(fadeInKeyframes, 500);
 }, 5000);
 
 /* link
 ------------------------------ */
-const headerNavs = document.querySelectorAll('.nav__link');
+const headerNavs = document.querySelectorAll(".nav__link");
 
-headerNavs.forEach(headerNav => {
-    headerNav.addEventListener('click', e => {
-        e.preventDefault();
-        const targetId = e.target.hash;
-        const target = document.querySelector(targetId);
-        target.scrollIntoView({ behavior: 'smooth' });
-    });
+headerNavs.forEach((headerNav) => {
+  headerNav.addEventListener("click", (e) => {
+    e.preventDefault();
+    const targetId = e.target.hash;
+    const target = document.querySelector(targetId);
+    target.scrollIntoView({ behavior: "smooth" });
+  });
 });
+
+const sections = document.querySelectorAll("section");
+
+const navLinkOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.5,
+};
+
+const navLinkCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+        const targetSection = entry.target.getAttribute("id");
+        const link = document.querySelector(`a[href="#${targetSection}"]`);
+      if (link) {
+          link.classList.add("is-active");
+          link.addEventListener('click', function() {
+              this.blur();
+          })
+      }
+    } else {
+      const targetSection = entry.target.getAttribute("id");
+      const link = document.querySelector(`a[href="#${targetSection}"]`);
+      if (link) {
+        link.classList.remove("is-active");
+      }
+    }
+  });
+};
+
+const navLinkObserver = new IntersectionObserver(navLinkCallback, navLinkOptions);
+
+sections.forEach((section) => {
+    navLinkObserver.observe(section)
+})
 
 /* fadeIn-animation
 ------------------------------ */
-const fadeInContents = document.querySelectorAll('.js-fadeIn');
+const fadeInContents = document.querySelectorAll(".js-fadeIn");
 const fadeInOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0 //閾値は0から1の範囲で指定し、0は要素が画面に少しでも表示されたとき、1は要素が完全に表示されたときを意味
+  root: null,
+  rootMargin: "0px",
+  threshold: 0, //閾値は0から1の範囲で指定し、0は要素が画面に少しでも表示されたとき、1は要素が完全に表示されたときを意味
 };
 
 const fadeInCallback = (entries, observer) => {
-    entries.forEach(entry => {
-        entry.target.style.opacity = 0
-        if (entry.isIntersecting) {
-            entry.target.animate(
-                {
-                    opacity: [0, 1],
-                    translate: ['0 4rem', 0],
-                },
-                {
-                    duration: 1000,
-                    easing: 'ease',
-                    fill: 'forwards',
-                }
-            );
-            observer.unobserve(entry.target);
+  entries.forEach((entry) => {
+    entry.target.style.opacity = 0;
+    if (entry.isIntersecting) {
+      entry.target.animate(
+        {
+          opacity: [0, 1],
+          translate: ["0 4rem", 0],
+        },
+        {
+          duration: 1000,
+          easing: "ease",
+          fill: "forwards",
         }
-    });
+      );
+      observer.unobserve(entry.target);
+    }
+  });
 };
 
 const fadeInObserver = new IntersectionObserver(fadeInCallback, fadeInOptions);
 
-fadeInContents.forEach(fadeInContent => {
-    fadeInObserver.observe(fadeInContent);
-});
-
-/* page-top
------------------------------- */
-const pageTop = document.querySelector('#page-top');
-const pageTopIcon = pageTop.querySelector('i')
-const pageTopArea = document.querySelector('#top');
-const pageTopOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5
-};
-
-const pageTopShow = (entries) => {
-    if (entries[0].isIntersecting || mediaQuery.matches) {
-        const fadeOutAnimation = pageTop.animate(fadeOutKeyframes, 500);
-        fadeOutAnimation.finished.then(() => {
-            pageTop.style.display = 'none';
-        });
-    } else {
-        pageTop.style.display = 'block'
-        pageTop.animate(fadeInKeyframes, 500);
-    }
-}
-
-const pageTopObserver = new IntersectionObserver(pageTopShow, pageTopOptions);
-
-pageTopObserver.observe(pageTopArea);
-
-pageTopIcon.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-});
-
-/* section__ttl border-bottom animation
------------------------------- */
-const lightSabers = document.querySelectorAll('.lightsaber input');
-const lightSaberOptions = {
-    root: null,
-    rootMargin: '-10% 0px -10% 0px',
-    threshold: 0
-};
-
-const lightSaberCallback = (entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.checked = true;
-            }, 1000);
-        } else {
-            entry.target.checked = false;
-        }
-    });
-}
-
-const lightSaberObserver = new IntersectionObserver(lightSaberCallback, lightSaberOptions);
-
-lightSabers.forEach(lightSaber => {
-    lightSaberObserver.observe(lightSaber);
+fadeInContents.forEach((fadeInContent) => {
+  fadeInObserver.observe(fadeInContent);
 });
 
 /* about__big-img
@@ -384,209 +397,221 @@ lightSabers.forEach(lightSaber => {
 //     $('.big-img').attr('src', `${imgData}`);
 // })
 
-const aboutButtons = document.querySelectorAll('.about__tab');
-aboutButtons[0].style.boxShadow = '0 0 10px #76c1ec';
-aboutButtons[0].style.filter = 'grayscale(0%)'
-
+const aboutButtons = document.querySelectorAll(".about__tab");
+aboutButtons[0].style.boxShadow = "0 0 10px #76c1ec";
+aboutButtons[0].style.filter = "grayscale(0%)";
 
 aboutButtons.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        let imgSrc = item.querySelector('.about__img').getAttribute('data-image');
-        let bigImg = document.getElementById('big-img');
-        let bigImgSrc = bigImg.getAttribute('src');
-        let bigImgDesc = document.getElementById('about__big-img').querySelectorAll('dl');
+  item.addEventListener("click", () => {
+    let imgSrc = item.querySelector(".about__img").getAttribute("data-image");
+    let bigImg = document.getElementById("big-img");
+    let bigImgSrc = bigImg.getAttribute("src");
+    let bigImgDesc = document
+      .getElementById("about__big-img")
+      .querySelectorAll("dl");
 
-        aboutButtons.forEach((btn) => {
-            btn.removeAttribute('style');
-        });
-        item.style.boxShadow = '0 0 10px #76c1ec';
-        item.style.filter = 'grayscale(0%)';
-
-        if (bigImgSrc !== imgSrc) {
-            bigImgDesc.forEach(function (item, index) {
-                item.style.display = 'none';
-            });
-
-            bigImg.animate([
-                {
-                    offset: 0.0,
-                    opacity: 1
-                },
-                {
-                    offset: 0.5,
-                    opacity: 0
-                },
-                {
-                    offset: 1.0,
-                    opacity: 1
-                },
-            ],
-                {
-                    duration: 2000,
-                    easing: 'ease',
-                    fill: 'forwards',
-                }
-            );
-            bigImg.animate([
-                {
-                    transform: 'rotateX(0deg)'
-                },
-                {
-                    transform: 'rotateX(360deg)'
-                },
-            ],
-                {
-                    duration: 1100,
-                    easing: 'ease',
-                    fill: 'forwards',
-                }
-            );
-
-            setTimeout(function () {
-                // bigImg.src = imgSrc;
-                bigImg.setAttribute('src', `${imgSrc}`);
-            }, 600);
-
-            setTimeout(function () {
-                bigImgDesc[index].style.display = 'block'
-            }, 1200);
-
-        };
+    aboutButtons.forEach((btn) => {
+      btn.removeAttribute("style");
     });
+    item.style.boxShadow = "0 0 10px #76c1ec";
+    item.style.filter = "grayscale(0%)";
+
+    if (bigImgSrc !== imgSrc) {
+      bigImgDesc.forEach(function (item, index) {
+        item.style.display = "none";
+      });
+
+      bigImg.animate(
+        [
+          {
+            offset: 0.0,
+            opacity: 1,
+          },
+          {
+            offset: 0.5,
+            opacity: 0,
+          },
+          {
+            offset: 1.0,
+            opacity: 1,
+          },
+        ],
+        {
+          duration: 2000,
+          easing: "ease",
+          fill: "forwards",
+        }
+      );
+      bigImg.animate(
+        [
+          {
+            transform: "rotateX(0deg)",
+          },
+          {
+            transform: "rotateX(360deg)",
+          },
+        ],
+        {
+          duration: 1100,
+          easing: "ease",
+          fill: "forwards",
+        }
+      );
+
+      setTimeout(function () {
+        // bigImg.src = imgSrc;
+        bigImg.setAttribute("src", `${imgSrc}`);
+      }, 600);
+
+      setTimeout(function () {
+        bigImgDesc[index].style.display = "block";
+      }, 1200);
+    }
+  });
 });
 
 /* service__modal
 ------------------------------ */
-let header = $('.header'),
-    speed = 700;
+let header = $(".header"),
+  speed = 700;
 
 MicroModal.init({
-    disableScroll: true,
-    awaitOpenAnimation: true,
-    awaitCloseAnimation: true
+  disableScroll: true,
+  awaitOpenAnimation: true,
+  awaitCloseAnimation: true,
 });
 
-$('.service__link').on('click', function () {
-    header.stop(true).animate({
-        top: '-60px'
-    }, speed / 3);
+$(".service__link").on("click", function () {
+  header.stop(true).animate(
+    {
+      top: "-60px",
+    },
+    speed / 3
+  );
 
-    return false;
+  return false;
 });
 
-$('.modal__overlay, .modal__container .modal__close').on('click', function () {
-    header.stop(true).animate({
-        top: '0'
-    }, speed / 3);
+$(".modal__overlay, .modal__container .modal__close").on("click", function () {
+  header.stop(true).animate(
+    {
+      top: "0",
+    },
+    speed / 3
+  );
 });
 
 $(window).keyup(function (e) {
-    if (e.keyCode == 27) {
-        header.stop(true).animate({
-            top: '0'
-        }, speed / 3);
-    }
+  if (e.keyCode == 27) {
+    header.stop(true).animate(
+      {
+        top: "0",
+      },
+      speed / 3
+    );
+  }
 
-    return false;
+  return false;
 });
 
 /* contact__form
 ------------------------------ */
-let required = document.querySelectorAll('.contact__required');
-let input = document.querySelectorAll('#js-form input, #js-form textarea');
-let inputMessage = document.querySelectorAll('.contact__input');
+let required = document.querySelectorAll(".contact__required");
+let input = document.querySelectorAll("#js-form input, #js-form textarea");
+let inputMessage = document.querySelectorAll(".contact__input");
 
 input.forEach(function (item, index) {
-    item.addEventListener('blur', function () {
-        checkText(index);
+  item.addEventListener("blur", function () {
+    checkText(index);
 
-        if (item.value !== '' && checkText(index) === true) {
-            required[index].animate([
-                {
-                    transform: 'rotateY(0deg)',
-                },
-                {
-                    transform: 'rotateY(360deg)'
-                },
-            ],
-                {
-                    duration: 1000,
-                    easing: 'ease',
-                    fill: 'forwards',
-                }
-            )
-            setTimeout(function () {
-                required[index].textContent = ('OK!!');
-                required[index].style.borderColor = ('#7fff7d');
-            }, 550);
-
-        } else {
-            required[index].animate([
-                {
-                    transform: 'rotateY(360deg)'
-                },
-                {
-                    transform: 'rotateY(0deg)'
-                },
-            ],
-                {
-                    duration: 1000,
-                    easing: 'ease',
-                    fill: 'forwards',
-                }
-            )
-            setTimeout(function () {
-                required[index].textContent = ('必須!');
-                required[index].style.borderColor = ('#ff7a7a');
-            }, 550);
+    if (item.value !== "" && checkText(index) === true) {
+      required[index].animate(
+        [
+          {
+            transform: "rotateY(0deg)",
+          },
+          {
+            transform: "rotateY(360deg)",
+          },
+        ],
+        {
+          duration: 1000,
+          easing: "ease",
+          fill: "forwards",
         }
-    });
+      );
+      setTimeout(function () {
+        required[index].textContent = "OK!!";
+        required[index].style.borderColor = "#7fff7d";
+      }, 550);
+    } else {
+      required[index].animate(
+        [
+          {
+            transform: "rotateY(360deg)",
+          },
+          {
+            transform: "rotateY(0deg)",
+          },
+        ],
+        {
+          duration: 1000,
+          easing: "ease",
+          fill: "forwards",
+        }
+      );
+      setTimeout(function () {
+        required[index].textContent = "必須!";
+        required[index].style.borderColor = "#ff7a7a";
+      }, 550);
+    }
+  });
 });
 
 function checkText(index) {
-    switch (index) {
-        case 0:
-            if (input[0].value.trim().length >= 2) {
-                input[0].classList.remove('is-error');
-                inputMessage[0].classList.remove('is-error');
-                input[0].classList.add('is-success');
-                return true;
-            } else {
-                input[0].classList.remove('is-success');
-                input[0].classList.add('is-error');
-                inputMessage[0].classList.add('is-error');
-                return false;
-            }
-        case 1:
-            /* E-mail形式の正規表現パターン */
-            /* @が含まれていて、最後が .(ドット)でないなら正しいとする */
-            var pattern = /[!#-9A-~]+@+[a-z0-9]+.+[^.]$/i;
-            /* 入力された値がパターンにマッチするか調べる */
-            if (input[1].value.match(pattern)) {
-                input[1].classList.remove('is-error');
-                inputMessage[1].classList.remove('is-error');
-                input[1].classList.add('is-success');
-                return true;
-            } else {
-                input[1].classList.remove('is-success');
-                input[1].classList.add('is-error');
-                inputMessage[1].classList.add('is-error');
-                return false;
-            }
-        case 2:
-            if (input[2].value.trim().length >= 10) {
-                input[2].classList.remove('is-error');
-                inputMessage[2].classList.remove('is-error');
-                input[2].classList.add('is-success');
-                return true;
-            } else {
-                input[2].classList.remove('is-success');
-                input[2].classList.add('is-error');
-                inputMessage[2].classList.add('is-error');
-                return false;
-            }
-    }
-};
+  switch (index) {
+    case 0:
+      if (input[0].value.trim().length >= 2) {
+        input[0].classList.remove("is-error");
+        inputMessage[0].classList.remove("is-error");
+        input[0].classList.add("is-success");
+        return true;
+      } else {
+        input[0].classList.remove("is-success");
+        input[0].classList.add("is-error");
+        inputMessage[0].classList.add("is-error");
+        return false;
+      }
+    case 1:
+      /* E-mail形式の正規表現パターン */
+      /* @が含まれていて、最後が .(ドット)でないなら正しいとする */
+      var pattern = /[!#-9A-~]+@+[a-z0-9]+.+[^.]$/i;
+      /* 入力された値がパターンにマッチするか調べる */
+      if (input[1].value.match(pattern)) {
+        input[1].classList.remove("is-error");
+        inputMessage[1].classList.remove("is-error");
+        input[1].classList.add("is-success");
+        return true;
+      } else {
+        input[1].classList.remove("is-success");
+        input[1].classList.add("is-error");
+        inputMessage[1].classList.add("is-error");
+        return false;
+      }
+    case 2:
+      if (input[2].value.trim().length >= 10) {
+        input[2].classList.remove("is-error");
+        inputMessage[2].classList.remove("is-error");
+        input[2].classList.add("is-success");
+        return true;
+      } else {
+        input[2].classList.remove("is-success");
+        input[2].classList.add("is-error");
+        inputMessage[2].classList.add("is-error");
+        return false;
+      }
+  }
+}
 
 // let required = $('.contact__required');
 // let requiredText = $('.contact__required .required__add');
@@ -668,44 +693,49 @@ function checkText(index) {
 //     }
 // }
 
-let submit = document.getElementById('contact__submit'),
-    submitBtn = document.getElementById('js-submit'),
-    contactForm = document.getElementById('js-form');
+let submit = document.getElementById("contact__submit"),
+  submitBtn = document.getElementById("js-submit"),
+  contactForm = document.getElementById("js-form");
 
-contactForm.addEventListener('change', function () {
-    if (input[0].value !== '' && checkText(0) === true &&
-        input[1].value !== '' && checkText(1) === true &&
-        input[2].value !== '' && checkText(2) === true) {
-        submit.classList.remove('is-disabled')
-        submitBtn.disabled = false;
-    } else {
-        submit.classList.add('is-disabled')
-        submitBtn.disabled = true;
-    }
+contactForm.addEventListener("change", function () {
+  if (
+    input[0].value !== "" &&
+    checkText(0) === true &&
+    input[1].value !== "" &&
+    checkText(1) === true &&
+    input[2].value !== "" &&
+    checkText(2) === true
+  ) {
+    submit.classList.remove("is-disabled");
+    submitBtn.disabled = false;
+  } else {
+    submit.classList.add("is-disabled");
+    submitBtn.disabled = true;
+  }
 });
 
-let $form = $('#js-form');
-let success = $('#js-success');
-let error = $('#js-error');
+let $form = $("#js-form");
+let success = $("#js-success");
+let error = $("#js-error");
 
-$form.on('submit', function () {
-    $.ajax({
-        url: $form.attr('action'),
-        data: $form.serialize(),
-        type: "POST",
-        dataType: "xml",
-        statusCode: {
-            0: function () {
-                //送信に成功したときの処理
-                $form.fadeOut(500);
-                success.fadeIn(2000);
-            },
-            200: function () {
-                //送信に失敗したときの処理
-                $form.fadeOut(500);
-                error.fadeIn(2000);
-            }
-        }
-    });
-    return false;
+$form.on("submit", function () {
+  $.ajax({
+    url: $form.attr("action"),
+    data: $form.serialize(),
+    type: "POST",
+    dataType: "xml",
+    statusCode: {
+      0: function () {
+        //送信に成功したときの処理
+        $form.fadeOut(500);
+        success.fadeIn(2000);
+      },
+      200: function () {
+        //送信に失敗したときの処理
+        $form.fadeOut(500);
+        error.fadeIn(2000);
+      },
+    },
+  });
+  return false;
 });
