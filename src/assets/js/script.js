@@ -329,13 +329,10 @@ const navLinkOptions = {
 const navLinkCallback = (entries, observer) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-        const targetSection = entry.target.getAttribute("id");
-        const link = document.querySelector(`a[href="#${targetSection}"]`);
+      const targetSection = entry.target.getAttribute("id");
+      const link = document.querySelector(`a[href="#${targetSection}"]`);
       if (link) {
-          link.classList.add("is-active");
-          link.addEventListener('click', function() {
-              this.blur();
-          })
+        link.classList.add("is-active");
       }
     } else {
       const targetSection = entry.target.getAttribute("id");
@@ -347,11 +344,14 @@ const navLinkCallback = (entries, observer) => {
   });
 };
 
-const navLinkObserver = new IntersectionObserver(navLinkCallback, navLinkOptions);
+const navLinkObserver = new IntersectionObserver(
+  navLinkCallback,
+  navLinkOptions
+);
 
 sections.forEach((section) => {
-    navLinkObserver.observe(section)
-})
+  navLinkObserver.observe(section);
+});
 
 /* fadeIn-animation
 ------------------------------ */
