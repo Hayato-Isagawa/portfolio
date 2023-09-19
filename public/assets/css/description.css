@@ -1,0 +1,665 @@
+/* ====================================
+※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+このCSSファイルはSassから生成されていますので、
+編集しないようご注意ください。
+※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+==================================== */
+
+/* import
+============================== */
+
+/* color-scheme
+============================== */
+
+/* font
+============================== */
+
+/* media-query
+============================== */
+
+/* function
+============================== */
+
+/* z-index
+============================== */
+
+/* common
+============================== */
+
+html {
+	font-size: 16px;
+}
+
+body {
+	color: #fffdf7;
+	font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+	font-weight: normal;
+	line-height: 1.5;
+}
+
+#wrapper {
+	position: relative;
+	z-index: 1;
+}
+
+section {
+	height: 100%;
+	padding-bottom: 100px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-top: 100px;
+	width: 100%;
+}
+
+.container {
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1000px;
+	width: 100%;
+}
+
+.section__ttl {
+	display: inline-block;
+	font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+	font-size: 5.625rem;
+	font-weight: 500;
+	margin-bottom: 64px;
+	position: relative;
+}
+
+img {
+	width: 100%;
+}
+
+button {
+	cursor: pointer;
+}
+
+button:focus {
+	outline: none;
+}
+
+a:focus,
+input:focus,
+textarea:focus {
+	outline: none;
+}
+
+.font--jp {
+	font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+}
+
+/* background 背景の星のアニメーション
+============================== */
+
+#particles-js--desc {
+	background-color: rgb(0, 10, 20);
+	height: 100%;
+	position: fixed;
+	width: 100%;
+	z-index: -1;
+}
+
+/* splash ローディング時のアニメーション
+============================== */
+
+#splash {
+	background: transparent;
+	height: 100%;
+	position: fixed;
+	text-align: center;
+	width: 100%;
+	z-index: 999;
+}
+
+#space {
+	width: 100%;
+}
+
+#splash__text {
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	z-index: inherit;
+}
+
+#splash__text svg {
+	height: 2px;
+}
+
+/* header
+------------------------------ */
+
+.header {
+	align-items: center;
+	display: flex;
+	font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+	height: 50px;
+	justify-content: space-between;
+	padding: 0 5%;
+	position: fixed;
+	width: 100%;
+	z-index: 50;
+}
+
+.header.is-open {
+	transform: translateY(-60px);
+}
+
+.header__logo {
+	font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+	font-size: 1.5rem;
+	line-height: 1;
+}
+
+#nav__list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav__item {
+	position: relative;
+}
+
+.nav__item + .nav__item {
+	margin-left: 20px;
+}
+
+.nav__link {
+	font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+	font-size: 1.25rem;
+	padding: 10px;
+	position: relative;
+}
+
+.nav__link::before {
+	border-left: 1px solid #77cdff;
+	border-top: 1px solid #77cdff;
+	content: "";
+	height: 50%;
+	left: 100%;
+	opacity: 0;
+	position: absolute;
+	top: 5px;
+	transform: translateX(-100%);
+	width: 100%;
+}
+
+.nav__link::after {
+	border-bottom: 1px solid #77cdff;
+	border-right: 1px solid #77cdff;
+	bottom: 5px;
+	content: "";
+	height: 50%;
+	left: 5px;
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+}
+
+.nav__link.is-active::before,
+.nav__link.is-active::after {
+	animation: navHover 0.5s ease forwards;
+	opacity: 1;
+}
+
+.nav__link:hover::before,
+.nav__link:hover::after,
+.nav__link:focus::before,
+.nav__link:focus::after {
+	animation: navHover 0.5s ease forwards;
+	opacity: 1;
+}
+
+.header__hamburger {
+	z-index: 999;
+}
+
+.hamburger__menu {
+	background: transparent;
+	height: 30px;
+	position: relative;
+	width: 30px;
+}
+
+.hamburger__icon {
+	background: #fffdf7;
+	display: block;
+	height: 2px;
+	position: absolute;
+	transition: all 0.5s ease 0s;
+	width: 30px;
+}
+
+.hamburger__icon.is-open {
+	transform: rotate(45deg);
+	width: 25px;
+}
+
+.hamburger__icon:nth-child(1) {
+	top: 6px;
+}
+
+.hamburger__icon:nth-child(1).is-open {
+	top: 15px;
+}
+
+.hamburger__icon:nth-child(2) {
+	top: 15px;
+}
+
+.hamburger__icon:nth-child(2).is-open {
+	transform: rotate(-45deg);
+}
+
+.hamburger__icon:nth-child(3) {
+	top: 24px;
+}
+
+.hamburger__icon:nth-child(3).is-open {
+	top: 15px;
+	transform: rotate(-405deg);
+}
+
+.drawer-background {
+	background: rgba(0, 0, 0, 0.6);
+	height: 100vh;
+	opacity: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transform: translateX(110%);
+	transition: all 0.5s ease 0s;
+	width: 100%;
+	z-index: 3;
+}
+
+.drawer-background.is-open {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+/* swiper
+------------------------------ */
+
+.swiper {
+	margin-bottom: 64px;
+	width: 100%;
+}
+
+.swiper figure {
+	max-height: 586px;
+	width: 100%;
+}
+
+.swiper img {
+	-o-object-fit: cover;
+	height: 100%;
+	object-fit: cover;
+	width: 100%;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+	display: none;
+}
+
+.swiper-button-prev .swiper-icon,
+.swiper-button-next .swiper-icon {
+	font-size: 2rem;
+}
+
+.swiper-button-prev {
+	left: 3px;
+}
+
+.swiper-button-next {
+	right: 3px;
+}
+
+.swiper-pagination-bullet-active {
+	background-color: #77cdff;
+}
+
+/* works-description
+------------------------------ */
+
+.works-desc__row {
+	display: flex;
+}
+
+.works-desc__row:not(:last-child) {
+	margin-bottom: 48px;
+}
+
+.works-desc__label {
+	backface-visibility: hidden;
+	flex: 0 0 150px;
+	font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+	font-weight: bold;
+	perspective: 1000;
+	position: relative;
+	text-align: left;
+}
+
+.works-desc__desc {
+	flex: 1 1 600px;
+	line-height: 1.5;
+	margin-left: 32px;
+}
+
+.works-desc__text {
+	word-wrap: break-word;
+}
+
+.works-desc__comment .works-desc__text:not(:last-child) {
+	margin-bottom: 16px;
+}
+
+/* footer
+------------------------------ */
+
+.footer {
+	bottom: 0;
+	height: 50px;
+	opacity: 0.5;
+	position: fixed;
+	width: 100%;
+	z-index: 50;
+}
+
+.footer__copyright {
+	font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+	font-size: 12px;
+	padding-top: 16px;
+	text-align: center;
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+
+.is-tab,
+.is-pc {
+	display: none;
+}
+
+section {
+	margin-bottom: 64px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.section__ttl {
+	font-size: 2.5rem;
+	margin-bottom: 48px;
+}
+
+.header {
+	height: 30px;
+	padding: 0 10px;
+}
+
+.header__logo {
+	font-size: 1.875rem;
+}
+
+.header__nav {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	position: fixed;
+}
+
+.header__nav.is-open {
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+#nav__list {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	opacity: 0;
+	text-align: center;
+}
+
+#nav__list.is-open {
+	animation: drawerNavAnime 0.8s ease 0.5s forwards;
+	display: block;
+	z-index: 999;
+}
+
+.nav__item {
+	margin-bottom: 32px;
+}
+
+.nav__item + .nav__item {
+	margin-left: 0;
+}
+
+.nav__item:not(:last-child)::before {
+	background: #77cdff;
+	bottom: -16px;
+	content: "";
+	height: 1px;
+	left: 50%;
+	position: absolute;
+	transform: translateX(-50%);
+	width: 80px;
+}
+
+.swiper {
+	margin-bottom: 48px;
+	width: 100%;
+}
+
+.works-desc__form {
+	margin: 0 auto;
+}
+
+.works-desc__row {
+	display: block;
+}
+
+.works-desc__row:not(:last-child) {
+	margin-bottom: 32px;
+}
+
+.works-desc__label {
+	font-size: 1.25rem;
+	margin-bottom: 8px;
+	text-align: left;
+}
+
+.works-desc__desc {
+	margin-left: 0;
+}
+
+.footer {
+	height: 30px;
+	position: static;
+}
+
+.footer__copyright {
+	padding-top: 9px;
+}
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+.is-sp,
+.is-pc {
+	display: none;
+}
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+.is-sp,
+.is-pc {
+	display: none;
+}
+
+}
+
+@media (min-width: 1200px) {
+
+.is-sp,
+.is-tab {
+	display: none;
+}
+
+}
+
+@media only screen and (max-width: 575px) {
+
+.is-tab,
+.is-pc {
+	display: none;
+}
+
+section {
+	margin-bottom: 64px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.section__ttl {
+	font-size: 2rem;
+	margin-bottom: 32px;
+}
+
+.header {
+	height: 30px;
+	padding: 0 10px;
+}
+
+.header__logo {
+	font-size: 1.875rem;
+}
+
+.header__nav {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	position: fixed;
+}
+
+.header__nav.is-open {
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+#nav__list {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	opacity: 0;
+	text-align: center;
+}
+
+#nav__list.is-open {
+	animation: drawerNavAnime 0.8s ease 0.5s forwards;
+	display: block;
+	z-index: 999;
+}
+
+.nav__item {
+	margin-bottom: 32px;
+}
+
+.nav__item + .nav__item {
+	margin-left: 0;
+}
+
+.nav__item:not(:last-child)::before {
+	background: #77cdff;
+	bottom: -16px;
+	content: "";
+	height: 1px;
+	left: 50%;
+	position: absolute;
+	transform: translateX(-50%);
+	width: 80px;
+}
+
+.swiper {
+	margin-bottom: 32px;
+	width: 100%;
+}
+
+.works-desc__form {
+	margin: 0 auto;
+}
+
+.works-desc__row {
+	display: block;
+}
+
+.works-desc__row:not(:last-child) {
+	margin-bottom: 32px;
+}
+
+.works-desc__label {
+	font-size: 1.25rem;
+	margin-bottom: 8px;
+	text-align: left;
+}
+
+.works-desc__desc {
+	font-size: 0.75rem;
+	margin-left: 0;
+}
+
+.footer {
+	height: 30px;
+	position: static;
+}
+
+.footer__copyright {
+	padding-top: 9px;
+}
+
+}
+
+@keyframes drawerNavAnime {
+
+0% {
+	opacity: 0;
+}
+
+100% {
+	opacity: 1;
+}
+
+}
+
+@keyframes navHover {
+
+from {
+	height: 0;
+	width: 0;
+}
+
+50% {
+	height: 0;
+	width: 100%;
+}
+
+100% {
+	height: 50%;
+	width: 100%;
+}
+
+}
+

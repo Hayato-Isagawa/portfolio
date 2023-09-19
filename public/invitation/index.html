@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4PZNVGXC9E"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-4PZNVGXC9E');
+	</script>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>haya Portfolio Website</title>
+	<meta name="description" content="hayaのポートフォリオウェブサイトです">
+	<meta property="og:url" content="https://hayaportfolio202301.falconportfolio.site">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="haya Portfolio Website">
+	<meta property="og:description" content="hayaのポートフォリオウェブサイトです">
+	<meta property="og:img" content="https://hayaportfolio202301.falconportfolio.site/assets/img/index/ogp.png">
+
+	<!-- Twitterカード -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@haya_1029384756" />
+	<meta name="twitter:creator" content="@haya_1029384756" />
+	<meta name="twitter:domain" content="hayaportfolio202301.falconportfolio.site" />
+	<meta name="twitter:title" content="haya Portfolio Website" />
+	<meta name="twitter:description" content="hayaのポートフォリオウェブサイトです" />
+	<meta name="twitter:image" content="https://hayaportfolio202301.falconportfolio.site/assets/img/index/ogp.png" />
+
+	<!-- favicon & icon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+	<link rel="manifest" href="../assets/favicon/site.webmanifest">
+	<link rel="mask-icon" href="../assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- css -->
+	<!-- google-font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap" rel="stylesheet">
+	<!-- reset.css -->
+	<link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
+	<!-- fontAwesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+	<!-- swiper.css -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+	<!-- myself -->
+	<link rel="stylesheet" type="text/css" href="../assets/css/description.css">
+
+	<!-- js -->
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<!-- progressbar.js -->
+	<script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+	<!-- progressbar.js IE11用 -->
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
+	<!-- particles.js -->
+	<script defer src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+	<!-- swiper.js -->
+	<script defer src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+	<!-- my -->
+	<script defer src="../assets/js/description.js"></script>
+</head>
+
+<body>
+
+	<div id="splash">
+		<div id="splash__text"></div>
+		<canvas id="space"></canvas>
+	</div>
+	<!-- /#splash -->
+
+	<div id="particles-js--desc"></div>
+	<!-- /#particles-js -->
+
+	<header class="header" id="header">
+		<h1 class="header__logo"><a href="http://hayaportfolio202301.falconportfolio.site">haya Portfolio</a></h1>
+		<nav class="header__nav">
+			<ul id="nav__list">
+				<li class="nav__item">
+					<a href="https://hayaportfolio202301.falconportfolio.site#about" class="nav__link" aria-label="私について">About</a>
+				</li>
+				<li class="nav__item">
+					<a href="https://hayaportfolio202301.falconportfolio.site#service" class="nav__link" aria-label="サービス内容">Service</a>
+				</li>
+				<li class="nav__item">
+					<a href="https://hayaportfolio202301.falconportfolio.site#works" class="nav__link" aria-label="これまでのお仕事">Works</a>
+				</li>
+				<li class="nav__item">
+					<a href="https://hayaportfolio202301.falconportfolio.site#contact" class="nav__link" aria-label="連絡する">Contact</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="header__hamburger is-sp">
+			<button type="button" class="hamburger__menu" aria-label="メニュー" aria-expanded="false" aria-controls="nav__list">
+				<span class="hamburger__icon"></span>
+				<span class="hamburger__icon"></span>
+				<span class="hamburger__icon"></span>
+			</button>
+		</div>
+		<div class="drawer-background is-sp" id="drawer-background"></div>
+	</header>
+	<!-- /.header -->
+
+	<div id="wrapper">
+		<main>
+			<section id="works-desc">
+				<div class="container works-desc__container">
+					<h2 class="section__ttl js-fadeIn">Works</h2>
+					<div class="swiper">
+						<!-- Additional required wrapper -->
+						<ul class="swiper-wrapper">
+							<!-- Slides -->
+							<li class="swiper-slide">
+								<figure>
+									<img src="../assets/img/invitation/desc/pc1.png" alt="Invitationのイメージ">
+								</figure>
+							</li>
+							<li class="swiper-slide">
+								<figure>
+									<img src="../assets/img/invitation/desc/pc2.png" alt="Invitationのイメージ">
+								</figure>
+							</li>
+							<li class="swiper-slide">
+								<figure>
+									<img src="../assets/img/invitation/desc/pc3.png" alt="Invitationのイメージ">
+								</figure>
+							</li>
+							<li class="swiper-slide">
+								<figure>
+									<img src="../assets/img/invitation/desc/sp1.png" alt="Invitationのイメージ">
+								</figure>
+							</li>
+							<li class="swiper-slide">
+								<figure>
+									<img src="../assets/img/invitation/desc/sp2.png" alt="Invitationのイメージ">
+								</figure>
+							</li>
+						</ul>
+						<!-- If we need pagination -->
+						<div class="swiper-pagination"></div>
+						<div class="swiper-button-prev"><i class="fa-solid fa-circle-chevron-left swiper-icon" style="color: #77cdff;"></i></div>
+						<div class="swiper-button-next"><i class="fa-solid fa-circle-chevron-right swiper-icon" style="color: #77cdff;"></i></div>
+					</div>
+					<div class="works-desc__list">
+						<dl class="works-desc__row">
+							<dt class="works-desc__label">Name</dt>
+							<dd class="works-desc__desc">
+								<p class="works-desc__text">Invitation(結婚式招待状)</p>
+							</dd>
+						</dl>
+						<dl class="works-desc__row">
+							<dt class="works-desc__label">Term</dt>
+							<dd class="works-desc__desc">
+								<p class="works-desc__text">約2ヶ月</p>
+							</dd>
+						</dl>
+						<dl class="works-desc__row">
+							<dt class="works-desc__label">Scope</dt>
+							<dd class="works-desc__desc">
+								<p class="works-desc__text">デザイン、コーディング、サーバー契約、ドメイン取得、アップデート</p>
+							</dd>
+						</dl>
+						<dl class="works-desc__row">
+							<dt class="works-desc__label">Comment</dt>
+							<dd class="works-desc__desc">
+								<div class="works-desc__comment">
+									<p class="works-desc__text">LINEやメールで送りやすい形として、ウェディングフォトを使用した結婚式招待状用のLPを制作しました。</p>
+									<p class="works-desc__text">初めてLPをデザインから作成するということでかなり時間がかかりました。</p>
+									<p class="works-desc__text">ウェディングフォトに合わせた色使いとテーマでデザインし、結婚式当日まで、何日かのカウントダウンタイマーも組み込みました。</p>
+									<p class="works-desc__text">また、Data属性を利用し、結婚式の時間帯、結婚式終了後にはカウントダウンタイマーを非表示にして、別の文字が表示されるように工夫しました。</p>
+									<p class="works-desc__text">
+										ページ上部で使用しなかったウェディングフォトを、Swiper.jsというライブラリを活用してギャラリーという形でページ下部に配置し、招待客が結婚式当日になる前から楽しめるようにしました。</p>
+									<p class="works-desc__text">公開後もこうした方がより伝わりやすくなるかなといろいろ考え、アップデートを繰り返しました。</p>
+								</div>
+							</dd>
+						</dl>
+						<dl class="works-desc__row">
+							<dt class="works-desc__label">URL</dt>
+							<dd class="works-desc__desc">
+								<a href="./invitation.html" target="_blank">
+									<p class="works-desc__text">
+										https://hayaportfolio202301.falconportfolio.site/invitation/invitation.html <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77cdff;"></i>
+									</p>
+								</a>
+
+							</dd>
+						</dl>
+					</div>
+				</div>
+			</section>
+			<!-- /#contact -->
+
+		</main>
+		<!-- /.main -->
+
+	</div>
+	<!-- /.wrapper -->
+
+	<footer class="footer" id="footer">
+		<p class="footer__copyright"><small lang="en" class="copyright">&copy; haya Portfolio Website All Rights
+				Reserved.</small></p>
+	</footer>
+	<!-- /.footer -->
+</body>
+
+</html>

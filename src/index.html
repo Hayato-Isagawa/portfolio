@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4PZNVGXC9E"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-4PZNVGXC9E');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>haya Portfolio Website</title>
+    <meta name="description" content="hayaのポートフォリオウェブサイトです">
+    <meta property="og:url" content="https://hayaportfolio202301.falconportfolio.site">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="haya Portfolio Website">
+    <meta property="og:description" content="hayaのポートフォリオウェブサイトです">
+    <meta property="og:img" content="https://hayaportfolio202301.falconportfolio.site/assets/img/index/ogp.png">
+
+    <!-- Twitterカード -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@haya_1029384756" />
+    <meta name="twitter:creator" content="@haya_1029384756" />
+    <meta name="twitter:domain" content="hayaportfolio202301.falconportfolio.site" />
+    <meta name="twitter:title" content="haya Portfolio Website" />
+    <meta name="twitter:description" content="hayaのポートフォリオウェブサイトです" />
+    <meta name="twitter:image" content="https://hayaportfolio202301.falconportfolio.site/assets/img/index/ogp.png" />
+
+    <!-- favicon & icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- css -->
+    <!-- google-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap" rel="stylesheet">
+    <!-- reset.css -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <!-- fontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <!-- swiper.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!-- myself -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+    <!-- js -->
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- progressbar.js -->
+    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+    <!-- progressbar.js IE11用 -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
+    <!-- particles.js -->
+    <script defer src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- IntersectionObserver IE11用 -->
+    <script defer src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+    <!-- micromodal.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/micromodal/dist/micromodal.min.js"></script>
+    <!-- micromodal.js IE11用 -->
+    <script defer src="https://polyfill.io/v3/polyfill.min.js?features=Array.from%2CObject.assign"></script>
+    <script defer src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <!-- swiper.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- my -->
+    <script defer src="./assets/js/script.js"></script>
+</head>
+
+<body>
+    <div id="splash">
+        <div id="splash__text"></div>
+        <canvas id="space"></canvas>
+    </div>
+    <!-- /#splash -->
+
+    <div id="particles-js"></div>
+    <!-- /#particles-js -->
+
+    <header class="header" id="header">
+        <h1 class="header__logo">haya Portfolio</h1>
+        <nav class="header__nav">
+            <ul id="nav__list">
+                <li class="nav__item">
+                    <a href="#about" class="nav__link" aria-label="私について">About</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#service" class="nav__link" aria-label="サービス内容">Service</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#works" class="nav__link" aria-label="これまでのお仕事">Works</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#contact" class="nav__link" aria-label="連絡する">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__hamburger is-sp">
+            <button type="button" class="hamburger__menu" aria-label="メニュー" aria-expanded="false"
+                aria-controls="nav__list">
+                <span class="hamburger__icon"></span>
+                <span class="hamburger__icon"></span>
+                <span class="hamburger__icon"></span>
+            </button>
+        </div>
+        <div class="drawer-background is-sp" id="drawer-background"></div>
+    </header>
+    <!-- /.header -->
+
+    <div id="wrapper">
+        <main>
+            <section id="top">
+                <div class="container top__container">
+                    <h2 class="top__ttl">haya</h2>
+                    <div class="scrolldown"></div>
+                    <div class="icons8__link">
+                        <a class="icons__link" target="_blank"
+                            href="https://icons8.com/icon/9kzy8WlA75vo/super-star-destroyer-executor-class">Super Star
+                            Destroyer Executor Class</a> icon by <a class="icons__link" target="_blank"
+                            href="https://icons8.com">Icons8</a>
+                    </div>
+                </div>
+            </section>
+            <!-- /#top -->
+
+            <section id="concept">
+                <div class="container concept__container">
+                    <h2 class="section__ttl js-fadeIn">Concept</h2>
+                    <p class="concept__desc">
+                        このウェブサイトは、<strong class="text--bold">ウェブクリエイターhayaのポートフォリオ兼実験サイト</strong>です。
+                    </p>
+                    <p class="concept__desc">
+                        hayaが本を読んで学んだことや、ウェブを検索していて面白いなと思った表現を実践する場所も兼ねております。
+                    </p>
+                    <p class="concept__desc">
+                        そのため、多少の、いやかなりの見づらさはあると思いますが、あらかじめご了承ください。
+                    </p>
+                    <p class="concept__desc">
+                        また、付け加えたり、消したりを繰り返しているので、コードはかなりメチャクチャで、チグハグです。
+                    </p>
+                    <p class="concept__desc">
+                        それでも、自分ができるようになったことを表現するのはとても楽しいので、しばらくはこのままでいくつもりです。
+                    </p>
+                    <p class="concept__desc">
+                        いつまでも<strong class="text--bold">「アソビゴコロ」</strong>を持ち続けながら、働き続けたいです。
+                    </p>
+                    <p class="concept__desc">
+                        それでもどうしても表示がおかしいと思った時は、ブラウザキャッシュのクリアをお願いします。
+                    </p>
+                </div>
+            </section>
+
+            <section id="about">
+                <div class="container about__container">
+                    <h2 class="section__ttl js-fadeIn">About</h2>
+                    <div class="about__row">
+                        <div class="about__big-img js-fadeIn" id="about__big-img">
+                            <img src="./assets/img/index/about1.png" alt="" class="big-img" id="big-img">
+                            <dl class="about__desc desc__job">
+                                <dt class="about__headline">
+                                    <h3>Web Creator</h3>
+                                </dt>
+                                <dd class="about__txt">
+                                    <p>
+                                        Cording ( HTML / CSS / JavaScript / PHP )
+                                    </p>
+                                </dd>
+                            </dl>
+                            <dl class="about__desc">
+                                <dt class="about__headline">
+                                    <h3>I live in</h3>
+                                </dt>
+                            </dl>
+                            <dl class="about__desc desc__like">
+                                <dt class="about__headline">
+                                    <h3>I like</h3>
+                                </dt>
+                                <dd class="about__txt">
+                                    <ul>
+                                        <li class="text__like">Reading books & manga</li>
+                                        <li class="text__like">Listening to music & radio</li>
+                                        <li class="text__like">Watching movies and TV program</li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl class="about__desc desc__target">
+                                <dt class="about__headline">
+                                    <h3>I have a dream.</h3>
+                                </dt>
+                                <dd class="about__txt font--jp">
+                                    自分の「好き」に<br>
+                                    関わる仕事をすること
+                                </dd>
+                            </dl>
+                        </div>
+                        <ul class="about__list js-fadeIn">
+                            <li class="about__contents about__job">
+                                <button class="about__tab" type="button"
+                                    aria-label="Web製作者で、HTML、CSS、JavaScript,PHPを使用できます">
+                                    <div class="about__wrapper">
+                                        <div class="about__img img__job" data-image="./assets/img/index/about1.png">
+                                        </div>
+                                    </div>
+                                </button>
+                            </li>
+                            <li class="about__contents about__live">
+                                <button class="about__tab" type="button" aria-label="沖縄県に住んでいます">
+                                    <div class="about__wrapper">
+                                        <div class="about__img img__live" data-image="./assets/img/index/about2.jpg">
+                                        </div>
+                                    </div>
+                                </button>
+                            </li>
+                            <li class="about__contents about__like">
+                                <button class="about__tab" type="button"
+                                    aria-label="私は本やマンガを読むこと、音楽やラジオを聴くこと、映画やテレビ番組を見ることが好きです">
+                                    <div class="about__wrapper">
+                                        <div class="about__img img__like"
+                                            data-image="./assets/img/index/about__like.png"></div>
+                                    </div>
+                                </button>
+                            </li>
+                            <li class="about__contents about__target">
+                                <button class="about__tab" type="button" aria-label="私の夢は、自分の「好き」に関わる仕事をすることです">
+                                    <div class="about__wrapper">
+                                        <div class="about__img img__target"
+                                            data-image="./assets/img/index/about4-1.png"></div>
+                                    </div>
+                                </button>
+                            </li>
+                            <li class="contents--blank is-sp">
+                                <article class="card card--mercury">
+                                    <div class="card__planet">
+                                        <div class="planet__atmosphere">
+                                            <div class="planet__surface"></div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+                            <li class="contents--blank is-sp">
+                                <article class="card card--venus">
+                                    <div class="card__planet">
+                                        <div class="planet__atmosphere">
+                                            <div class="planet__surface"></div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!-- /#about -->
+
+            <section id="service">
+                <div class="container service__container">
+                    <h2 class="section__ttl js-fadeIn">Service</h2>
+                    <ul class="service__list">
+                        <li class="service__contents service__website js-fadeIn">
+                            <button class="service__link" data-micromodal-trigger="modal__website" type="button"
+                                aria-label="ウェブサイト制作について詳細を見る">
+                                <div class="service__wrapper">
+                                    <div class="service__img img__web"></div>
+                                </div>
+                            </button>
+                        </li>
+                        <li class="service__contents service__blog js-fadeIn">
+                            <button class="service__link" data-micromodal-trigger="modal__blog" type="button"
+                                aria-label="コーディングについての詳細を見る">
+                                <div class="service__wrapper">
+                                    <div class="service__img img__cording"></div>
+                                </div>
+                            </button>
+                        </li>
+                        <li class="service__contents service__support js-fadeIn">
+                            <button class="service__link" data-micromodal-trigger="modal__support" type="button"
+                                aria-label="ウェブサイト運用・保守代行について詳細を見る">
+                                <div class="service__wrapper">
+                                    <div class="service__img img__ope"></div>
+                                </div>
+                            </button>
+                        </li>
+                        <li class="contents--blank">
+                            <article class="card card--earth">
+                                <div class="card__planet">
+                                    <div class="planet__atmosphere">
+                                        <div class="planet__surface"></div>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                        <li class="contents--blank">
+                            <article class="card card--mars">
+                                <div class="card__planet">
+                                    <div class="planet__atmosphere">
+                                        <div class="planet__surface"></div>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                        <li class="contents--blank">
+                            <article class="card card--jupiter">
+                                <div class="card__planet">
+                                    <div class="planet__atmosphere">
+                                        <div class="planet__surface"></div>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                        <li class="contents--blank">
+                            <article class="card card--saturn">
+                                <div class="card__planet">
+                                    <div class="planet__atmosphere">
+                                        <div class="planet__surface"></div>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                        <li class="contents--blank">
+                            <article class="card card--uranus">
+                                <div class="card__planet">
+                                    <div class="planet__atmosphere">
+                                        <div class="planet__surface"></div>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                        <li class="contents--blank is-sp">
+                            <article class="card card--neptune">
+                                <div class="card__planet">
+                                    <div class="planet__atmosphere">
+                                        <div class="planet__surface"></div>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                    </ul>
+                </div>
+                <div class="service__modal micromodal-slide" id="modal__website" aria-hidden="true">
+                    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+                            <header class="modal__header">
+                                <h3 class="modal__ttl" id="modal-1-title">ウェブサイト制作</h3>
+                                <button class="modal__close" aria-label="ウェブサイト制作について詳細を閉じる" data-micromodal-close
+                                    type="button">
+                                    <i class="fa-solid fa-xmark close__icon"></i>
+                                </button>
+                            </header>
+                            <div class="modal__content" id="modal-1-content">
+                                <img class="modal__img" src="./assets/img/index/service1.jpg" alt="ウェブサイト制作のイメージ">
+                                <p class="modal__txt">
+                                    ブログのような投稿機能がついたWordPress(ワードプレス)を用いたサイト、商品を紹介するための縦長のサイト、結婚式の招待状代わりのサイト等、さまざまなタイプのウェブサイトを制作します。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service__modal micromodal-slide" id="modal__blog" aria-hidden="true">
+                    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-2-title">
+                            <header class="modal__header">
+                                <h2 class="modal__ttl" id="modal-2-title">コーディング</h2>
+                                <button class="modal__close" aria-label="コーディングについての詳細を閉じる" data-micromodal-close
+                                    type="button">
+                                    <i class="fa-solid fa-xmark close__icon"></i></button>
+                            </header>
+                            <div class="modal__content" id="modal-2-content">
+                                <img class="modal__img" src="./assets/img/index/service2.jpg" alt="コーディングのイメージ">
+                                <p class="modal__txt">
+                                    すでにあるウェブサイトをWordPress化して投稿機能をつけたり、アニメーションを加えたりといった、部分的な作業も承っています。<br>
+                                    コーダーとしての人手が足りない際のリソースとしても対応可能です。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service__modal micromodal-slide" id="modal__support" aria-hidden="true">
+                    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-3-title">
+                            <header class="modal__header">
+                                <h2 class="modal__ttl" id="modal-3-title">ウェブサイト運用・保守代行</h2>
+                                <button class="modal__close" aria-label="ウェブサイト運用・保守代行について詳細を閉じる" data-micromodal-close
+                                    type="button">
+                                    <i class="fa-solid fa-xmark close__icon"></i></button>
+                            </header>
+                            <div class="modal__content" id="modal-3-content">
+                                <img class="modal__img" src="./assets/img/index/service3.jpg" alt="ウェブサイト運用・保守代行のイメージ">
+                                <p class="modal__txt">
+                                    ウェブの世界は移り変わりが激しいです。ウェブやパソコンに不慣れな方に代わって、ウェブサイトの運用・保守を代行します。<br>
+                                    その際、部分的な作業を承ることもできます。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /#service -->
+
+            <section id="works">
+                <div class="container works__container">
+                    <h2 class="section__ttl js-fadeIn">Works</h2>
+                    <div class="">
+                        <ul class="works__links">
+                            <li class="">
+                                <a href="./minami/index.html" class="works__link" aria-label="結婚式招待状の詳細を見る">
+                                    <figure class="works__figure">
+                                        <img src="./assets/img/index/works__minami.png" alt="みなみ歯科クリニック"
+                                            class="works__img">
+                                    </figure>
+                                    <div class="works__more">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="./invitation/index.html" class="works__link" aria-label="結婚式招待状の詳細を見る">
+                                    <figure class="works__figure">
+                                        <img src="./assets/img/index/works__invitation1.png" alt="結婚式招待状"
+                                            class="works__img">
+                                    </figure>
+                                    <div class="works__more">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="./Sample-Corp/index.html" class="works__link" aria-label="Sample-Corpの詳細を見る">
+                                    <figure class="works__figure">
+                                        <img src="./assets/img/index/works__Sample-Corp1.png" alt="Sample-Corp"
+                                            class="works__img">
+                                    </figure>
+                                    <div class="works__more">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="./sobolon/index.html" class="works__link" aria-label="sobolonの詳細を見る">
+                                    <figure class="works__figure">
+                                        <img src="./assets/img/index/works__sobolon1.png" alt="アクセサリーショップ"
+                                            class="works__img">
+                                    </figure>
+                                    <div class="works__more">
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!-- /#works-->
+
+            <section id="contact">
+                <div class="container contact__container">
+                    <h2 class="section__ttl js-fadeIn">Contact</h2>
+                    <form class="contact__form js-fadeIn" id="js-form"
+                        action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeZ9vGsNVXBqaX6et500z5LzjMCC_TJqWWrc_1wtvpBfov8mQ/formResponse"
+                        method="post">
+                        <div class="contact__list">
+                            <dl class="contact__row">
+                                <dt class="contact__label">
+                                    <div>Name</div>
+                                    <span class="contact__required">!</span>
+                                </dt>
+                                <dd class="contact__input name--error">
+                                    <input type="text" name="entry.584176652" placeholder="山田　太郎" aria-label="名前を入力する"
+                                        autocomplete="off">
+                                </dd>
+                            </dl>
+                            <dl class="contact__row">
+                                <dt class="contact__label">
+                                    <div>Email</div>
+                                    <span class="contact__required">!</span>
+                                </dt>
+                                <dd class="contact__input email--error">
+                                    <input type="email" name="emailAddress" placeholder="sample@gmail.com"
+                                        aria-label="メールアドレスを入力する" autocomplete="off">
+                                </dd>
+                            </dl>
+                            <dl class="contact__row">
+                                <dt class="contact__label">
+                                    <div>Message</div>
+                                    <span class="contact__required">!</span>
+                                </dt>
+                                <dd class="contact__input textarea--error">
+                                    <textarea name="entry.1113212062" aria-label="メッセージを入力する"></textarea>
+                                </dd>
+                            </dl>
+                            <div class="contact__submit is-disabled" id="contact__submit">
+                                <input class="submit__btn" id="js-submit" type="submit" aria-label="入力内容を送信する"
+                                    value="送　信" disabled>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="contact__message" id="js-success">
+                        <p class="contact__text">
+                            送信完了いたしました<br>
+                            内容を確認次第、返信いたします<br>
+                            しばらくお待ちください
+                        </p>
+                    </div>
+                    <div class="contact__message" id="js-error">
+                        <p class="contact__text">
+                            送信失敗しました<br>
+                            ページを更新後、再度送信してください
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- /#contact -->
+
+            <button id="page-top" class="is-sp" type="button" aria-label="トップに戻る">
+                <i class="fa-solid fa-square-caret-up page-top__icon"></i>
+            </button>
+            <!-- /#pagination & #page-top -->
+
+        </main>
+        <!-- /.main -->
+
+    </div>
+    <!-- /.wrapper -->
+
+    <!-- <article class="card card--pluto">
+        <div class="card__planet">
+            <div class="planet__atmosphere">
+                <div class="planet__surface"></div>
+            </div>
+        </div>
+    </article>
+    <article class="card card--sun">
+        <div class="card__planet">
+            <div class="planet__atmosphere">
+                <div class="planet__surface"></div>
+            </div>
+        </div>
+    </article> -->
+
+    <footer class="footer" id="footer">
+        <p class="footer__copyright"><small lang="en" class="copyright">&copy; haya Portfolio Website All Rights
+                Reserved.</small></p>
+    </footer>
+    <!-- /.footer -->
+</body>
+
+</html>

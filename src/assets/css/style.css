@@ -1,0 +1,2110 @@
+@charset "UTF-8";
+/* ====================================
+※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+このCSSファイルはSassから生成されていますので、
+編集しないようご注意ください。
+※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+==================================== */
+/* import
+============================== */
+/* color-scheme
+============================== */
+/* font
+============================== */
+/* media-query
+============================== */
+@media only screen and (max-width: 575px) {
+  .is-tab,
+.is-pc {
+    display: none;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .is-tab,
+.is-pc {
+    display: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .is-sp,
+.is-pc {
+    display: none;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .is-sp,
+.is-pc {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
+  .is-sp,
+.is-tab {
+    display: none;
+  }
+}
+/* function
+============================== */
+/* z-index
+============================== */
+/* common
+============================== */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  font-weight: normal;
+  line-height: 1.5;
+  color: #fffdf7;
+}
+
+#wrapper {
+  position: relative;
+  z-index: 1;
+  overflow: auto;
+}
+
+section {
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  height: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  section {
+    padding-top: 75px;
+    padding-bottom: 75px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section__ttl {
+  font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  display: inline-block;
+  font-size: 5.625rem;
+  font-weight: 500;
+  margin-bottom: 64px;
+  position: relative;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .section__ttl {
+    font-size: 2.5rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .section__ttl {
+    font-size: 2rem;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+}
+
+a:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+.font--jp {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+}
+
+.text--bold {
+  font-weight: bold;
+  color: #ffea1e;
+  text-shadow: 0 0 20px #ffea1e;
+}
+
+/* blank-decoration
+------------------------------ */
+.contents--blank {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:root {
+  --mercury-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/332937/mercury2.jpg);
+  --mercury-tilt: rotate(0.034deg);
+  --mercury-day: 1407.6;
+  --mercury-color: #999999;
+  --venus-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/332937/venus2.jpg);
+  --venus-tilt: rotate(177.3deg);
+  --venus-day: 5832.5;
+  --venus-color: #e8cda2;
+  --earth-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/332937/earth.jpg);
+  --earth-tilt: rotate(23.26deg);
+  --earth-day: 23.9;
+  --earth-color: #b3caff;
+  --mars-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/332937/mars.jpg);
+  --mars-tilt: rotate(25.2deg);
+  --mars-day: 24.6;
+  --mars-color: #c07158;
+  --jupiter-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/332937/jupiter.jpg);
+  --jupiter-tilt: rotate(3.1deg);
+  --jupiter-day: 9.9;
+  --jupiter-color: #c9b5a4;
+  --saturn-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/332937/saturn.jpg);
+  --saturn-tilt: rotate(26.7deg);
+  --saturn-day: 10.7;
+  --saturn-color: #f0e2c4;
+  --uranus-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/332937/uranus2.jpg);
+  --uranus-tilt: rotate(97.8deg);
+  --uranus-day: 17.2;
+  --uranus-color: #b8d8e1;
+  --neptune-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/332937/neptune.jpg);
+  --neptune-tilt: rotate(28.3deg);
+  --neptune-day: 16.1;
+  --neptune-color: #5e73bb;
+  --pluto-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/332937/pluto.jpg);
+  --pluto-tilt: rotate(122.5deg);
+  --pluto-day: 153.3;
+  --pluto-color: #c3b6aa;
+  --sun-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/332937/sun.jpg);
+  --sun-tilt: rotate(0deg);
+  --sun-day: 600;
+  --sun-color: #cc9f4c;
+}
+
+@-webkit-keyframes planetRotate {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes planetRotate {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.card--mercury .planet__atmosphere {
+  box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2), inset -70px 0px 50px 0px black, -5px 0px 10px -4px var(--mercury-color);
+}
+.card--mercury .planet__surface {
+  background-image: var(--mercury-image);
+  transform: var(--mercury-tilt) scale(1.2);
+  -webkit-animation: planetRotate calc(var(--mercury-day) * 1s) linear infinite;
+          animation: planetRotate calc(var(--mercury-day) * 1s) linear infinite;
+}
+.card--mercury .card__planet::before {
+  transform: var(--mercury-tilt) scale(1.2);
+  border-color: var(--mercury-color);
+  color: var(--mercury-color);
+}
+.card--mercury .tilt__icon {
+  transform: var(--mercury-tilt);
+  color: var(--mercury-color);
+}
+.card--venus .planet__atmosphere {
+  box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2), inset -70px 0px 50px 0px black, -5px 0px 10px -4px var(--venus-color);
+}
+.card--venus .planet__surface {
+  background-image: var(--venus-image);
+  transform: var(--venus-tilt) scale(1.2);
+  -webkit-animation: planetRotate calc(var(--venus-day) * 1s) linear infinite;
+          animation: planetRotate calc(var(--venus-day) * 1s) linear infinite;
+}
+.card--venus .card__planet::before {
+  transform: var(--venus-tilt) scale(1.2);
+  border-color: var(--venus-color);
+  color: var(--venus-color);
+}
+.card--venus .tilt__icon {
+  transform: var(--venus-tilt);
+  color: var(--venus-color);
+}
+.card--earth .planet__atmosphere {
+  box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2), inset -70px 0px 50px 0px black, -5px 0px 10px -4px var(--earth-color);
+}
+.card--earth .planet__surface {
+  background-image: var(--earth-image);
+  transform: var(--earth-tilt) scale(1.2);
+  -webkit-animation: planetRotate calc(var(--earth-day) * 1s) linear infinite;
+          animation: planetRotate calc(var(--earth-day) * 1s) linear infinite;
+}
+.card--earth .card__planet::before {
+  transform: var(--earth-tilt) scale(1.2);
+  border-color: var(--earth-color);
+  color: var(--earth-color);
+}
+.card--earth .tilt__icon {
+  transform: var(--earth-tilt);
+  color: var(--earth-color);
+}
+.card--mars .planet__atmosphere {
+  box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2), inset -70px 0px 50px 0px black, -5px 0px 10px -4px var(--mars-color);
+}
+.card--mars .planet__surface {
+  background-image: var(--mars-image);
+  transform: var(--mars-tilt) scale(1.2);
+  -webkit-animation: planetRotate calc(var(--mars-day) * 1s) linear infinite;
+          animation: planetRotate calc(var(--mars-day) * 1s) linear infinite;
+}
+.card--mars .card__planet::before {
+  transform: var(--mars-tilt) scale(1.2);
+  border-color: var(--mars-color);
+  color: var(--mars-color);
+}
+.card--mars .tilt__icon {
+  transform: var(--mars-tilt);
+  color: var(--mars-color);
+}
+.card--jupiter .planet__atmosphere {
+  box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2), inset -70px 0px 50px 0px black, -5px 0px 10px -4px var(--jupiter-color);
+}
+.card--jupiter .planet__surface {
+  background-image: var(--jupiter-image);
+  transform: var(--jupiter-tilt) scale(1.2);
+  -webkit-animation: planetRotate calc(var(--jupiter-day) * 1s) linear infinite;
+          animation: planetRotate calc(var(--jupiter-day) * 1s) linear infinite;
+}
+.card--jupiter .card__planet::before {
+  transform: var(--jupiter-tilt) scale(1.2);
+  border-color: var(--jupiter-color);
+  color: var(--jupiter-color);
+}
+.card--jupiter .tilt__icon {
+  transform: var(--jupiter-tilt);
+  color: var(--jupiter-color);
+}
+.card--saturn .planet__atmosphere {
+  box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2), inset -70px 0px 50px 0px black, -5px 0px 10px -4px var(--saturn-color);
+}
+.card--saturn .planet__surface {
+  background-image: var(--saturn-image);
+  transform: var(--saturn-tilt) scale(1.2);
+  -webkit-animation: planetRotate calc(var(--saturn-day) * 1s) linear infinite;
+          animation: planetRotate calc(var(--saturn-day) * 1s) linear infinite;
+}
+.card--saturn .card__planet::before {
+  transform: var(--saturn-tilt) scale(1.2);
+  border-color: var(--saturn-color);
+  color: var(--saturn-color);
+}
+.card--saturn .tilt__icon {
+  transform: var(--saturn-tilt);
+  color: var(--saturn-color);
+}
+.card--uranus .planet__atmosphere {
+  box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2), inset -70px 0px 50px 0px black, -5px 0px 10px -4px var(--uranus-color);
+}
+.card--uranus .planet__surface {
+  background-image: var(--uranus-image);
+  transform: var(--uranus-tilt) scale(1.2);
+  -webkit-animation: planetRotate calc(var(--uranus-day) * 1s) linear infinite;
+          animation: planetRotate calc(var(--uranus-day) * 1s) linear infinite;
+}
+.card--uranus .card__planet::before {
+  transform: var(--uranus-tilt) scale(1.2);
+  border-color: var(--uranus-color);
+  color: var(--uranus-color);
+}
+.card--uranus .tilt__icon {
+  transform: var(--uranus-tilt);
+  color: var(--uranus-color);
+}
+.card--neptune .planet__atmosphere {
+  box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2), inset -70px 0px 50px 0px black, -5px 0px 10px -4px var(--neptune-color);
+}
+.card--neptune .planet__surface {
+  background-image: var(--neptune-image);
+  transform: var(--neptune-tilt) scale(1.2);
+  -webkit-animation: planetRotate calc(var(--neptune-day) * 1s) linear infinite;
+          animation: planetRotate calc(var(--neptune-day) * 1s) linear infinite;
+}
+.card--neptune .card__planet::before {
+  transform: var(--neptune-tilt) scale(1.2);
+  border-color: var(--neptune-color);
+  color: var(--neptune-color);
+}
+.card--neptune .tilt__icon {
+  transform: var(--neptune-tilt);
+  color: var(--neptune-color);
+}
+.card--pluto .planet__atmosphere {
+  box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2), inset -70px 0px 50px 0px black, -5px 0px 10px -4px var(--pluto-color);
+}
+.card--pluto .planet__surface {
+  background-image: var(--pluto-image);
+  transform: var(--pluto-tilt) scale(1.2);
+  -webkit-animation: planetRotate calc(var(--pluto-day) * 1s) linear infinite;
+          animation: planetRotate calc(var(--pluto-day) * 1s) linear infinite;
+}
+.card--pluto .card__planet::before {
+  transform: var(--pluto-tilt) scale(1.2);
+  border-color: var(--pluto-color);
+  color: var(--pluto-color);
+}
+.card--pluto .tilt__icon {
+  transform: var(--pluto-tilt);
+  color: var(--pluto-color);
+}
+.card--sun .planet__atmosphere {
+  box-shadow: inset 10px 0px 12px -2px rgba(255, 255, 255, 0.2), inset -70px 0px 50px 0px black, -5px 0px 10px -4px var(--sun-color);
+}
+.card--sun .planet__surface {
+  background-image: var(--sun-image);
+  transform: var(--sun-tilt) scale(1.2);
+  -webkit-animation: planetRotate calc(var(--sun-day) * 1s) linear infinite;
+          animation: planetRotate calc(var(--sun-day) * 1s) linear infinite;
+}
+.card--sun .card__planet::before {
+  transform: var(--sun-tilt) scale(1.2);
+  border-color: var(--sun-color);
+  color: var(--sun-color);
+}
+.card--sun .tilt__icon {
+  transform: var(--sun-tilt);
+  color: var(--sun-color);
+}
+
+.card__planet::before {
+  content: "";
+  position: absolute;
+  height: 100px;
+  z-index: -2;
+  left: 50%;
+  top: 0%;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .card__planet::before {
+    height: 50px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .card__planet::before {
+    height: 50px;
+  }
+}
+
+.planet__atmosphere {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 65%);
+  border-radius: 100px;
+  overflow: hidden;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .planet__atmosphere {
+    height: 50px;
+    width: 50px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .planet__atmosphere {
+    height: 50px;
+    width: 50px;
+  }
+}
+.planet__surface {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-size: cover;
+}
+
+.card--sun .planet__atmosphere {
+  box-shadow: 0px 0px 10px 0px var(--sun-color), 0px 0px 1000px -2px var(--sun-color);
+}
+
+/* splash ローディング時のアニメーション
+============================== */
+#splash {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: transparent;
+}
+
+#space {
+  width: 100%;
+}
+
+#splash__text {
+  position: absolute;
+  z-index: inherit;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+#splash__text svg {
+  height: 2px;
+}
+
+/* background 背景の星のアニメーション
+============================== */
+#particles-js {
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 10, 20);
+}
+
+/* header
+------------------------------ */
+.header {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  position: fixed;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  padding: 0 5%;
+}
+.header.is-open {
+  transform: translateY(-60px);
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .header {
+    height: 30px;
+    padding: 0 10px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .header {
+    height: 30px;
+    padding: 0 10px;
+  }
+}
+
+.header__logo {
+  font-size: 1.5rem;
+  font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  line-height: 1;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .header__logo {
+    margin-top: 3px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .header__logo {
+    margin-top: 3px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .header__nav {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header__nav.is-open {
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .header__nav {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header__nav.is-open {
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#nav__list {
+  display: flex;
+  justify-content: space-between;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  #nav__list {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+  }
+  #nav__list.is-open {
+    display: block;
+    -webkit-animation: drawerNavAnime 0.8s ease 0.5s forwards;
+            animation: drawerNavAnime 0.8s ease 0.5s forwards;
+    z-index: 999;
+  }
+}
+@media only screen and (max-width: 575px) {
+  #nav__list {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+  }
+  #nav__list.is-open {
+    display: block;
+    -webkit-animation: drawerNavAnime 0.8s ease 0.5s forwards;
+            animation: drawerNavAnime 0.8s ease 0.5s forwards;
+    z-index: 999;
+  }
+}
+@-webkit-keyframes drawerNavAnime {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes drawerNavAnime {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.nav__item {
+  position: relative;
+}
+.nav__item + .nav__item {
+  margin-left: 10px;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .nav__item {
+    margin-bottom: 32px;
+  }
+  .nav__item + .nav__item {
+    margin-left: 0;
+  }
+  .nav__item:not(:last-child)::before {
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    width: 80px;
+    height: 1px;
+    content: "";
+    transform: translateX(-50%);
+    background: #77cdff;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .nav__item {
+    margin-bottom: 32px;
+  }
+  .nav__item + .nav__item {
+    margin-left: 0;
+  }
+  .nav__item:not(:last-child)::before {
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    width: 80px;
+    height: 1px;
+    content: "";
+    transform: translateX(-50%);
+    background: #77cdff;
+  }
+}
+
+.nav__link {
+  font-size: 1.25rem;
+  font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  position: relative;
+  padding: 10px;
+}
+.nav__link::before {
+  position: absolute;
+  top: 5px;
+  left: 100%;
+  width: 100%;
+  height: 50%;
+  content: "";
+  transform: translateX(-100%);
+  opacity: 0;
+  border-top: 1px solid #77cdff;
+  border-left: 1px solid #77cdff;
+}
+.nav__link::after {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: 100%;
+  height: 50%;
+  content: "";
+  opacity: 0;
+  border-right: 1px solid #77cdff;
+  border-bottom: 1px solid #77cdff;
+}
+.nav__link.is-active::before, .nav__link.is-active::after {
+  -webkit-animation: navHover 0.5s ease forwards;
+          animation: navHover 0.5s ease forwards;
+  opacity: 1;
+}
+@-webkit-keyframes navHover {
+  from {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    width: 100%;
+    height: 50%;
+  }
+}
+@keyframes navHover {
+  from {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    width: 100%;
+    height: 50%;
+  }
+}
+.nav__link:hover::before, .nav__link:hover::after, .nav__link:focus::before, .nav__link:focus::after {
+  -webkit-animation: navHover 0.5s ease forwards;
+          animation: navHover 0.5s ease forwards;
+  opacity: 1;
+}
+
+.header__hamburger {
+  z-index: 999;
+  width: 30px;
+  height: 30px;
+}
+
+.hamburger__menu {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+}
+
+.hamburger__icon {
+  position: absolute;
+  display: block;
+  width: 30px;
+  height: 2px;
+  transition: all 0.5s ease 0s;
+  background: #fffdf7;
+}
+.hamburger__icon.is-open {
+  width: 25px;
+  transform: rotate(45deg);
+}
+.hamburger__icon:nth-child(1) {
+  top: 6px;
+}
+.hamburger__icon:nth-child(1).is-open {
+  top: 15px;
+}
+.hamburger__icon:nth-child(2) {
+  top: 15px;
+}
+.hamburger__icon:nth-child(2).is-open {
+  transform: rotate(-45deg);
+}
+.hamburger__icon:nth-child(3) {
+  top: 24px;
+}
+.hamburger__icon:nth-child(3).is-open {
+  top: 15px;
+  transform: rotate(-405deg);
+}
+
+.drawer-background {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  transition: all 0.5s ease 0s;
+  transform: translateX(110%);
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.drawer-background.is-open {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* top
+------------------------------ */
+#top {
+  position: relative;
+  height: 100vh;
+}
+
+.top__ttl {
+  position: absolute;
+  z-index: 10;
+  font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 10rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffea1e;
+  text-shadow: 0 0 20px #ffea1e;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .top__ttl {
+    height: auto;
+    padding: 32px 0;
+    margin-bottom: 2.5%;
+    transform: translateY(-50%);
+  }
+}
+@media only screen and (max-width: 575px) {
+  .top__ttl {
+    height: auto;
+    padding: 32px 0;
+    margin-bottom: 2.5%;
+    transform: translateY(-50%);
+    font-size: 5rem;
+  }
+}
+
+.scrolldown {
+  display: none;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: 75px;
+  right: 50px;
+  background: url(../img/index/scrolldown.png) no-repeat center center/contain;
+  -webkit-animation: scrolldownMove 1s ease-in-out infinite;
+          animation: scrolldownMove 1s ease-in-out infinite;
+}
+@-webkit-keyframes scrolldownMove {
+  0% {
+    bottom: 75px;
+  }
+  50% {
+    bottom: 50px;
+  }
+  100% {
+    bottom: 75px;
+  }
+}
+@keyframes scrolldownMove {
+  0% {
+    bottom: 75px;
+  }
+  50% {
+    bottom: 50px;
+  }
+  100% {
+    bottom: 75px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .scrolldown {
+    bottom: 100px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .scrolldown {
+    bottom: 100px;
+  }
+}
+
+.icons8__link {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 0.25rem;
+  font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  opacity: 0.5;
+  writing-mode: vertical-lr;
+}
+
+.icons__link {
+  display: inline-block;
+}
+
+/* concept
+------------------------------ */
+.concept__desc:not(:last-child) {
+  margin-bottom: 16px;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .concept__desc {
+    font-size: 0.75rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .concept__desc {
+    font-size: 0.75rem;
+  }
+}
+
+/* about
+------------------------------ */
+.about__container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.about__row {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  gap: 2.5%;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .about__row {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .about__row {
+    flex-direction: column;
+  }
+}
+
+.about__big-img {
+  position: relative;
+  width: 100%;
+  border: 1px solid transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .about__big-img {
+    margin-bottom: 2.5%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .about__big-img {
+    margin-bottom: 2.5%;
+  }
+}
+
+.big-img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: bottom;
+     object-position: bottom;
+}
+
+.about__desc {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-shadow: -1px -1px 0 #3e3e3e, -1px 0 0 #3e3e3e, -1px 1px 0 #3e3e3e, 0 -1px 0 #3e3e3e, 0 1px 0 #3e3e3e, 1px -1px 0 #3e3e3e, 1px 0 0 #3e3e3e, 1px 1px 0 #3e3e3e;
+}
+
+.about__headline {
+  font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  font-size: 2.5rem;
+  display: inline-block;
+  padding: 0 2.5%;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .about__headline {
+    font-size: 2rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .about__headline {
+    font-size: 1.5rem;
+  }
+}
+
+.about__txt {
+  font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  position: absolute;
+  bottom: 2.5%;
+  left: 2.5%;
+  display: inline-block;
+  padding: 2.5%;
+}
+@media only screen and (max-width: 575px) {
+  .about__txt {
+    font-size: 0.5rem;
+  }
+}
+
+.desc__job {
+  display: block;
+}
+
+.desc__like dt {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+}
+.desc__like dd {
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+.desc__like dd ul {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.text__like {
+  font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  position: absolute;
+  padding: 10px;
+}
+.text__like:nth-child(1) {
+  top: 48%;
+}
+.text__like:nth-child(2) {
+  top: 30%;
+  right: 5%;
+}
+@media only screen and (max-width: 575px) {
+  .text__like:nth-child(2) {
+    top: 25%;
+    right: 5%;
+  }
+}
+.text__like:nth-child(3) {
+  bottom: 2.5%;
+}
+.text__like:nth-child(4) {
+  width: 37.5%;
+  right: 2.5%;
+  bottom: 2.5%;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .text__like {
+    font-size: 0.75rem;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .text__like {
+    font-size: 0.5rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .text__like {
+    padding: 2px;
+    font-size: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .desc__target dt {
+    margin-top: 35%;
+  }
+}
+.desc__target dd {
+  font-size: 1.5rem;
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  bottom: 25%;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .desc__target dd {
+    font-size: 1.125rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .desc__target dd {
+    font-size: inherit;
+    bottom: 2.5%;
+    font-size: 0.75rem;
+  }
+}
+
+.about__list {
+  display: flex;
+  flex: 0 1 18%;
+  flex-direction: column;
+  gap: 15px;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .about__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 575px) {
+  .about__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .about__list > li:nth-child(odd) {
+    justify-self: start;
+  }
+  .about__list > li:nth-child(even) {
+    justify-self: end;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .about__list > li:nth-child(odd) {
+    justify-self: start;
+  }
+  .about__list > li:nth-child(even) {
+    justify-self: end;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .about__job {
+    grid-area: 1/1/2/2;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .about__job {
+    grid-area: 1/1/2/2;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .about__live {
+    grid-area: 1/2/2/3;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .about__live {
+    grid-area: 1/2/2/3;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .about__like {
+    grid-area: 2/2/3/3;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .about__like {
+    grid-area: 2/2/3/3;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .about__target {
+    grid-area: 2/3/3/4;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .about__target {
+    grid-area: 2/3/3/4;
+  }
+}
+
+.about__tab {
+  width: 125px;
+  height: 125px;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 165/165;
+  transition: all 0.2s ease 0s;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  filter: grayscale(100%);
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .about__tab {
+    width: 100px;
+    height: 100px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .about__tab {
+    width: 100px;
+    height: 100px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .about__tab {
+    width: 75px;
+    height: 75px;
+  }
+}
+.about__tab:hover, .about__tab:focus {
+  box-shadow: 0 0 10px #77cdff;
+  filter: grayscale(0%);
+}
+
+.about__wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.about__img {
+  padding-top: 100%;
+  transform: rotate(15deg);
+}
+
+.img__job {
+  background: url(../img/index/about1.png) no-repeat center center/cover;
+}
+
+.img__live {
+  background: url(../img/index/about2.jpg) no-repeat center center/cover;
+}
+
+.img__like {
+  background: url(../img/index/about3-1.png) no-repeat center center/cover;
+}
+
+.img__target {
+  background: url(../img/index/about4-1.png) no-repeat center center/cover;
+}
+
+/* service
+------------------------------ */
+.service__container {
+  margin-bottom: 32px;
+}
+
+.service__list {
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: repeat(3, 1fr);
+  height: 80%;
+  margin: 0 auto;
+  gap: 5px;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .service__list {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    place-items: center;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .service__list {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    place-items: center;
+  }
+}
+
+.service__contents {
+  aspect-ratio: 1/1;
+  align-self: center;
+  justify-self: center;
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .service__website {
+    grid-area: 1/3/2/4;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .service__website {
+    grid-area: 1/3/2/4;
+  }
+}
+
+.service__blog {
+  grid-area: 1/3/2/4;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .service__blog {
+    grid-area: 2/2/3/3;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .service__blog {
+    grid-area: 2/2/3/3;
+  }
+}
+
+.service__support {
+  grid-area: 2/2/3/3;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .service__support {
+    grid-area: 3/1/4/2;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .service__support {
+    grid-area: 3/1/4/2;
+  }
+}
+
+.service__link {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border-radius: 50%;
+  transition: all 0.2s ease 0s;
+}
+.service__link:hover, .service__link:focus {
+  box-shadow: 0 0 10px #77cdff;
+}
+.service__link:hover .service__wrapper, .service__link:focus .service__wrapper {
+  filter: grayscale(0%);
+}
+
+.service__wrapper {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  filter: grayscale(100%);
+  transition: all 0.2s ease 0s;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .service__wrapper {
+    width: 100px;
+    height: 100px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .service__wrapper {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+.service__img {
+  padding-top: 100%;
+  transform: rotate(15deg);
+}
+
+.img__web {
+  background: url(../img/index/service1.jpg) repeat-x center center/cover;
+}
+
+.img__cording {
+  background: url(../img/index/service2.jpg) repeat-x center center/cover;
+}
+
+.img__ope {
+  background: url(../img/index/service3.jpg) repeat-x center center/cover;
+}
+
+.service__modal {
+  position: absolute;
+  z-index: 900;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.service__modal.is-open {
+  display: block;
+}
+
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.modal__container {
+  width: 70%;
+  max-width: 1000px;
+  padding: 2.5% 5%;
+  border: 1px solid #77cdff;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .modal__container {
+    width: calc(100% - 20px);
+  }
+}
+@media only screen and (max-width: 575px) {
+  .modal__container {
+    width: calc(100% - 20px);
+  }
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 32px;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .modal__header {
+    margin-bottom: 16px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .modal__header {
+    margin-bottom: 16px;
+  }
+}
+
+.modal__ttl {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .modal__ttl {
+    font-size: 1.125rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .modal__ttl {
+    font-size: 0.75rem;
+  }
+}
+
+.modal__close {
+  background: transparent;
+}
+.modal__close:hover, .modal__close:focus {
+  outline: none;
+}
+.modal__close:hover .close__icon, .modal__close:focus .close__icon {
+  transform: scale(1.1);
+  opacity: 1;
+  box-shadow: 0 0 10px #77cdff;
+}
+
+.close__icon {
+  font-size: 1.5rem;
+  transition: all 0.5s ease 0s;
+  opacity: 0.7;
+  color: #fffdf7;
+  border-radius: 50%;
+}
+
+.modal__img {
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .modal__img {
+    height: auto;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .modal__img {
+    height: auto;
+  }
+}
+
+.modal__txt {
+  margin-top: 16px;
+}
+.modal__txt.txt--long {
+  text-align: left;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .modal__txt {
+    font-size: 0.75rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .modal__txt {
+    font-size: 0.5rem;
+  }
+}
+
+@-webkit-keyframes mmfadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mmfadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes mmfadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes mmfadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes mmslideIn {
+  from {
+    transform: translateY(15%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes mmslideIn {
+  from {
+    transform: translateY(15%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes mmslideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10%);
+  }
+}
+@keyframes mmslideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10%);
+  }
+}
+.service__modal[aria-hidden=false] .modal__overlay {
+  -webkit-animation: mmfadeIn 0.5s ease;
+          animation: mmfadeIn 0.5s ease;
+}
+
+.service__modal[aria-hidden=false] .modal__container {
+  -webkit-animation: mmslideIn 0.5s ease;
+          animation: mmslideIn 0.5s ease;
+}
+
+.service__modal[aria-hidden=true] .modal__overlay {
+  -webkit-animation: mmfadeOut 0.5s ease;
+          animation: mmfadeOut 0.5s ease;
+}
+
+.service__modal[aria-hidden=true] .modal__container {
+  -webkit-animation: mmslideOut 0.5s ease;
+          animation: mmslideOut 0.5s ease;
+}
+
+/* works
+------------------------------ */
+.works__links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .works__links {
+    gap: 20px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .works__links {
+    gap: 0;
+  }
+}
+
+.works__link {
+  display: block;
+  border: 1px solid transparent;
+  transition: all 0.2s ease 0s;
+}
+.works__link:hover, .works__link:focus {
+  border: 1px solid #77cdff;
+}
+.works__link:hover img, .works__link:focus img {
+  transform: scale(1.1);
+  filter: none;
+}
+.works__link:hover .works__btn, .works__link:focus .works__btn {
+  transform: scale(1.05);
+}
+
+.works__figure {
+  overflow: hidden;
+}
+
+.works__img {
+  width: 100%;
+  height: 61.8%;
+  transition: all 0.5s ease 0s;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: bottom;
+     object-position: bottom;
+  filter: grayscale(100%);
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.works__more {
+  text-align: center;
+}
+
+/* contact
+------------------------------ */
+.contact__container {
+  position: relative;
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .contact__form {
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .contact__form {
+    margin: 0 auto;
+  }
+}
+
+.contact__list {
+  text-align: center;
+}
+
+.contact__row {
+  display: flex;
+  margin-bottom: 48px;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .contact__row {
+    display: block;
+    margin-bottom: 32px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .contact__row {
+    display: block;
+    margin-bottom: 32px;
+  }
+}
+
+.contact__label {
+  font-weight: bold;
+  position: relative;
+  flex: 0 0 225px;
+  font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  text-align: left;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  perspective: 1000;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .contact__label {
+    text-align: left;
+    padding: 0.5em 2em 0.5em 0;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .contact__label {
+    text-align: left;
+  }
+}
+
+.contact__required {
+  display: inline-block;
+  border: 1px solid #fffdf7;
+  background: none;
+  font: inherit;
+  width: 80px;
+  text-align: center;
+  padding: 0.5em;
+  margin: 0 1em 0;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .contact__required {
+    padding: 0.1em;
+    margin: 0;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .contact__required {
+    padding: 0.1em;
+    margin: 0;
+  }
+}
+
+.contact__input {
+  flex: 1 1 600px;
+  margin-left: 32px;
+  position: relative;
+  transition: all 0.5s ease 0s;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .contact__input {
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .contact__input {
+    margin-left: 0;
+  }
+}
+.contact__input.is-error::before, .contact__input.is-error::after {
+  position: absolute;
+  display: inline-block;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 30px;
+  line-height: 30px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .contact__input.is-error::before, .contact__input.is-error::after {
+    display: block;
+    left: 0;
+    transform: none;
+    text-align: left;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .contact__input.is-error::before, .contact__input.is-error::after {
+    display: block;
+    left: 0;
+    transform: none;
+    text-align: left;
+  }
+}
+
+.name--error.is-error::before {
+  content: "2文字以上で入力してください";
+  width: 100%;
+  -webkit-animation: errorText 0.5s ease forwards;
+          animation: errorText 0.5s ease forwards;
+}
+.name--error.is-error::after {
+  content: "";
+  border-bottom: 2px solid #ff7a7a;
+  width: 165px;
+  -webkit-animation: errorBorder 0.5s ease forwards;
+          animation: errorBorder 0.5s ease forwards;
+}
+@-webkit-keyframes errorBorder {
+  from {
+    width: 0;
+  }
+  to {
+    width: 165px;
+  }
+}
+@keyframes errorBorder {
+  from {
+    width: 0;
+  }
+  to {
+    width: 165px;
+  }
+}
+
+.email--error.is-error::before {
+  content: "半角英数字で〇〇@〇〇で入力してください";
+  width: 100%;
+  -webkit-animation: errorText 0.5s ease forwards;
+          animation: errorText 0.5s ease forwards;
+}
+.email--error.is-error::after {
+  content: "";
+  border-bottom: 2px solid #ff7a7a;
+  width: 240px;
+  -webkit-animation: errorBorder2 0.5s ease forwards;
+          animation: errorBorder2 0.5s ease forwards;
+}
+@-webkit-keyframes errorBorder2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 240px;
+  }
+}
+@keyframes errorBorder2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 240px;
+  }
+}
+
+.textarea--error.is-error::before {
+  content: "10文字以上で入力してください";
+  width: 100%;
+  bottom: -30px;
+  -webkit-animation: errorText 0.5s ease forwards;
+          animation: errorText 0.5s ease forwards;
+}
+.textarea--error.is-error::after {
+  content: "";
+  border-bottom: 2px solid #ff7a7a;
+  width: 170px;
+  -webkit-animation: errorBorder3 0.5s ease forwards;
+          animation: errorBorder3 0.5s ease forwards;
+}
+@-webkit-keyframes errorBorder3 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 170px;
+  }
+}
+@keyframes errorBorder3 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 170px;
+  }
+}
+
+@-webkit-keyframes errorText {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes errorText {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+[type=text] {
+  position: relative;
+  font-family: inherit;
+  line-height: 40px;
+  width: 100%;
+  height: 40px;
+  padding: 2.5%;
+  transition: all 0.2s ease 0s;
+  border: none;
+  border-bottom: 1px solid #77cdff;
+  color: #fffdf7;
+  background: transparent;
+  box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+[type=text]::-moz-placeholder {
+  color: rgba(255, 253, 247, 0.7);
+}
+[type=text]::placeholder {
+  color: rgba(255, 253, 247, 0.7);
+}
+[type=text].is-error {
+  border: none;
+  box-shadow: 0 0 10px #ff7a7a;
+}
+[type=text]:hover, [type=text]:focus {
+  box-shadow: 0 0 10px #77cdff;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  [type=text] {
+    height: 30px;
+    line-height: 30px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  [type=text] {
+    height: 30px;
+    line-height: 30px;
+  }
+}
+
+[type=email] {
+  font-family: inherit;
+  line-height: 40px;
+  width: 100%;
+  height: 40px;
+  padding: 2.5%;
+  transition: all 0.2s ease 0s;
+  border: none;
+  border-bottom: 1px solid #77cdff;
+  color: #fffdf7;
+  background: transparent;
+  box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+[type=email]::-moz-placeholder {
+  color: rgba(255, 253, 247, 0.7);
+}
+[type=email]::placeholder {
+  color: rgba(255, 253, 247, 0.7);
+}
+[type=email].is-error {
+  border: none;
+  box-shadow: 0 0 10px #ff7a7a;
+}
+[type=email]:hover, [type=email]:focus {
+  box-shadow: 0 0 10px #77cdff;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  [type=email] {
+    height: 30px;
+    line-height: 30px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  [type=email] {
+    height: 30px;
+    line-height: 30px;
+  }
+}
+
+textarea {
+  font-family: inherit;
+  width: 100%;
+  height: 240px;
+  min-height: 240px;
+  padding: 2.5%;
+  resize: none;
+  transition: all 0.2s ease 0s;
+  border: none;
+  border: 1px solid #77cdff;
+  color: #fffdf7;
+  background: transparent;
+  box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+textarea.is-error {
+  border: none;
+  box-shadow: 0 0 10px #ff7a7a;
+}
+textarea:hover, textarea:focus {
+  box-shadow: 0 0 10px #77cdff;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  textarea {
+    height: 100px;
+    min-height: 100px;
+    max-width: 700px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  textarea {
+    height: 100px;
+    min-height: 100px;
+    max-width: 700px;
+  }
+}
+
+.contact__submit {
+  font-weight: bold;
+  display: inline-block;
+  transition: all 0.2s ease 0s;
+  text-align: center;
+  background: #3e3e3e;
+  border: 1px solid #77cdff;
+  border-radius: 5px;
+}
+.contact__submit [type=submit] {
+  font-family: inherit;
+  font-size: 1.25rem;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+  color: #fffdf7;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.contact__submit.is-disabled {
+  pointer-events: none;
+  background: #b2b2b2;
+  border: 1px solid #3e3e3e;
+}
+@media (min-width: 1200px) {
+  .contact__submit:focus-within {
+    outline: none;
+    box-shadow: 0 0 20px #77cdff;
+  }
+  .contact__submit:hover {
+    background: rgb(0, 10, 20);
+    box-shadow: 0 0 10px #77cdff;
+  }
+}
+
+.contact__message {
+  display: none;
+  margin-top: 32px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.contact__text {
+  display: inline-block;
+  padding: 20%;
+  font-weight: bold;
+  border-radius: 20px;
+}
+.contact__text br {
+  display: block;
+  margin-bottom: 16px;
+  content: "";
+}
+
+/* page-top
+トップへ戻るアイコン
+------------------------------ */
+#page-top {
+  position: fixed;
+  z-index: 100;
+  right: 10px;
+  bottom: 30px;
+  width: 40px;
+  height: 40px;
+  transition: all 0.5s ease 0s;
+  background: transparent;
+}
+
+.page-top__icon {
+  font-size: 40px;
+  color: #fffdf7;
+  transition: all 0.5s ease 0s;
+  opacity: 0.7;
+}
+
+/* footer
+------------------------------ */
+.footer {
+  position: fixed;
+  z-index: 50;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  opacity: 0.5;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .footer {
+    position: static;
+    height: 30px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .footer {
+    position: static;
+    height: 30px;
+  }
+}
+
+.footer__copyright {
+  font-size: 12px;
+  font-family: "Bruno Ace", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  padding-top: 16px;
+  text-align: center;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .footer__copyright {
+    padding-top: 9px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .footer__copyright {
+    padding-top: 9px;
+  }
+}

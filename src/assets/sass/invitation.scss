@@ -1,0 +1,1191 @@
+// これは必ず記述する！
+@charset "utf-8";
+
+/* color
+============================== */
+$main__color1: #4e5ca5;
+$accent__color: #d6a93a;
+$base__color: #FFFFFF;
+$text-color : #082B48;
+
+/* font
+============================== */
+$font1: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+$font1_bold: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+$font2: 'Petit Formal Script', cursive;
+
+.font1_bold_ja {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", sans-serif;
+  font-weight: 700;
+}
+
+.font1_bold_en {
+  font-family: "アルファベットに指定したいフォントファミリー", sans-serif;
+  font-weight: 500;
+}
+
+$font-size: 16px;
+
+/* media
+============================== */
+$layout-width-inner: 1200px;
+
+$breakpoints: (
+  //キー : 値
+  'sp': "(max-width: 425px)",
+  'tab': "(min-width: 426px) and (max-width: 768px)",
+  'pc': "(min-width: 769px)"
+  ) !default;
+
+@mixin mq($breakpoint: pc) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+/* common
+============================== */
+#invitation {
+  color: $text-color;
+  background: #FFFFFF;
+  font-family: serif;
+  width: 100%;
+  height: 100%;
+  overflow-x: clip;
+  position: relative;
+
+  hr {
+    width: 80%;
+    background-color: $accent__color;
+    height: 1px;
+    border: none;
+  }
+}
+
+.invi__wrapper {
+  max-width: $layout-width-inner;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+#invitation section {
+  &:nth-child(n + 2) {
+    padding: 5rem 0;
+
+    @include mq ("pc") {
+      padding: 10rem 0;
+    }
+  }
+}
+
+.invi__section__title {
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  position: relative;
+  font-family: $font2;
+
+  @include mq ("pc") {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  span {
+    font-size: 3rem;
+
+    @include mq ("pc") {
+      font-size: 5rem;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 6rem;
+    height: 2px;
+    background: $main__color1;
+    top: 95%;
+    left: 50%;
+    transform: translateX(-50%
+    );
+
+  @include mq ("pc") {
+    top: 100%;
+    width: 10rem;
+  }
+}
+
+&::after {
+  content: "";
+  position: absolute;
+  width: 3rem;
+  height: 2px;
+  background: $accent__color;
+  top: 95%;
+  left: 50%;
+
+  @include mq ("pc") {
+    top: 100%;
+    width: 5rem;
+  }
+}
+}
+
+.invi__section__subtitle {
+  text-align: center;
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+
+  @include mq ("pc") {
+    font-size: 1.5rem;
+    margin-bottom: 4rem;
+  }
+}
+
+// body全体の背景アニメーション
+#invi__particles-js {
+  position: fixed;
+  /*描画固定*/
+  z-index: -1;
+  /*描画を一番下に*/
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  /*背景色*/
+}
+
+.particles-js-canvas-el {
+  width: 100%;
+  height: 100%;
+}
+
+#invi__bg-star {
+  position: relative;
+  /*描画を#particles-jsよりも上にするためposition:relative;を指定*/
+  z-index: 1;
+  /*z-indexの数字を大きくすることで描画を#particles-jsよりも上に*/
+  width: 100%;
+  height: 100%;
+}
+
+/* splash
+------------------------------ */
+/*========= LoadingのためのCSS ===============*/
+
+/* Loading背景画面設定　*/
+#invi__splash {
+  /*fixedで全面に固定*/
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: #ffe9d6 url(../img/invitation/front-cover.jpg) no-repeat center center / cover;
+  background-blend-mode: hard-light;
+  text-align: center;
+  color: $text-color;
+}
+
+/* Loading画像中央配置　*/
+#invi__splash_logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+/* Loading アイコンの大きさ設定　*/
+#invi__splash_logo h1 {
+  font-size: 4rem;
+  font-family: $font2;
+  font-weight: 900;
+
+  @include mq ("pc") {
+    font-size: 6rem;
+  }
+}
+
+/* fadeUpをするアイコンの動き */
+
+.invi__fadeUp {
+  animation-name: fadeUpAnime;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* header
+------------------------------ */
+header {
+  width: 100%;
+  height: 100%;
+}
+
+#invi__g-nav {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+/*アクティブになったエリア*/
+#invi__g-nav.panelactive {
+  /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow-x: clip;
+}
+
+/*丸の拡大*/
+.invi__circle-bg {
+  position: fixed;
+  z-index: 3;
+  /*丸の形*/
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: $main__color1;
+  opacity: .8;
+
+  /*丸のスタート位置と形状*/
+  transform: scale(0);
+  /*scaleをはじめは0に*/
+  right: -50px;
+  top: -50px;
+  transition: all .6s;
+  /*0.6秒かけてアニメーション*/
+}
+
+.invi__circle-bg.circleactive {
+  transform: scale(50);
+  /*クラスが付与されたらscaleを拡大*/
+}
+
+/*ナビゲーション*/
+#invi__g-nav ul {
+  opacity: 0;
+  /*はじめは透過0*/
+  /*ナビゲーション天地中央揃え※レイアウトによって調整してください。不必要なら削除*/
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*背景が出現後にナビゲーションを表示*/
+#invi__g-nav.panelactive ul {
+  opacity: 1;
+}
+
+/* 背景が出現後にナビゲーション li を表示※レイアウトによって調整してください。不必要なら削除*/
+#invi__g-nav.panelactive ul li {
+  animation-name: gnaviAnime;
+  animation-duration: 1s;
+  animation-delay: .2s;
+  /*0.2 秒遅らせて出現*/
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes gnaviAnime {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/*リストのレイアウト設定*/
+#invi__g-nav li {
+  text-align: center;
+  list-style: none;
+}
+
+#invi__g-nav li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  font-size: 1.5rem;
+  position: relative;
+
+  @include mq("tab") {
+    font-size: 1rem;
+  }
+
+  @include mq("sp") {
+    font-size: 1rem;
+  }
+}
+
+/*========= ボタンのためのCSS ===============*/
+.invi__openbtn1 {
+  position: fixed;
+  top: 10px;
+  right: 4%;
+  z-index: 9999;
+  /*ボタンを最前面に*/
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+}
+
+/*×に変化*/
+.invi__openbtn1 span {
+  display: inline-block;
+  transition: all .4s;
+  position: absolute;
+  height: 3px;
+  right: 0;
+  border-radius: 2px;
+  background: $main__color1;
+  width: 70%;
+}
+
+.invi__openbtn1 span:nth-of-type(1) {
+  top: 15px;
+}
+
+.invi__openbtn1 span:nth-of-type(2) {
+  top: 23px;
+}
+
+.invi__openbtn1 span:nth-of-type(3) {
+  top: 31px;
+}
+
+.invi__openbtn1.active span:nth-of-type(1) {
+  transform: translateY(10px) rotate(-45deg);
+  width: 60%;
+  background: #FFFFFF;
+}
+
+.invi__openbtn1.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.invi__openbtn1.active span:nth-of-type(3) {
+  transform: translateY(-6px) rotate(45deg);
+  width: 60%;
+  background: #FFFFFF;
+}
+
+/* front-cover
+------------------------------ */
+#invi__front-cover {
+  background: #ffe9d6 url(../img/invitation/front-cover.jpg) no-repeat center center / cover;
+  background-blend-mode: hard-light;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.invi__front-cover__inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  text-align: center;
+  width: 100%;
+
+  span {
+    display: inline-block;
+    padding-right: .2rem;
+    margin-right: -.2rem;
+    /* paddingで指定した幅をマイナスmarginで戻す */
+  }
+}
+
+.invi__front-cover__title {
+  font-size: 3.3rem;
+  font-family: $font2;
+  // font-weight: 900;
+
+  @include mq ("pc") {
+    font-size: 5.8rem;
+  }
+}
+
+.invi__front-cover__subtitle {
+  margin-top: 40px;
+  font-family: $font2;
+  font-size: 1.5rem;
+
+  @include mq ("pc") {
+    font-size: 2.5rem;
+  }
+}
+
+/*========= front-coverのためのCSS ===============*/
+
+.invi__blur {
+  animation-name: blurAnime;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes blurAnime {
+  from {
+    filter: blur(10px);
+    transform: scale(1.02);
+    opacity: 0;
+  }
+
+
+  to {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.invi__blurTrigger {
+  opacity: 0;
+}
+
+.invi__glowAnime span {
+  opacity: 0;
+}
+
+/*アニメーションで透過を0から1に変化させtext-shadowをつける*/
+.invi__glowAnime.invi__glow span {
+  animation: glow_anime_on 3s ease-out forwards;
+}
+
+@keyframes glow_anime_on {
+  0% {
+    opacity: 0;
+    text-shadow: 0 0 0 #fff, 0 0 0 #fff;
+  }
+
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 10px #fff, 0 0 15px #fff;
+  }
+
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 0 #fff, 0 0 0 #fff;
+  }
+}
+
+.invi__scrolldown4 {
+  /*描画位置※位置は適宜調整してください*/
+  position: absolute;
+  bottom: 15%;
+  right: 10%;
+  /*矢印の動き1秒かけて永遠にループ*/
+  animation: arrowmove 1s ease-in-out infinite;
+}
+
+/*下からの距離が変化して全体が下→上→下に動く*/
+@keyframes arrowmove {
+  0% {
+    bottom: 1%;
+  }
+
+  50% {
+    bottom: 3%;
+  }
+
+  100% {
+    bottom: 1%;
+  }
+}
+
+/*Scrollテキストの描写*/
+.invi__scrolldown4 span {
+  /*描画位置*/
+  position: absolute;
+  left: -20px;
+  bottom: 10px;
+  /*テキストの形状*/
+  color: $main__color1;
+  font-family: $font2;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  /*縦書き設定*/
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+}
+
+/* 矢印の描写 */
+.invi__scrolldown4:before {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 0;
+  right: -15px;
+  /*矢印の形状*/
+  width: 3px;
+  height: 20px;
+  background: $main__color1;
+  transform: skewX(-31deg);
+}
+
+.invi__scrolldown4:after {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  /*矢印の形状*/
+  width: 3px;
+  height: 50px;
+  background: $main__color1;
+}
+
+/* greeting
+------------------------------ */
+#invi__greeting {
+  position: relative;
+  text-align: center;
+}
+
+.invi__greeting__img {
+  img {
+    max-width: 1086px;
+  }
+}
+
+.invi__greeting__message {
+  padding: 8% 0;
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  width: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+
+  @include mq ("pc") {
+    font-size: 1.5rem;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+  }
+
+  &::before {
+    border-top: 2px solid $text-color;
+    border-left: 2px solid $text-color;
+    top: 5%;
+    left: 5%;
+  }
+
+  &::after {
+    border-bottom: 2px solid $text-color;
+    border-right: 2px solid $text-color;
+    bottom: 5%;
+    right: 5%;
+  }
+}
+
+/* groom-and-bride
+------------------------------ */
+.invi__self-introduction {
+  position: relative;
+}
+
+.invi__groom__name,
+.invi__bride__name {
+  display: inline-block;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  padding: 10px 15px;
+  text-align: center;
+  width: 154px;
+  background: rgba(255, 255, 255, 0.7);
+
+  @include mq ("pc") {
+    font-size: 2rem;
+    width: 250px;
+  }
+
+  @include mq("sp") {
+    font-size: 14px;
+    width: 125px;
+  }
+}
+
+.invi__groom__info,
+.invi__bride__info {
+  display: inline-block;
+  border-radius: 20px;
+  font-size: 0.5rem;
+  padding: 10px;
+  width: 154px;
+  background: rgba(255, 255, 255, 0.7);
+
+  @include mq ("pc") {
+    font-size: 1rem;
+    width: 250px;
+  }
+
+  @include mq("sp") {
+    font-size: 6px;
+    width: 125px;
+  }
+}
+
+.invi__groom {}
+
+.invi__groom__name,
+.invi__groom__info {
+  border: 2px solid $main__color1;
+  position: absolute;
+}
+
+.invi__groom__name {
+  top: 30%;
+  left: 5%;
+  width: 154px;
+
+  @include mq ("pc") {
+    font-size: 2rem;
+    width: 250px;
+  }
+
+  @include mq("sp") {
+    font-size: 14px;
+    width: 125px;
+  }
+}
+
+.invi__groom__info {
+  top: 45%;
+  left: 5%;
+  width: 154px;
+
+  @include mq ("pc") {
+    font-size: 1rem;
+    width: 250px;
+  }
+
+  @include mq("sp") {
+    font-size: 6px;
+    width: 125px;
+  }
+}
+
+.invi__bride {}
+
+.invi__bride__name,
+.invi__bride__info {
+  border: 2px solid $accent__color;
+  position: absolute;
+}
+
+.invi__bride__name {
+  top: 35%;
+  right: 5%;
+}
+
+.invi__bride__info {
+  top: 50%;
+  right: 5%;
+}
+
+.invi__message {
+  text-align: center;
+  margin: 5rem auto 0;
+  font-size: 1rem;
+  padding: 8% 0;
+  background: rgba(255, 255, 255, 0.7);
+  width: 90%;
+  position: relative;
+
+  @include mq ("pc") {
+    font-size: 2rem;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+  }
+
+  &::before {
+    border-top: 2px solid $text-color;
+    border-left: 2px solid $text-color;
+    top: 5%;
+    left: 5%;
+  }
+
+  &::after {
+    border-bottom: 2px solid $text-color;
+    border-right: 2px solid $text-color;
+    bottom: 5%;
+    right: 5%;
+  }
+}
+
+/* reception
+------------------------------ */
+#invi__reception {
+  text-align: center;
+}
+
+.invi__guide__time {
+  padding: 2rem 0;
+}
+
+.invi__date {
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+  font-family: $font2;
+
+  @include mq ("pc") {
+    font-size: 3rem;
+  }
+
+  @include mq("sp") {
+    font-size: 2rem;
+  }
+}
+
+.invi__time {
+  font-size: 1.5rem;
+  display: inline-block;
+  padding: 20px 40px;
+  margin-bottom: 3rem;
+
+  @include mq ("pc") {
+    font-size: 2rem;
+  }
+}
+
+.invi__cards {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  max-width: 300px;
+  width: 100%;
+  margin: 20% auto 0;
+}
+
+.invi__card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  max-width: 300px;
+
+  background: #ccc;
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 0 40px #000;
+  transform: translateY(0) rotate(4deg) translateX(25px) scale(1);
+  transform-origin: 0 0;
+
+  transition: transform 0.6s cubic-bezier(.8, .2, .1, 0.8) 0.1s,
+    background 0.4s linear;
+
+  cursor: pointer;
+  user-select: none;
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.invi__card__title {
+  font-family: $font2;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 6rem;
+    height: 1px;
+    background: $main__color1;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 3rem;
+    height: 1px;
+    background: $accent__color;
+    top: 45%;
+    left: 50%;
+  }
+
+  @include mq("sp") {
+    font-size: 1.5rem;
+  }
+}
+
+.invi__card__subtitle {
+  font-size: 0.8rem;
+
+  @include mq ("pc") {
+    font-size: 1rem;
+  }
+}
+
+.invi__card__time {
+  font-family: $font2;
+}
+
+.invi__card--next {
+  z-index: 5;
+  transform: translateY(-25px) rotate(4deg) translateX(-10px) scale(1);
+}
+
+.invi__card--out {
+  animation: card-out 0.6s cubic-bezier(.8, .2, .1, 0.8);
+  transform: translateY(-50px) rotate(8deg) translateX(-10px) scale(0.8);
+  z-index: 1;
+  background: #bbb;
+}
+
+@keyframes card-out {
+  0% {
+    z-index: 20;
+    transform: translateY(0px) rotate(-4deg);
+  }
+
+  50% {
+    transform: translateY(-120%) rotate(-5deg) translateX(0);
+  }
+
+  80% {
+    z-index: 1;
+  }
+
+  100% {
+    transform: translateY(-50px) rotate(8deg) translateX(-10px) scale(0.95);
+  }
+}
+
+.invi__card--current {
+  cursor: auto;
+  user-select: auto;
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  background: #EEE;
+  transform: rotate(-1deg) translateX(0%) scale(1);
+}
+
+/* place
+------------------------------ */
+#invi__place {
+  text-align: center;
+}
+
+.invi__place__img {
+  margin-bottom: 2rem;
+  max-width: 640px;
+  margin: 0 auto 2rem;
+
+  img {}
+}
+
+.invi__place__name {
+  font-size: 1.2rem;
+
+  @include mq ("pc") {
+    font-size: 2rem;
+  }
+}
+
+.invi__place__address {
+  font-size: 0.8rem;
+
+  @include mq ("pc") {
+    font-size: 1.3rem;
+  }
+}
+
+.invi__place__tel {
+  font-size: 0.8rem;
+  margin-bottom: 4rem;
+
+  @include mq ("pc") {
+    font-size: 1.3rem;
+  }
+}
+
+.invi__venue__info {}
+
+.invi__venue__img {
+  max-width: 640px;
+  margin: 0 auto 2rem;
+
+  img {}
+}
+
+.invi__venue__place {
+
+  @include mq ("pc") {
+    font-size: 1.5rem;
+  }
+}
+
+/* access
+------------------------------ */
+#invi__access {
+  text-align: center;
+}
+
+.invi__access__iframe {
+  width: 100%;
+  padding-top: calc(600 / 800 * 100%);
+  position: relative;
+  margin-bottom: 2rem;
+  border: $text-color;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.invi__access__route {
+  display: flex;
+  justify-content: space-around;
+}
+
+.invi__access__monorail,
+.invi__access__car {
+  border-radius: 50%;
+  border: solid $main__color1 1px;
+  color: $text-color;
+  width: 45vw;
+  height: 45vw;
+  position: relative;
+
+  @include mq ("pc") {
+    width: 25vw;
+    height: 25vw;
+  }
+
+  p {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8rem;
+
+    @include mq {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* countdown
+------------------------------ */
+#invi__countdown {}
+
+#invi__timer {
+  color: white;
+  text-align: center;
+  font-family: $font2;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+  @include mq("sp") {
+    font-size: 0.8rem;
+  }
+}
+
+.invi__days,
+.invi__hours,
+.invi__minutes,
+.invi__seconds {
+  padding: 20px 10px;
+  border-radius: 5px;
+  width: 24%;
+}
+
+.invi__days {
+  background: $main__color1;
+  color: white;
+}
+
+.invi__hours {
+  background: white;
+  color: $main__color1;
+  border: 2px solid $main__color1;
+}
+
+.invi__minutes {
+  background: $main__color1;
+  color: white;
+}
+
+.invi__seconds {
+  background: white;
+  color: $main__color1;
+  border: 2px solid $main__color1;
+}
+
+.invi__numbers {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.invi__countdown__message {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.invi__starting {
+  font-size: 3rem;
+  height: 120px;
+  line-height: 120px;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-shadow:
+    0 0 0.10em $main__color1,
+    0 0 0.15em $main__color1,
+    0 0 0.80em $main__color1,
+    0 0 1.00em $main__color1;
+}
+
+.invi__ending__message {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.invi__ending {
+  font-size: 3rem;
+  line-height: 120px;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-shadow:
+    0 0 0.10em $accent__color,
+    0 0 0.15em $accent__color,
+    0 0 0.80em $accent__color,
+    0 0 1.00em $accent__color;
+}
+
+/* gallery
+------------------------------ */
+#invi__gallery {
+  width: 85%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.slide__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+#invitation .swiper-slide {
+  padding: 0;
+  border: none;
+  overflow: hidden;
+}
+
+#invitation .swiper-button-prev {
+  width: 30px;
+  height: 30px;
+  background: url(../img/invitation/arrow-prev.png) no-repeat center center / cover;
+  z-index: 100;
+  position: absolute;
+  left: 10px;
+
+  &::after {
+    display: none;
+  }
+}
+
+#invitation .swiper-button-next {
+  width: 30px;
+  height: 30px;
+  background: url(../img/invitation/arrow-next.png) no-repeat center center / cover;
+  z-index: 100;
+  position: absolute;
+  right: 10px;
+
+  &::after {
+    display: none;
+  }
+}
+
+#invitation .swiper-pagination-bullet-active {
+  color: $main__color1;
+}
+
+/* page-top
+------------------------------ */
+#invi__page-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 4%;
+  width: 3rem;
+  height: 3rem;
+  transition: all .3s ease 0s;
+  z-index: 2;
+
+  &:hover {
+    opacity: .7;
+    transform: scale(1.1, 1.1);
+    cursor: pointer;
+  }
+}
+
+/* footer
+------------------------------ */
+.invi__footer {
+  background: $accent__color;
+  color: white;
+  font-size: 10px;
+  height: 2rem;
+  text-align: center;
+  line-height: 2rem;
+}
