@@ -260,20 +260,20 @@ headerNav.on("click", function () {
 
 /* scrolldown-show
 ------------------------------ */
-// const scrollDown = document.querySelector(".scrolldown");
+const scrollDown = document.querySelector(".scrolldown");
 
-// const fadeInKeyframes = {
-//   opacity: [0, 1],
-// };
+const fadeInKeyframes = {
+  opacity: [0, 1],
+};
 
-// const fadeOutKeyframes = {
-//   opacity: [1, 0],
-// };
+const fadeOutKeyframes = {
+  opacity: [1, 0],
+};
 
-// setTimeout(() => {
-//   scrollDown.style.display = "block";
-//   scrollDown.animate(fadeInKeyframes, 1000);
-// }, 8000);
+setTimeout(() => {
+  scrollDown.style.display = "block";
+  scrollDown.animate(fadeInKeyframes, 1000);
+}, 8000);
 
 /* link
 ------------------------------ */
