@@ -149,7 +149,7 @@ executeFrame();
 const params__snow = {
   particles: {
     number: {
-      value: 500, //この数値を変更すると星の数が増減できる
+      value: 100, //この数値を変更すると星の数が増減できる
       density: {
         enable: true,
         value_area: 800,
@@ -157,22 +157,7 @@ const params__snow = {
     },
     color: {
       value: [
-        "#000000",
-        "#808080",
-        "#C0C0C0",
         "#FFFFFF",
-        "#0000FF",
-        "#000080",
-        "#008080",
-        "#008000",
-        "#00FF00",
-        "#00FFFF",
-        "#FFFF00",
-        "#FF0000",
-        "#FF00FF",
-        "#808000",
-        "#800080",
-        "#800000",
       ],
     },
     shape: {
@@ -180,22 +165,7 @@ const params__snow = {
       stroke: {
         width: 0,
         color: [
-          "#000000",
-          "#808080",
-          "#C0C0C0",
           "#FFFFFF",
-          "#0000FF",
-          "#000080",
-          "#008080",
-          "#008000",
-          "#00FF00",
-          "#00FFFF",
-          "#FFFF00",
-          "#FF0000",
-          "#FF00FF",
-          "#808000",
-          "#800080",
-          "#800000",
         ],
       },
     },
@@ -204,7 +174,7 @@ const params__snow = {
       random: true,
       anim: {
         enable: true,
-        speed: 3,
+        speed: 1,
         opacity_min: 0,
         sync: false,
       },
@@ -214,7 +184,7 @@ const params__snow = {
       random: true,
       anim: {
         enable: false,
-        speed: 20,
+        speed: 1,
         size_min: 0.1,
         sync: false,
       },
@@ -290,20 +260,20 @@ headerNav.on("click", function () {
 
 /* scrolldown-show
 ------------------------------ */
-const scrollDown = document.querySelector(".scrolldown");
+// const scrollDown = document.querySelector(".scrolldown");
 
-const fadeInKeyframes = {
-  opacity: [0, 1],
-};
+// const fadeInKeyframes = {
+//   opacity: [0, 1],
+// };
 
-const fadeOutKeyframes = {
-  opacity: [1, 0],
-};
+// const fadeOutKeyframes = {
+//   opacity: [1, 0],
+// };
 
-setTimeout(() => {
-  scrollDown.style.display = "block";
-  scrollDown.animate(fadeInKeyframes, 500);
-}, 5000);
+// setTimeout(() => {
+//   scrollDown.style.display = "block";
+//   scrollDown.animate(fadeInKeyframes, 1000);
+// }, 8000);
 
 /* link
 ------------------------------ */

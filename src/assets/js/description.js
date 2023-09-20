@@ -1,75 +1,78 @@
-'use strict';
+"use strict";
 
 /* common
 ============================== */
-const mediaQuery = window.matchMedia('(min-width: 768px)');
+const mediaQuery = window.matchMedia("(min-width: 768px)");
 
 /* splash
 ============================== */
-const splash = document.querySelector('#splash');
-const splashText = document.querySelector('#splash__text');
-const space = document.querySelector('#space');
+const splash = document.querySelector("#splash");
+const splashText = document.querySelector("#splash__text");
+const space = document.querySelector("#space");
 
 var bar = new ProgressBar.Line(splash__text, {
-  easing: 'easeInOut',
+  easing: "easeInOut",
   duration: 2000,
   strokeWidth: 6,
-  color: '#fffdf7',
+  color: "#fffdf7",
   trailWidth: 3,
-  trailColor: '#3e3e3e',
-  svgStyle: { width: '80%' },
+  trailColor: "#3e3e3e",
+  svgStyle: { width: "80%" },
   text: {
     style: {
-      position: 'absolute',
-      left: '50%',
-      top: '50%',
-      padding: '0',
-      margin: '-50px 0 0 0',
-      transform: 'translate(-50%, -50%)',
-      'font-size': '1.5rem',
-      color: '#fffdf7',
-      font: 'Bruno Ace SC'
+      position: "absolute",
+      left: "50%",
+      top: "50%",
+      padding: "0",
+      margin: "-50px 0 0 0",
+      transform: "translate(-50%, -50%)",
+      "font-size": "1.5rem",
+      color: "#fffdf7",
+      font: "Bruno Ace",
     },
-    autoStyleContainer: false
+    autoStyleContainer: false,
   },
   step: function (state, bar) {
-    bar.setText(Math.round(bar.value() * 100) + '%');
-  }
+    bar.setText(Math.round(bar.value() * 100) + "%");
+  },
 });
 
-bar.text.style.fontFamily = '"Bruno Ace SC", Helvetica, sans-serif';
+bar.text.style.fontFamily = '"Bruno Ace", Helvetica, sans-serif';
 
 bar.animate(1.0, function () {
   const splashFadeOutKeyframes = {
-    opacity: [1, 0]
-  }
+    opacity: [1, 0],
+  };
   splashText.animate(splashFadeOutKeyframes, 100).finished.then(() => {
-    splashText.style.display = 'none';
-  })
+    splashText.style.display = "none";
+  });
   window.warp = window.warp == 1 ? 0 : 1;
   executeFrame();
   setTimeout(() => {
     splash.animate(splashFadeOutKeyframes, 300).finished.then(() => {
-      splash.style.display = 'none';
+      splash.style.display = "none";
     });
   }, 1500);
   setTimeout(() => {
     stroke.play();
-  }, 3000)
+  }, 3000);
 });
 
 //based on an Example by @curran
-window.requestAnimFrame = (function () { return window.requestAnimationFrame })();
+window.requestAnimFrame = (function () {
+  return window.requestAnimationFrame;
+})();
 var canvas = document.getElementById("space");
 var c = canvas.getContext("2d");
 
 var numStars = 1900;
-var radius = '0.' + Math.floor(Math.random() * 9) + 1;
+var radius = "0." + Math.floor(Math.random() * 9) + 1;
 var focalLength = canvas.width * 2;
 var warp = 0;
 var centerX, centerY;
 
-var stars = [], star;
+var stars = [],
+  star;
 var i;
 
 var animate = true;
@@ -77,9 +80,7 @@ var animate = true;
 initializeStars();
 
 function executeFrame() {
-
-  if (animate)
-    requestAnimFrame(executeFrame);
+  if (animate) requestAnimFrame(executeFrame);
   moveStars();
   drawStars();
 }
@@ -94,7 +95,7 @@ function initializeStars() {
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       z: Math.random() * canvas.width,
-      o: '0.' + Math.floor(Math.random() * 99) + 1
+      o: "0." + Math.floor(Math.random() * 99) + 1,
     };
     stars.push(star);
   }
@@ -145,76 +146,80 @@ executeFrame();
 /* background
 ============================== */
 const params__snow = {
-  "particles": {
-    "number": {
-      "value": 500,//この数値を変更すると星の数が増減できる
-      "density": {
-        "enable": true,
-        "value_area": 800
-      }
-    },
-    "color": {
-      "value": ["#000000", "#808080", "#C0C0C0", "#FFFFFF", "#0000FF", "#000080", "#008080", "#008000", "#00FF00", "#00FFFF", "#FFFF00", "#FF0000", "#FF00FF", "#808000", "#800080", "#800000"]
-    },
-    "shape": {
-      "type": "polygon",//形状は画像を指定
-      "stroke": {
-        "width": 0,
-        "color": ["#000000", "#808080", "#C0C0C0", "#FFFFFF", "#0000FF", "#000080", "#008080", "#008000", "#00FF00", "#00FFFF", "#FFFF00", "#FF0000", "#FF00FF", "#808000", "#800080", "#800000"]
+  particles: {
+    number: {
+      value: 100, //この数値を変更すると星の数が増減できる
+      density: {
+        enable: true,
+        value_area: 800,
       },
     },
-    "opacity": {
-      "value": 1,
-      "random": true,
-      "anim": {
-        "enable": true,
-        "speed": 3,
-        "opacity_min": 0,
-        "sync": false
-      }
+    color: {
+      value: [
+        "#FFFFFF",
+      ],
     },
-    "size": {
-      "value": 1,
-      "random": true,
-      "anim": {
-        "enable": false,
-        "speed": 20,
-        "size_min": 0.1,
-        "sync": false
-      }
-    },
-    "line_linked": {
-      "enable": false,
-    },
-    "move": {
-      "enable": true,
-      "speed": 1,//この数値を小さくするとゆっくりな動きになる
-      "direction": "none",//下に向かって落ちる
-      "random": true,//動きはランダム
-      "straight": true,//動きをとどめない
-      "out_mode": "out",//画面の外に出るように描写
-      "bounce": false,//跳ね返りなし
-      "attract": {
-        "enable": false,
-        "rotateX": 600,
-        "rotateY": 600
-      }
-    }
-  },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": {
-        "enable": false,
+    shape: {
+      type: "polygon", //形状は画像を指定
+      stroke: {
+        width: 0,
+        color: [
+          "#FFFFFF",
+        ],
       },
-      "onclick": {
-        "enable": false,
+    },
+    opacity: {
+      value: 1,
+      random: true,
+      anim: {
+        enable: true,
+        speed: 1,
+        opacity_min: 0,
+        sync: false,
       },
-      "resize": true
+    },
+    size: {
+      value: 1,
+      random: true,
+      anim: {
+        enable: false,
+        speed: 1,
+        size_min: 0.1,
+        sync: false,
+      },
+    },
+    line_linked: {
+      enable: false,
+    },
+    move: {
+      enable: true,
+      speed: 1, //この数値を小さくするとゆっくりな動きになる
+      direction: "none", //下に向かって落ちる
+      random: true, //動きはランダム
+      straight: true, //動きをとどめない
+      out_mode: "out", //画面の外に出るように描写
+      bounce: false, //跳ね返りなし
+      attract: {
+        enable: false,
+        rotateX: 600,
+        rotateY: 600,
+      },
     },
   },
-  "retina_detect": true
-}
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: {
+        enable: false,
+      },
+      onclick: {
+        enable: false,
+      },
+      resize: true,
+    },
+  },
+  retina_detect: true,
+};
 
 particlesJS("particles-js--desc", params__snow);
 
@@ -222,27 +227,31 @@ particlesJS("particles-js--desc", params__snow);
 ============================== */
 particlesJS("drawer-background", params__snow);
 
-const hamburger = $('.hamburger__menu');
-const headerNav = $('.header__nav');
+const hamburger = $(".hamburger__menu");
+const headerNav = $(".header__nav");
 
-hamburger.on('click', function () {
-  if (headerNav.hasClass('is-open')) {
-    $('body').css('overflowY', 'visible')
-    $(this).attr('aria-expanded', 'false')
+hamburger.on("click", function () {
+  if (headerNav.hasClass("is-open")) {
+    $("body").css("overflowY", "visible");
+    $(this).attr("aria-expanded", "false");
   } else {
-    $('body').css('overflowY', 'hidden')
-    $(this).attr('aria-expanded', 'true')
+    $("body").css("overflowY", "hidden");
+    $(this).attr("aria-expanded", "true");
   }
-  $('.drawer-background, .hamburger__icon, .header__nav, #nav__list').toggleClass('is-open');
+  $(
+    ".drawer-background, .hamburger__icon, .header__nav, #nav__list"
+  ).toggleClass("is-open");
 
   return false;
-})
+});
 
-headerNav.on('click', function () {
-  if (headerNav.hasClass('is-open')) {
-    $('.drawer-background, .hamburger__icon, .header__nav, #nav__list').removeClass('is-open');
-    $('body').css('overflowY', 'visible')
-    hamburger.attr('aria-expanded', 'false')
+headerNav.on("click", function () {
+  if (headerNav.hasClass("is-open")) {
+    $(
+      ".drawer-background, .hamburger__icon, .header__nav, #nav__list"
+    ).removeClass("is-open");
+    $("body").css("overflowY", "visible");
+    hamburger.attr("aria-expanded", "false");
   }
 
   return false;
@@ -250,26 +259,26 @@ headerNav.on('click', function () {
 
 /* fadeIn-animation
 ------------------------------ */
-const fadeInContents = document.querySelectorAll('.js-fadeIn');
+const fadeInContents = document.querySelectorAll(".js-fadeIn");
 const fadeInOptions = {
   root: null,
-  rootMargin: '0px',
-  threshold: 0 //閾値は0から1の範囲で指定し、0は要素が画面に少しでも表示されたとき、1は要素が完全に表示されたときを意味
+  rootMargin: "0px",
+  threshold: 0, //閾値は0から1の範囲で指定し、0は要素が画面に少しでも表示されたとき、1は要素が完全に表示されたときを意味
 };
 
 const fadeInCallback = (entries, observer) => {
-  entries.forEach(entry => {
-    entry.target.style.opacity = 0
+  entries.forEach((entry) => {
+    entry.target.style.opacity = 0;
     if (entry.isIntersecting) {
       entry.target.animate(
         {
           opacity: [0, 1],
-          translate: ['0 4rem', 0],
+          translate: ["0 4rem", 0],
         },
         {
           duration: 1000,
-          easing: 'ease',
-          fill: 'forwards',
+          easing: "ease",
+          fill: "forwards",
         }
       );
       observer.unobserve(entry.target);
@@ -279,15 +288,14 @@ const fadeInCallback = (entries, observer) => {
 
 const fadeInObserver = new IntersectionObserver(fadeInCallback, fadeInOptions);
 
-fadeInContents.forEach(fadeInContent => {
+fadeInContents.forEach((fadeInContent) => {
   fadeInObserver.observe(fadeInContent);
 });
 
 /* desc-swiper
 ------------------------------ */
 
-const swiper = new Swiper('.swiper', {
-
+const swiper = new Swiper(".swiper", {
   autoplay: {
     delay: 5000,
   },
@@ -295,13 +303,13 @@ const swiper = new Swiper('.swiper', {
 
   // If we need pagination
   pagination: {
-    el: '.swiper-pagination',
-    type: 'bullets',
-    clickable: true
+    el: ".swiper-pagination",
+    type: "bullets",
+    clickable: true,
   },
 
   navigation: {
-    nextEl: '.swiper-button-next', // 「次へ」ボタン要素のクラス
-    prevEl: '.swiper-button-prev', // 「前へ」ボタン要素のクラス
+    nextEl: ".swiper-button-next", // 「次へ」ボタン要素のクラス
+    prevEl: ".swiper-button-prev", // 「前へ」ボタン要素のクラス
   },
 });

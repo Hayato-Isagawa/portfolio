@@ -28,8 +28,8 @@ $color-accent4: #ffea1e;
 
 /* font
 ============================== */
-$font-jp: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
-$font-en: 'Bruno Ace', '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic', sans-serif;
+$font-jp: 'Noto Sans JP', sans-serif;
+$font-en: 'Bruno Ace', cursive;
 
 /* media-query
 ============================== */
@@ -132,6 +132,7 @@ $layer: (
 ============================== */
 html {
   font-size: $baseFontSize + px;
+      background-color: rgba(0, 10, 20, 1);
 }
 
 body {
@@ -232,15 +233,17 @@ textarea {
 ============================== */
 #splash {
   position: fixed;
-  z-index: 999;
+  z-index: 998;
   width: 100%;
   height: 100%;
   text-align: center;
-  background: transparent;
+  background-color: rgba(0, 10, 20, 1);
 }
 
 #space {
-  width: 100%
+  width: 100%;
+  height: 100%;
+  z-index: 999;
 }
 
 #splash__text {
@@ -728,16 +731,16 @@ textarea {
 }
 
 .footer__copyright {
-  font-size: 12px;
+  font-size: 10px;
   font-family: $font-en;
   padding-top: 16px;
   text-align: center;
 
   @include mq("small") {
-    padding-top: 9px;
+    padding-top: 8px;
   }
 
   @include mq("ex-small") {
-    padding-top: 9px;
+    padding-top: 8px;
   }
 }
