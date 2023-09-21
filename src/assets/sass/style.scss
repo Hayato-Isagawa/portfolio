@@ -745,7 +745,9 @@ textarea {
     font-family: $font-en;
     font-size: rem(40);
     display: inline-block;
-    padding: 0 2.5%;
+    padding: 2.5%;
+    margin-top: 2%;
+    margin-left: 2.5%;
 
     @include mq('small') {
         font-size: rem(32);
@@ -776,8 +778,8 @@ textarea {
 .desc__like {
     dt {
         position: absolute;
-        top: 40%;
-        left: 45%;
+        bottom: 2%;
+        right: 2.5%;
     }
 
     dd {
@@ -799,10 +801,10 @@ textarea {
 .text__like {
     font-family: $font-en;
     position: absolute;
-    padding: 10px;
+    padding: 2.5%;
 
     &:nth-child(1) {
-        top: 48%;
+        top: 45%;
     }
 
     &:nth-child(2) {
@@ -819,18 +821,12 @@ textarea {
         bottom: 2.5%;
     }
 
-    &:nth-child(4) {
-        width: 37.5%;
-        right: 2.5%;
-        bottom: 2.5%;
-    }
-
     @include mq("medium") {
         font-size: rem(14);
     }
 
     @include mq("small") {
-        font-size: rem(10);
+        font-size: rem(12);
     }
 
     @include mq("ex-small") {

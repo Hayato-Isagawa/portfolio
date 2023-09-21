@@ -950,7 +950,7 @@ textarea:focus {
 }
 @media only screen and (max-width: 575px) {
   .about__big-img {
-    margin-bottom: 2.5%;
+    margin-bottom: 5%;
   }
 }
 
@@ -975,7 +975,9 @@ textarea:focus {
   font-family: "Bruno Ace", cursive;
   font-size: 2.5rem;
   display: inline-block;
-  padding: 0 2.5%;
+  padding: 2.5%;
+  margin-top: 2%;
+  margin-left: 2.5%;
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .about__headline {
@@ -1008,8 +1010,8 @@ textarea:focus {
 
 .desc__like dt {
   position: absolute;
-  top: 40%;
-  left: 45%;
+  bottom: 2%;
+  right: 2.5%;
 }
 .desc__like dd {
   top: 0;
@@ -1028,10 +1030,10 @@ textarea:focus {
 .text__like {
   font-family: "Bruno Ace", cursive;
   position: absolute;
-  padding: 10px;
+  padding: 2.5%;
 }
 .text__like:nth-child(1) {
-  top: 48%;
+  top: 45%;
 }
 .text__like:nth-child(2) {
   top: 30%;
@@ -1046,11 +1048,6 @@ textarea:focus {
 .text__like:nth-child(3) {
   bottom: 2.5%;
 }
-.text__like:nth-child(4) {
-  width: 37.5%;
-  right: 2.5%;
-  bottom: 2.5%;
-}
 @media (min-width: 768px) and (max-width: 991px) {
   .text__like {
     font-size: 0.875rem;
@@ -1058,7 +1055,7 @@ textarea:focus {
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .text__like {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
 }
 @media only screen and (max-width: 575px) {
