@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const sass = require('gulp-sass')(require('sass'));
+const sass = require('gulp-dart-sass')
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssSorter = require('css-declaration-sorter');
@@ -13,10 +13,7 @@ const rename = require('gulp-rename');
 
 const htmlBeautify = require('gulp-html-beautify');
 
-function final(done) {
-  console.log('Hello Gulp, hello final');
-  done();
-}
+const replace = require('gulp-replace')
 
 function compileSass() {
   return gulp.src('./src/assets/sass/**/*.scss')
@@ -76,7 +73,6 @@ function copyImage() {
   .pipe(gulp.dest('./public/assets/img'))
 }
 
-exports.final = final;
 exports.compileSass = compileSass;
 exports.watch = watch;
 exports.browserInit = browserInit;
