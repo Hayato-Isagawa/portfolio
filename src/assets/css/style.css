@@ -836,19 +836,19 @@ textarea:focus {
   height: 90px;
   bottom: 75px;
   right: 50px;
-  -webkit-animation: scrolldownMove 5s ease infinite;
-          animation: scrolldownMove 5s ease infinite;
+  -webkit-animation: scrolldownMove 3s ease infinite;
+          animation: scrolldownMove 3s ease infinite;
 }
 @-webkit-keyframes scrolldownMove {
   0% {
     opacity: 0;
   }
   50% {
-    transform: translateY(10px);
+    transform: translateY(20px);
     opacity: 1;
   }
   100% {
-    transform: translateY(20px);
+    transform: translateY(40px);
     opacity: 0;
   }
 }
@@ -857,11 +857,11 @@ textarea:focus {
     opacity: 0;
   }
   50% {
-    transform: translateY(10px);
+    transform: translateY(20px);
     opacity: 1;
   }
   100% {
-    transform: translateY(20px);
+    transform: translateY(40px);
     opacity: 0;
   }
 }
@@ -938,14 +938,14 @@ textarea:focus {
 .about__big-img {
   position: relative;
   width: 100%;
-  border: 1px solid transparent;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   perspective: 1000px;
+  box-shadow: 0 0 10px #77cdff;
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .about__big-img {
-    margin-bottom: 2.5%;
+    margin-bottom: 5%;
   }
 }
 @media only screen and (max-width: 575px) {
@@ -998,7 +998,7 @@ textarea:focus {
 }
 @media only screen and (max-width: 575px) {
   .about__txt {
-    font-size: 0.5rem;
+    font-size: 0.625rem;
   }
 }
 
@@ -1053,18 +1053,18 @@ textarea:focus {
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .text__like {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .text__like {
-    font-size: 0.5rem;
+    font-size: 0.625rem;
   }
 }
 @media only screen and (max-width: 575px) {
   .text__like {
     padding: 2px;
-    font-size: 0.5rem;
+    font-size: 0.625rem;
   }
 }
 
@@ -1387,10 +1387,14 @@ textarea:focus {
 }
 
 .modal__container {
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 70%;
   max-width: 1000px;
   padding: 2.5% 5%;
   border: 1px solid #77cdff;
+  box-shadow: 0 0 20px #77cdff;
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .modal__container {
@@ -1479,6 +1483,11 @@ textarea:focus {
 .modal__txt.txt--long {
   text-align: left;
 }
+@media (min-width: 768px) and (max-width: 991px) {
+  .modal__txt {
+    font-size: 0.875rem;
+  }
+}
 @media (min-width: 576px) and (max-width: 767px) {
   .modal__txt {
     font-size: 0.75rem;
@@ -1486,7 +1495,7 @@ textarea:focus {
 }
 @media only screen and (max-width: 575px) {
   .modal__txt {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -1525,7 +1534,7 @@ textarea:focus {
 }
 @-webkit-keyframes mmslideIn {
   from {
-    transform: translateY(15%);
+    transform: translateY(-100%);
   }
   to {
     transform: translateY(0);
@@ -1533,7 +1542,7 @@ textarea:focus {
 }
 @keyframes mmslideIn {
   from {
-    transform: translateY(15%);
+    transform: translateY(-100%);
   }
   to {
     transform: translateY(0);
@@ -1544,7 +1553,7 @@ textarea:focus {
     transform: translateY(0);
   }
   to {
-    transform: translateY(-10%);
+    transform: translateY(-100%);
   }
 }
 @keyframes mmslideOut {
@@ -1552,7 +1561,7 @@ textarea:focus {
     transform: translateY(0);
   }
   to {
-    transform: translateY(-10%);
+    transform: translateY(-100%);
   }
 }
 .service__modal[aria-hidden=false] .modal__overlay {
@@ -1595,18 +1604,13 @@ textarea:focus {
 
 .works__link {
   display: block;
-  border: 1px solid transparent;
   transition: all 0.2s ease 0s;
 }
 .works__link:hover, .works__link:focus {
-  border: 1px solid #77cdff;
+  box-shadow: 0 0 10px #77cdff;
 }
 .works__link:hover img, .works__link:focus img {
-  transform: scale(1.1);
   filter: none;
-}
-.works__link:hover .works__btn, .works__link:focus .works__btn {
-  transform: scale(1.05);
 }
 
 .works__figure {
@@ -1622,8 +1626,6 @@ textarea:focus {
   -o-object-position: bottom;
      object-position: bottom;
   filter: grayscale(100%);
-  padding-top: 32px;
-  padding-bottom: 32px;
 }
 
 .works__more {
@@ -1685,12 +1687,15 @@ textarea:focus {
 @media (min-width: 576px) and (max-width: 767px) {
   .contact__label {
     text-align: left;
-    padding: 0.5em 2em 0.5em 0;
+    padding: 0.5em 0;
+    width: 200px;
   }
 }
 @media only screen and (max-width: 575px) {
   .contact__label {
     text-align: left;
+    padding: 0.5em 0;
+    width: 200px;
   }
 }
 

@@ -617,7 +617,7 @@ textarea {
     bottom: 75px;
     right: 50px;
     // background: url(../img/index/scrolldown.png) no-repeat center center / contain;
-    animation: scrolldownMove 5s ease infinite;
+    animation: scrolldownMove 3s ease infinite;
 
     @keyframes scrolldownMove {
         0% {
@@ -625,12 +625,12 @@ textarea {
         }
 
         50% {
-            transform: translateY(10px);
+            transform: translateY(20px);
             opacity: 1;
         }
 
         100% {
-            transform: translateY(20px);
+            transform: translateY(40px);
             opacity: 0;
         }
     }
@@ -710,17 +710,17 @@ textarea {
 .about__big-img {
     position: relative;
     width: 100%;
-    border: 1px solid transparent;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     perspective: 1000px; //正の値
+    box-shadow: 0 0 10px $color-accent1;
 
     @include mq('small') {
-        margin-bottom: 2.5%;
+        margin-bottom: 5%;
     }
 
     @include mq('ex-small') {
-        margin-bottom: 2.5%;
+        margin-bottom: 5%;
     }
 }
 
@@ -765,7 +765,7 @@ textarea {
     padding: 2.5%;
 
     @include mq('ex-small') {
-        font-size: rem(8);
+        font-size: rem(10);
     }
 }
 
@@ -826,16 +826,16 @@ textarea {
     }
 
     @include mq("medium") {
-        font-size: rem(12);
+        font-size: rem(14);
     }
 
     @include mq("small") {
-        font-size: rem(8);
+        font-size: rem(10);
     }
 
     @include mq("ex-small") {
         padding: 2px;
-        font-size: rem(8);
+        font-size: rem(10);
     }
 }
 
@@ -1163,10 +1163,14 @@ textarea {
 }
 
 .modal__container {
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 70%;
     max-width: 1000px;
     padding: 2.5% 5%;
     border: 1px solid $color-accent1;
+    box-shadow: 0 0 20px $color-accent1;
 
     @include mq("small") {
         width: calc(100% - 20px);
@@ -1251,12 +1255,16 @@ textarea {
         text-align: left;
     }
 
+    @include mq("medium") {
+        font-size: rem(14);
+    }
+
     @include mq('small') {
         font-size: rem(12);
     }
 
     @include mq('ex-small') {
-        font-size: rem(8);
+        font-size: rem(12);
     }
 }
 
@@ -1282,7 +1290,7 @@ textarea {
 
 @keyframes mmslideIn {
     from {
-        transform: translateY(15%);
+        transform: translateY(-100%);
     }
 
     to {
@@ -1296,31 +1304,31 @@ textarea {
     }
 
     to {
-        transform: translateY(-10%);
+        transform: translateY(-100%);
     }
 }
 
 .service__modal[aria-hidden='false'] {
     .modal__overlay {
-        animation: mmfadeIn 0.5s ease;
+        animation: mmfadeIn .5s ease;
     }
 }
 
 .service__modal[aria-hidden='false'] {
     .modal__container {
-        animation: mmslideIn 0.5s ease;
+        animation: mmslideIn .5s ease;
     }
 }
 
 .service__modal[aria-hidden='true'] {
     .modal__overlay {
-        animation: mmfadeOut 0.5s ease;
+        animation: mmfadeOut .5s ease;
     }
 }
 
 .service__modal[aria-hidden='true'] {
     .modal__container {
-        animation: mmslideOut 0.5s ease;
+        animation: mmslideOut .5s ease;
     }
 }
 
@@ -1348,20 +1356,14 @@ textarea {
 
 .works__link {
     display: block;
-    border: 1px solid transparent;
     transition: all 0.2s ease 0s;
 
     &:hover,
     &:focus {
-        border: 1px solid $color-accent1;
+        box-shadow: 0 0 10px $color-accent1;
 
         img {
-            transform: scale(1.1);
             filter: none;
-        }
-
-        .works__btn {
-            transform: scale(1.05);
         }
     }
 
@@ -1378,8 +1380,6 @@ textarea {
     object-fit: cover;
     object-position: bottom;
     filter: grayscale(100%);
-    padding-top: 32px;
-    padding-bottom: 32px;
 }
 
 .works__more {
@@ -1441,11 +1441,14 @@ textarea {
 
     @include mq('small') {
         text-align: left;
-        padding: 0.5em 2em 0.5em 0;
+        padding: 0.5em 0;
+        width: 200px;
     }
 
     @include mq('ex-small') {
         text-align: left;
+        padding: 0.5em 0;
+        width: 200px;
     }
 }
 

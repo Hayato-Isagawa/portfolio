@@ -531,7 +531,7 @@ input.forEach(function (item, index) {
         }
       );
       setTimeout(function () {
-        required[index].textContent = "必須!";
+        required[index].textContent = "!";
         required[index].style.borderColor = "#ff7a7a";
       }, 550);
     }
