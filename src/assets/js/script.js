@@ -506,6 +506,34 @@ $(window).keyup(function (e) {
   return false;
 });
 
+/* works__swiper
+------------------------------ */
+const worksSwiper = new Swiper(".works__swiper", {
+  // direction: "horizontal",
+  loop: true,
+  // autoplay: {
+  //   delay: 0,
+  // },
+  spaceBetween: 10,
+  slidesPerView: 1.2,
+  speed: 1000,
+  effect: "slide",
+  parallax: true,
+
+  breakpoints: {
+    768: {
+      spaceBetween: 20,
+      slidePerView: 1.5,
+    },
+  },
+
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+
 /* contact__form
 ------------------------------ */
 let required = document.querySelectorAll(".contact__required");
