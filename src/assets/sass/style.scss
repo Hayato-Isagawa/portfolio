@@ -182,10 +182,11 @@ section {
 .section__ttl {
     font-family: $font-en;
     display: inline-block;
-    font-size: rem(90);
+    font-size: rem(48);
     font-weight: 500;
     margin-bottom: 64px;
     position: relative;
+    mix-blend-mode: difference;
 
     @include mq("small") {
         font-size: rem(40);
@@ -230,33 +231,33 @@ textarea {
 
 /* splash ローディング時のアニメーション
 ============================== */
-#splash {
-    position: fixed;
-    z-index: 998;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    background-color: rgba(0, 10, 20, 1);
-}
+// #splash {
+//     position: fixed;
+//     z-index: 998;
+//     width: 100%;
+//     height: 100%;
+//     text-align: center;
+//     background-color: rgba(0, 10, 20, 1);
+// }
 
-#space {
-    width: 100%;
-    height: 100%;
-    z-index: 999;
-}
+// #space {
+//     width: 100%;
+//     height: 100%;
+//     z-index: 999;
+// }
 
-#splash__text {
-    position: absolute;
-    z-index: inherit;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
-}
+// #splash__text {
+//     position: absolute;
+//     z-index: inherit;
+//     top: 50%;
+//     left: 50%;
+//     width: 100%;
+//     transform: translate(-50%, -50%);
+// }
 
-#splash__text svg {
-    height: 2px;
-}
+// #splash__text svg {
+//     height: 2px;
+// }
 
 /* background 背景の星のアニメーション
 ============================== */
@@ -437,7 +438,7 @@ textarea {
 }
 
 .nav__link {
-    font-size: rem(20);
+    font-size: rem(16);
     font-family: $font-en;
     position: relative;
     padding: 10px;
@@ -708,12 +709,13 @@ textarea {
 }
 
 .about__big-img {
-    position: relative;
     width: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    perspective: 1000px; //正の値
+    border: 1px solid $color-accent1;
     box-shadow: 0 0 10px $color-accent1;
+    background-color: rgba($color-accent1, .05);
+    padding: 2.5%;
 
     @include mq('small') {
         margin-bottom: 5%;
@@ -724,6 +726,13 @@ textarea {
     }
 }
 
+.about__inner {
+    position: relative;
+    border: 1px solid $color-accent1;
+    overflow: hidden;
+    background-color: rgba($color-accent1, .05);
+}
+
 .big-img {
     object-fit: cover;
     object-position: bottom;
@@ -731,9 +740,6 @@ textarea {
 
 .about__desc {
     display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     text-shadow: -1px -1px 0 $color-main, -1px 0 0 $color-main, -1px 1px 0 $color-main,
@@ -742,12 +748,13 @@ textarea {
 }
 
 .about__headline {
+    position: absolute;
+    top: 2.5%;
+    left: 2.5%;
     font-family: $font-en;
-    font-size: rem(40);
-    display: inline-block;
-    padding: 2.5%;
-    margin-top: 2%;
-    margin-left: 2.5%;
+    font-size: rem(32);
+    line-height: 1;
+
 
     @include mq('small') {
         font-size: rem(32);
@@ -764,7 +771,6 @@ textarea {
     bottom: 2.5%;
     left: 2.5%;
     display: inline-block;
-    padding: 2.5%;
 
     @include mq('ex-small') {
         font-size: rem(10);
@@ -801,24 +807,25 @@ textarea {
 .text__like {
     font-family: $font-en;
     position: absolute;
-    padding: 2.5%;
 
     &:nth-child(1) {
         top: 45%;
+        left: 2.5%;
     }
 
     &:nth-child(2) {
-        top: 30%;
-        right: 5%;
+        top: 45%;
+        right: 2.5%;
 
         @include mq('ex-small') {
             top: 25%;
-            right: 5%;
+            right: 2.5%;
         }
     }
 
     &:nth-child(3) {
         bottom: 2.5%;
+        left: 2.5%;
     }
 
     @include mq("medium") {
@@ -846,7 +853,7 @@ textarea {
     dd {
         font-size: rem(24);
         font-family: $font-jp;
-        bottom: 25%;
+        bottom: 2.5%;
 
         @include mq('medium') {
             font-size: rem(18);
@@ -864,88 +871,15 @@ textarea {
     display: flex;
     flex: 0 1 18%;
     flex-direction: column;
+    justify-content: space-evenly;
     gap: 15px;
 
     @include mq('small') {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        flex-direction: row;
     }
 
     @include mq('ex-small') {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-    }
-}
-
-.about__list>li {
-
-    @include mq("small") {
-        &:nth-child(odd) {
-            justify-self: start;
-        }
-
-        &:nth-child(even) {
-            justify-self: end;
-        }
-    }
-
-    ;
-
-    @include mq("ex-small") {
-        &:nth-child(odd) {
-            justify-self: start;
-        }
-
-        &:nth-child(even) {
-            justify-self: end;
-        }
-    }
-
-    ;
-}
-
-.about__job {
-    @include mq("small") {
-        grid-area: 1 / 1 / 2 / 2;
-    }
-
-    @include mq("ex-small") {
-        grid-area: 1 / 1 / 2 / 2;
-    }
-}
-
-.about__live {
-    @include mq("small") {
-        grid-area: 1 / 2 / 2 / 3;
-    }
-
-    ;
-
-    @include mq("ex-small") {
-        grid-area: 1 / 2 / 2 / 3;
-    }
-}
-
-.about__like {
-    @include mq("small") {
-        grid-area: 2 / 2 / 3 / 3;
-    }
-
-    @include mq("ex-small") {
-        grid-area: 2 / 2 / 3 / 3;
-    }
-
-}
-
-.about__target {
-    @include mq("small") {
-        grid-area: 2 / 3 / 3 / 4;
-    }
-
-    @include mq("ex-small") {
-        grid-area: 2 / 3 / 3 / 4;
+        flex-direction: row;
     }
 }
 
@@ -959,7 +893,9 @@ textarea {
     transition: all 0.2s ease 0s;
     border: 1px solid transparent;
     border-radius: 50%;
-    filter: grayscale(100%);
+    // filter: grayscale(100%);
+    box-shadow: 0 5px 0 $color-dots;
+    transform: translateY(-3px);
 
     @include mq("medium") {
         width: 100px;
@@ -978,8 +914,13 @@ textarea {
 
     &:hover,
     &:focus {
-        box-shadow: 0 0 10px $color-accent1;
+        box-shadow: 0 3px 0 $color-dots;
+        transform: translateY(0);
         filter: grayscale(0%);
+    }
+
+    &:active {
+        transform: translateY(4px);
     }
 }
 
@@ -990,7 +931,6 @@ textarea {
 
 .about__img {
     padding-top: 100%;
-    transform: rotate(15deg);
 }
 
 .img__job {
@@ -999,7 +939,7 @@ textarea {
 
 
 .img__live {
-    background: url(../img/index/about2.jpg) no-repeat center center / cover;
+    background: url(../img/index/about2.png) no-repeat center center / cover;
 }
 
 .img__like {
@@ -1719,13 +1659,13 @@ textarea {
     }
 
     @include mq('small') {
-        height: 100px;
+        height: 300px;
         min-height: 100px;
         max-width: 700px;
     }
 
     @include mq('ex-small') {
-        height: 100px;
+        height: 200px;
         min-height: 100px;
         max-width: 700px;
     }

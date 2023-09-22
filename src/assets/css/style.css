@@ -103,10 +103,11 @@ section {
 .section__ttl {
   font-family: "Bruno Ace", cursive;
   display: inline-block;
-  font-size: 5.625rem;
+  font-size: 3rem;
   font-weight: 500;
   margin-bottom: 64px;
   position: relative;
+  mix-blend-mode: difference;
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .section__ttl {
@@ -457,34 +458,6 @@ textarea:focus {
 
 /* splash ローディング時のアニメーション
 ============================== */
-#splash {
-  position: fixed;
-  z-index: 998;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background-color: rgb(0, 10, 20);
-}
-
-#space {
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-}
-
-#splash__text {
-  position: absolute;
-  z-index: inherit;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  transform: translate(-50%, -50%);
-}
-
-#splash__text svg {
-  height: 2px;
-}
-
 /* background 背景の星のアニメーション
 ============================== */
 #particles-js {
@@ -666,7 +639,7 @@ textarea:focus {
 }
 
 .nav__link {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-family: "Bruno Ace", cursive;
   position: relative;
   padding: 10px;
@@ -936,12 +909,13 @@ textarea:focus {
 }
 
 .about__big-img {
-  position: relative;
   width: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  perspective: 1000px;
+  border: 1px solid #77cdff;
   box-shadow: 0 0 10px #77cdff;
+  background-color: rgba(119, 205, 255, 0.05);
+  padding: 2.5%;
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .about__big-img {
@@ -954,6 +928,13 @@ textarea:focus {
   }
 }
 
+.about__inner {
+  position: relative;
+  border: 1px solid #77cdff;
+  overflow: hidden;
+  background-color: rgba(119, 205, 255, 0.05);
+}
+
 .big-img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -963,21 +944,18 @@ textarea:focus {
 
 .about__desc {
   display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   text-shadow: -1px -1px 0 #3e3e3e, -1px 0 0 #3e3e3e, -1px 1px 0 #3e3e3e, 0 -1px 0 #3e3e3e, 0 1px 0 #3e3e3e, 1px -1px 0 #3e3e3e, 1px 0 0 #3e3e3e, 1px 1px 0 #3e3e3e;
 }
 
 .about__headline {
+  position: absolute;
+  top: 2.5%;
+  left: 2.5%;
   font-family: "Bruno Ace", cursive;
-  font-size: 2.5rem;
-  display: inline-block;
-  padding: 2.5%;
-  margin-top: 2%;
-  margin-left: 2.5%;
+  font-size: 2rem;
+  line-height: 1;
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .about__headline {
@@ -996,7 +974,6 @@ textarea:focus {
   bottom: 2.5%;
   left: 2.5%;
   display: inline-block;
-  padding: 2.5%;
 }
 @media only screen and (max-width: 575px) {
   .about__txt {
@@ -1030,23 +1007,24 @@ textarea:focus {
 .text__like {
   font-family: "Bruno Ace", cursive;
   position: absolute;
-  padding: 2.5%;
 }
 .text__like:nth-child(1) {
   top: 45%;
+  left: 2.5%;
 }
 .text__like:nth-child(2) {
-  top: 30%;
-  right: 5%;
+  top: 45%;
+  right: 2.5%;
 }
 @media only screen and (max-width: 575px) {
   .text__like:nth-child(2) {
     top: 25%;
-    right: 5%;
+    right: 2.5%;
   }
 }
 .text__like:nth-child(3) {
   bottom: 2.5%;
+  left: 2.5%;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .text__like {
@@ -1073,7 +1051,7 @@ textarea:focus {
 .desc__target dd {
   font-size: 1.5rem;
   font-family: "Noto Sans JP", sans-serif;
-  bottom: 25%;
+  bottom: 2.5%;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .desc__target dd {
@@ -1092,81 +1070,17 @@ textarea:focus {
   display: flex;
   flex: 0 1 18%;
   flex-direction: column;
+  justify-content: space-evenly;
   gap: 15px;
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .about__list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    flex-direction: row;
   }
 }
 @media only screen and (max-width: 575px) {
   .about__list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-  .about__list > li:nth-child(odd) {
-    justify-self: start;
-  }
-  .about__list > li:nth-child(even) {
-    justify-self: end;
-  }
-}
-@media only screen and (max-width: 575px) {
-  .about__list > li:nth-child(odd) {
-    justify-self: start;
-  }
-  .about__list > li:nth-child(even) {
-    justify-self: end;
-  }
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-  .about__job {
-    grid-area: 1/1/2/2;
-  }
-}
-@media only screen and (max-width: 575px) {
-  .about__job {
-    grid-area: 1/1/2/2;
-  }
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-  .about__live {
-    grid-area: 1/2/2/3;
-  }
-}
-@media only screen and (max-width: 575px) {
-  .about__live {
-    grid-area: 1/2/2/3;
-  }
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-  .about__like {
-    grid-area: 2/2/3/3;
-  }
-}
-@media only screen and (max-width: 575px) {
-  .about__like {
-    grid-area: 2/2/3/3;
-  }
-}
-
-@media (min-width: 576px) and (max-width: 767px) {
-  .about__target {
-    grid-area: 2/3/3/4;
-  }
-}
-@media only screen and (max-width: 575px) {
-  .about__target {
-    grid-area: 2/3/3/4;
+    flex-direction: row;
   }
 }
 
@@ -1180,7 +1094,8 @@ textarea:focus {
   transition: all 0.2s ease 0s;
   border: 1px solid transparent;
   border-radius: 50%;
-  filter: grayscale(100%);
+  box-shadow: 0 5px 0 #7d7d7d;
+  transform: translateY(-3px);
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .about__tab {
@@ -1201,8 +1116,12 @@ textarea:focus {
   }
 }
 .about__tab:hover, .about__tab:focus {
-  box-shadow: 0 0 10px #77cdff;
+  box-shadow: 0 3px 0 #7d7d7d;
+  transform: translateY(0);
   filter: grayscale(0%);
+}
+.about__tab:active {
+  transform: translateY(4px);
 }
 
 .about__wrapper {
@@ -1212,7 +1131,6 @@ textarea:focus {
 
 .about__img {
   padding-top: 100%;
-  transform: rotate(15deg);
 }
 
 .img__job {
@@ -1220,7 +1138,7 @@ textarea:focus {
 }
 
 .img__live {
-  background: url(../img/index/about2.jpg) no-repeat center center/cover;
+  background: url(../img/index/about2.png) no-repeat center center/cover;
 }
 
 .img__like {
@@ -1988,14 +1906,14 @@ textarea:hover, textarea:focus {
 }
 @media (min-width: 576px) and (max-width: 767px) {
   textarea {
-    height: 100px;
+    height: 300px;
     min-height: 100px;
     max-width: 700px;
   }
 }
 @media only screen and (max-width: 575px) {
   textarea {
-    height: 100px;
+    height: 200px;
     min-height: 100px;
     max-width: 700px;
   }

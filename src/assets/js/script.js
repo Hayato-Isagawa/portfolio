@@ -407,7 +407,7 @@ aboutButtons.forEach((item, index) => {
           },
         ],
         {
-          duration: 2000,
+          duration: 100,
           easing: "ease",
           fill: "forwards",
         }
@@ -415,14 +415,36 @@ aboutButtons.forEach((item, index) => {
       bigImg.animate(
         [
           {
-            transform: "rotateX(0deg)",
+            offset: 0.0,
+            transform: 'scale3d(1, 1, 1)',
           },
           {
-            transform: "rotateX(360deg)",
+            offset: 0.1,
+            transform: 'scale3d(1, 1.6, 1)',
+          },
+          {
+            offset: 0.25,
+            transform: 'scale3d(1, 0.005, 1)',
+          },
+          {
+            offset: 0.5,
+            transform: 'scale3d(0, 0, 1)',
+          },
+          {
+            offset: 0.75,
+            transform: 'scale3d(1, 0.005, 1)',
+          },
+          {
+            offset: 0.9,
+            transform: 'scale3d(1, 1.6, 1)',
+          },
+          {
+            offset: 1,
+            transform: 'scale3d(1, 1, 1)',
           },
         ],
         {
-          duration: 1100,
+          duration: 500,
           easing: "ease",
           fill: "forwards",
         }
@@ -431,11 +453,11 @@ aboutButtons.forEach((item, index) => {
       setTimeout(function () {
         // bigImg.src = imgSrc;
         bigImg.setAttribute("src", `${imgSrc}`);
-      }, 600);
+      }, 300);
 
       setTimeout(function () {
         bigImgDesc[index].style.display = "block";
-      }, 1200);
+      }, 1000);
     }
   });
 });

@@ -46,7 +46,9 @@
     <!-- google-font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <!-- reset.css -->
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <!-- fontAwesome -->
@@ -134,7 +136,7 @@
 
             <section id="concept">
                 <div class="container concept__container">
-                    <h2 class="section__ttl js-fadeIn">Concept</h2>
+                    <h2 class="section__ttl">Concept</h2>
                     <p class="concept__desc">
                         このウェブサイトは、<strong class="text--bold">ウェブクリエイターhayaのポートフォリオ兼実験サイト</strong>です。
                     </p>
@@ -161,49 +163,51 @@
 
             <section id="about">
                 <div class="container about__container">
-                    <h2 class="section__ttl js-fadeIn">About</h2>
+                    <h2 class="section__ttl">About</h2>
                     <div class="about__row">
-                        <div class="about__big-img js-fadeIn" id="about__big-img">
-                            <img src="./assets/img/index/about1.png" alt="" class="big-img" id="big-img">
-                            <dl class="about__desc desc__job">
-                                <dt class="about__headline">
-                                    <h3>Web Creator</h3>
-                                </dt>
-                                <dd class="about__txt">
-                                    <p>
-                                        HTML / CSS / JavaScript / PHP / WordPress
-                                    </p>
-                                </dd>
-                            </dl>
-                            <dl class="about__desc">
-                                <dt class="about__headline">
-                                    <h3>I live in</h3>
-                                </dt>
-                            </dl>
-                            <dl class="about__desc desc__like">
-                                <dt class="about__headline">
-                                    <h3>I like</h3>
-                                </dt>
-                                <dd class="about__txt">
-                                    <ul>
-                                        <li class="text__like">Reading books & manga</li>
-                                        <li class="text__like">Listening to music & radio</li>
-                                        <li class="text__like">Watching movies and TV program</li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                            <dl class="about__desc desc__target">
-                                <dt class="about__headline">
-                                    <h3>I have a dream.</h3>
-                                </dt>
-                                <dd class="about__txt font--jp">
-                                    機能も感動も兼ね備えた<br>
-                                    ウェブサイトを制作すること
-                                </dd>
-                            </dl>
+                        <div class="about__big-img" id="about__big-img">
+                            <div class="about__inner">
+                                <img src="./assets/img/index/about1.png" alt="" class="big-img" id="big-img">
+                                <dl class="about__desc desc__job">
+                                    <dt class="about__headline">
+                                        <h3>Web Creator</h3>
+                                    </dt>
+                                    <dd class="about__txt">
+                                        <p>
+                                            HTML / CSS / JavaScript / PHP / WordPress
+                                        </p>
+                                    </dd>
+                                </dl>
+                                <dl class="about__desc">
+                                    <dt class="about__headline">
+                                        <h3>I live in</h3>
+                                    </dt>
+                                </dl>
+                                <dl class="about__desc desc__like">
+                                    <dt class="about__headline">
+                                        <h3>I like</h3>
+                                    </dt>
+                                    <dd class="about__txt">
+                                        <ul>
+                                            <li class="text__like">Reading books & manga</li>
+                                            <li class="text__like">Listening to music & radio</li>
+                                            <li class="text__like">Watching movies and TV program</li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                                <dl class="about__desc desc__target">
+                                    <dt class="about__headline">
+                                        <h3>I have a dream.</h3>
+                                    </dt>
+                                    <dd class="about__txt font--jp">
+                                        機能も感動も兼ね備えた<br>
+                                        ウェブサイトを制作すること
+                                    </dd>
+                                </dl>
+                            </div>
                         </div>
-                        <ul class="about__list js-fadeIn">
-                            <li class="about__contents about__job">
+                        <ul class="about__list">
+                            <li class="about__contents">
                                 <button class="about__tab" type="button"
                                     aria-label="ウェブ製作者で、HTML、CSS、JavaScript、PHP、WordPressを使用できます">
                                     <div class="about__wrapper">
@@ -212,15 +216,15 @@
                                     </div>
                                 </button>
                             </li>
-                            <li class="about__contents about__live">
+                            <li class="about__contents">
                                 <button class="about__tab" type="button" aria-label="沖縄県に住んでいます">
                                     <div class="about__wrapper">
-                                        <div class="about__img img__live" data-image="./assets/img/index/about2.jpg">
+                                        <div class="about__img img__live" data-image="./assets/img/index/about2.png">
                                         </div>
                                     </div>
                                 </button>
                             </li>
-                            <li class="about__contents about__like">
+                            <li class="about__contents">
                                 <button class="about__tab" type="button"
                                     aria-label="私は本やマンガを読むこと、音楽やラジオを聴くこと、映画やテレビ番組を見ることが好きです">
                                     <div class="about__wrapper">
@@ -229,31 +233,13 @@
                                     </div>
                                 </button>
                             </li>
-                            <li class="about__contents about__target">
+                            <li class="about__contents">
                                 <button class="about__tab" type="button" aria-label="機能も感動も兼ね備えたウェブサイトを制作することです。">
                                     <div class="about__wrapper">
                                         <div class="about__img img__target"
                                             data-image="./assets/img/index/about4-1.png"></div>
                                     </div>
                                 </button>
-                            </li>
-                            <li class="contents--blank is-sp">
-                                <article class="card card--mercury">
-                                    <div class="card__planet">
-                                        <div class="planet__atmosphere">
-                                            <div class="planet__surface"></div>
-                                        </div>
-                                    </div>
-                                </article>
-                            </li>
-                            <li class="contents--blank is-sp">
-                                <article class="card card--venus">
-                                    <div class="card__planet">
-                                        <div class="planet__atmosphere">
-                                            <div class="planet__surface"></div>
-                                        </div>
-                                    </div>
-                                </article>
                             </li>
                         </ul>
                     </div>
@@ -263,9 +249,9 @@
 
             <section id="service">
                 <div class="container service__container">
-                    <h2 class="section__ttl js-fadeIn">Service</h2>
+                    <h2 class="section__ttl">Service</h2>
                     <ul class="service__list">
-                        <li class="service__contents service__website js-fadeIn">
+                        <li class="service__contents service__website">
                             <button class="service__link" data-micromodal-trigger="modal__website" type="button"
                                 aria-label="ウェブサイト制作について詳細を見る">
                                 <div class="service__wrapper">
@@ -273,7 +259,7 @@
                                 </div>
                             </button>
                         </li>
-                        <li class="service__contents service__blog js-fadeIn">
+                        <li class="service__contents service__blog">
                             <button class="service__link" data-micromodal-trigger="modal__blog" type="button"
                                 aria-label="コーディングについての詳細を見る">
                                 <div class="service__wrapper">
@@ -281,7 +267,7 @@
                                 </div>
                             </button>
                         </li>
-                        <li class="service__contents service__support js-fadeIn">
+                        <li class="service__contents service__support">
                             <button class="service__link" data-micromodal-trigger="modal__support" type="button"
                                 aria-label="ウェブサイト運用・保守代行について詳細を見る">
                                 <div class="service__wrapper">
@@ -407,7 +393,7 @@
 
             <section id="works">
                 <div class="container works__container">
-                    <h2 class="section__ttl js-fadeIn">Works</h2>
+                    <h2 class="section__ttl">Works</h2>
                     <div class="">
                         <ul class="works__links">
                             <li class="">
@@ -458,8 +444,8 @@
 
             <section id="contact">
                 <div class="container contact__container">
-                    <h2 class="section__ttl js-fadeIn">Contact</h2>
-                    <form class="contact__form js-fadeIn" id="js-form"
+                    <h2 class="section__ttl">Contact</h2>
+                    <form class="contact__form" id="js-form"
                         action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeZ9vGsNVXBqaX6et500z5LzjMCC_TJqWWrc_1wtvpBfov8mQ/formResponse"
                         method="post">
                         <div class="contact__list">
@@ -520,21 +506,6 @@
 
     </div>
     <!-- /.wrapper -->
-
-    <!-- <article class="card card--pluto">
-        <div class="card__planet">
-            <div class="planet__atmosphere">
-                <div class="planet__surface"></div>
-            </div>
-        </div>
-    </article>
-    <article class="card card--sun">
-        <div class="card__planet">
-            <div class="planet__atmosphere">
-                <div class="planet__surface"></div>
-            </div>
-        </div>
-    </article> -->
 
     <footer class="footer" id="footer">
         <p class="footer__copyright"><small lang="en" class="copyright">&copy; haya Portfolio Website All Rights
