@@ -273,7 +273,7 @@ const fadeOutKeyframes = {
 setTimeout(() => {
   scrollDown.style.display = "block";
   scrollDown.animate(fadeInKeyframes, 1000);
-}, 8000);
+}, 7000);
 
 /* link
 ------------------------------ */
@@ -460,6 +460,15 @@ aboutButtons.forEach((item, index) => {
       }, 1500);
     }
   });
+});
+
+/* service__masonry
+------------------------------ */
+const elem = document.querySelector('.grid');
+const msnry = new Masonry(elem, {
+  itemSelector: ".grid-item",
+  columnWidth: 150,
+  gutter: 10,
 });
 
 /* service__modal

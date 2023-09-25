@@ -70,6 +70,8 @@
     <script defer src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <!-- IntersectionObserver IE11用 -->
     <script defer src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
+    <!-- masonry.js -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <!-- micromodal.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/micromodal/dist/micromodal.min.js"></script>
     <!-- micromodal.js IE11用 -->
@@ -92,23 +94,23 @@
     <!-- /#particles-js -->
 
     <header class="header" id="header">
-        <h1 class="header__logo">haya. Portfolio</h1>
+        <h1 class="header__logo">haya<strong class="text--bold">.</strong></h1>
         <nav class="header__nav">
             <ul id="nav__list">
                 <li class="nav__item">
-                    <a href="#concept" class="nav__link" aria-label="このサイトのコンセプト">Concept</a>
+                    <a href="#concept" class="nav__link" aria-label="このサイトのコンセプト"><span class="nav__link-en">Concept</span><span class="nav__link-ja">コンセプト</span></a>
                 </li>
                 <li class="nav__item">
-                    <a href="#about" class="nav__link" aria-label="私について">About</a>
+                    <a href="#about" class="nav__link" aria-label="私について"><span class="nav__link-en">About</span><span class="nav__link-ja">私について</span></a>
                 </li>
                 <li class="nav__item">
-                    <a href="#service" class="nav__link" aria-label="サービス内容">Service</a>
+                    <a href="#service" class="nav__link" aria-label="サービス内容"><span class="nav__link-en">Service</span><span class="nav__link-ja">サービス</span></a>
                 </li>
                 <li class="nav__item">
-                    <a href="#works" class="nav__link" aria-label="これまでのお仕事">Works</a>
+                    <a href="#works" class="nav__link" aria-label="これまでのお仕事"><span class="nav__link-en">Works</span><span class="nav__link-ja">実績</span></a>
                 </li>
                 <li class="nav__item">
-                    <a href="#contact" class="nav__link" aria-label="連絡する">Contact</a>
+                    <a href="#contact" class="nav__link" aria-label="連絡する"><span class="nav__link-en">Contact</span><span class="nav__link-ja">お問い合わせ</span></a>
                 </li>
             </ul>
         </nav>
@@ -143,10 +145,10 @@
                     <h3 class="section__sub-ttl">- コンセプト</h3>
                     <h4 class="section__txt">
                         <p class="section__desc">
-                            このウェブサイトは、<strong class="text--bold">ウェブクリエイターhayaのポートフォリオ兼実験サイト</strong>です。
+                            このウェブサイトは、<strong class="text--bold">ウェブクリエイターhaya.のポートフォリオ兼アウトプットサイト</strong>です。
                         </p>
                         <p class="section__desc">
-                            hayaが書籍を読んで学んだことや、ウェブを検索していて面白いなと思った表現を実践する場所も兼ねています。
+                            hayaが学んだことや、現在のトレンドの表現をアウトプットする場所も兼ねています。
                         </p>
                         <p class="section__desc">
                             特にJavaScriptが好きなので、その記述が多くなる傾向があります。
@@ -265,11 +267,11 @@
                     <h3 class="section__sub-ttl">- サービス</h3>
                     <h4 class="section__txt">
                         <p class="section__desc">
-                            サービス内容について詳しく知りたい方はお気軽にお問い合わせください。
+                            サービス内容について詳しく知りたい方は、お気軽に<a href="#contact" class="service__contact">お問い合わせ</a>ください。
                         </p>
                     </h4>
-                    <ul class="service__list">
-                        <li class="service__contents">
+                    <ul class="service__list grid">
+                        <li class="service__contents grid-item grid-item--width2">
                             <button class="service__link" data-micromodal-trigger="modal__website" type="button"
                                 aria-label="ウェブサイト制作について詳細を見る">
                                 <figure class="service__img-wrapper">
@@ -278,7 +280,7 @@
                                 <h3 class="service__head">ウェブサイト制作</h3>
                             </button>
                         </li>
-                        <li class="service__contents">
+                        <li class="service__contents grid-item grid-item--width2">
                             <button class="service__link" data-micromodal-trigger="modal__cording" type="button"
                                 aria-label="コーディングについての詳細を見る">
                                 <figure class="service__img-wrapper">
@@ -287,7 +289,7 @@
                                 <h3 class="service__head">コーディング</h3>
                             </button>
                         </li>
-                        <li class="service__contents">
+                        <li class="service__contents grid-item">
                             <button class="service__link" data-micromodal-trigger="modal__support" type="button"
                                 aria-label="運用・保守代行について詳細を見る">
                                 <figure class="service__img-wrapper">
@@ -296,13 +298,49 @@
                                 <h3 class="service__head">運用・保守代行</h3>
                             </button>
                         </li>
-                        <li class="service__contents">
-                            <button class="service__link" data-micromodal-trigger="modal__other" type="button"
+                        <li class="service__contents grid-item">
+                            <button class="service__link" data-micromodal-trigger="modal__web" type="button"
                                 aria-label="ウェブ全般について詳細を見る">
                                 <figure class="service__img-wrapper">
                                     <img src="./assets/img/index/service4.gif" alt="" class="service__img">
                                 </figure>
                                 <h3 class="service__head">ウェブ全般</h3>
+                            </button>
+                        </li>
+                        <li class="service__contents grid-item grid-item--width2">
+                            <button class="service__link" data-micromodal-trigger="modal__sp" type="button"
+                                aria-label="レスポンシブについて詳細を見る">
+                                <figure class="service__img-wrapper">
+                                    <img src="./assets/img/index/service5.gif" alt="" class="service__img">
+                                </figure>
+                                <h3 class="service__head">レスポンシブ</h3>
+                            </button>
+                        </li>
+                        <li class="service__contents grid-item">
+                            <button class="service__link" data-micromodal-trigger="modal__movie" type="button"
+                                aria-label="動画編集について詳細を見る">
+                                <figure class="service__img-wrapper">
+                                    <img src="./assets/img/index/service6.gif" alt="" class="service__img">
+                                </figure>
+                                <h3 class="service__head">動画編集</h3>
+                            </button>
+                        </li>
+                        <li class="service__contents grid-item">
+                            <button class="service__link" data-micromodal-trigger="modal__business" type="button"
+                                aria-label="業務効率化について詳細を見る">
+                                <figure class="service__img-wrapper">
+                                    <img src="./assets/img/index/service7.gif" alt="" class="service__img">
+                                </figure>
+                                <h3 class="service__head">業務効率化</h3>
+                            </button>
+                        </li>
+                        <li class="service__contents grid-item">
+                            <button class="service__link" data-micromodal-trigger="modal__ec" type="button"
+                                aria-label="ECサイトについて詳細を見る">
+                                <figure class="service__img-wrapper">
+                                    <img src="./assets/img/index/service8.gif" alt="" class="service__img">
+                                </figure>
+                                <h3 class="service__head">ECサイト</h3>
                             </button>
                         </li>
                     </ul>
@@ -369,7 +407,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="service__modal micromodal-slide" id="modal__other" aria-hidden="true">
+                <div class="service__modal micromodal-slide" id="modal__web" aria-hidden="true">
                     <div class="modal__overlay" tabindex="-1" data-micromodal-close>
                         <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-4-title">
                             <header class="modal__header">
@@ -383,8 +421,87 @@
                                 <img class="modal__img" src="./assets/img/index/service4.gif" alt="ウェブサイト運用・保守代行のイメージ">
                                 <h3 class="modal__ttl" id="modal-4-title">ウェブ全般</h3>
                                 <p class="modal__txt">
-                                    <br>
                                     ウェブに関することならなんでもご相談に乗ります。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service__modal micromodal-slide" id="modal__sp" aria-hidden="true">
+                    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-5-title">
+                            <header class="modal__header">
+                                <button class="modal__close" aria-label="レスポンシブについて詳細を閉じる" data-micromodal-close
+                                    type="button">
+                                    <span class="close__icon"></span>
+                                    <span class="close__icon"></span>
+                                </button>
+                            </header>
+                            <div class="modal__content" id="modal-5-content">
+                                <img class="modal__img" src="./assets/img/index/service5.gif" alt="レスポンシブのイメージ">
+                                <h3 class="modal__ttl" id="modal-5-title">レスポンシブ</h3>
+                                <p class="modal__txt">
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service__modal micromodal-slide" id="modal__movie" aria-hidden="true">
+                    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-6-title">
+                            <header class="modal__header">
+                                <button class="modal__close" aria-label="動画編集について詳細を閉じる" data-micromodal-close
+                                    type="button">
+                                    <span class="close__icon"></span>
+                                    <span class="close__icon"></span>
+                                </button>
+                            </header>
+                            <div class="modal__content" id="modal-6-content">
+                                <img class="modal__img" src="./assets/img/index/service6.gif" alt="動画編集のイメージ">
+                                <h3 class="modal__ttl" id="modal-6-title">動画編集</h3>
+                                <p class="modal__txt">
+                                    <br>
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service__modal micromodal-slide" id="modal__business" aria-hidden="true">
+                    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-7-title">
+                            <header class="modal__header">
+                                <button class="modal__close" aria-label="業務効率化について詳細を閉じる" data-micromodal-close
+                                    type="button">
+                                    <span class="close__icon"></span>
+                                    <span class="close__icon"></span>
+                                </button>
+                            </header>
+                            <div class="modal__content" id="modal-7-content">
+                                <img class="modal__img" src="./assets/img/index/service7.gif" alt="業務効率化のイメージ">
+                                <h3 class="modal__ttl" id="modal-7-title">業務効率化</h3>
+                                <p class="modal__txt">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service__modal micromodal-slide" id="modal__ec" aria-hidden="true">
+                    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-8-title">
+                            <header class="modal__header">
+                                <button class="modal__close" aria-label="ECサイトについて詳細を閉じる" data-micromodal-close
+                                    type="button">
+                                    <span class="close__icon"></span>
+                                    <span class="close__icon"></span>
+                                </button>
+                            </header>
+                            <div class="modal__content" id="modal-8-content">
+                                <img class="modal__img" src="./assets/img/index/service8.gif" alt="ECサイトのイメージ">
+                                <h3 class="modal__ttl" id="modal-8-title">ECサイト</h3>
+                                <p class="modal__txt">
+
                                 </p>
                             </div>
                         </div>

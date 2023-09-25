@@ -13,9 +13,6 @@
 /* color-scheme
 ============================== */
 $color-main: #3e3e3e;
-// $color-text: ;
-// $color-text2: ;
-// $color-border: ;
 $color-background: #fffdf7;
 $color-space : #000a14;
 $color-dots: #7d7d7d;
@@ -215,7 +212,7 @@ section {
 
 .section__desc {
     &:not(:last-child) {
-        margin-bottom: 16px;
+        margin-bottom: 8px;
     }
 
     @include mq("small") {
@@ -259,33 +256,33 @@ textarea {
 
 /* splash ローディング時のアニメーション
 ============================== */
-// #splash {
-//     position: fixed;
-//     z-index: 998;
-//     width: 100%;
-//     height: 100%;
-//     text-align: center;
-//     background-color: $color-space;
-// }
+#splash {
+    position: fixed;
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: $color-space;
+}
 
-// #space {
-//     width: 100%;
-//     height: 100%;
-//     z-index: 999;
-// }
+#space {
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
 
-// #splash__text {
-//     position: absolute;
-//     z-index: inherit;
-//     top: 50%;
-//     left: 50%;
-//     width: 100%;
-//     transform: translate(-50%, -50%);
-// }
+#splash__text {
+    position: absolute;
+    z-index: inherit;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+}
 
-// #splash__text svg {
-//     height: 2px;
-// }
+#splash__text svg {
+    height: 2px;
+}
 
 /* background 背景の星のアニメーション
 ============================== */
@@ -483,32 +480,63 @@ textarea {
 
     &.is-active {
 
-        &::before,
         &::after {
             animation: navHover 0.5s ease forwards;
             opacity: 1;
         }
 
-        @keyframes navHover {
-            0% {
-                width: 0;
-            }
+        .nav__link-en {
+            opacity: 0;
+        }
 
-            100% {
-                width: 50%;
-            }
+        .nav__link-ja {
+            opacity: 1;
         }
     }
 
     &:hover,
     &:focus {
 
-        &::before,
         &::after {
             animation: navHover 0.5s ease forwards;
             opacity: 1;
         }
+
+        .nav__link-en {
+            opacity: 0;
+        }
+
+        .nav__link-ja {
+            opacity: 1;
+        }
     }
+
+    @keyframes navHover {
+        0% {
+            width: 0;
+        }
+
+        100% {
+            width: 50%;
+        }
+    }
+}
+
+.nav__link-en {
+    transition: all 0.5s ease 0s;
+}
+
+.nav__link-ja {
+    position: absolute;
+    display: block;
+    font-family: $font-jp;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    white-space: nowrap;
+    transition: all 0.5s ease 0s;
+    transform-origin: bottom;
 }
 
 .header__hamburger {
@@ -596,8 +624,11 @@ textarea {
     font-size: rem(160);
     top: 50%;
     transform: translateY(-50%);
-    color: $color-accent4;
-    text-shadow: 0 0 20px $color-accent4;
+    // color: $color-accent4;
+    // text-shadow: 0 0 20px $color-accent4;
+    color: transparent;
+    -webkit-text-stroke: 1px $color-accent4;
+    animation: topTtlAnime 1s ease 5s forwards;
 
     @include mq('small') {
         height: auto;
@@ -613,17 +644,27 @@ textarea {
         transform: translateY(-50%);
         font-size: rem(80);
     }
+
+    @keyframes topTtlAnime {
+        0% {
+            color: transparent;
+        }
+
+        100% {
+            color: $color-accent4;
+            text-shadow: 0 0 20px $color-accent4;
+        }
+    }
 }
 
 // スクロール可能を示すアイコンのアニメーション
 .scrolldown {
-    // display: none;
+    display: none;
     position: absolute;
     width: 15px;
     height: 90px;
     bottom: 75px;
     right: 50px;
-    // background: url(../img/index/scrolldown.png) no-repeat center center / contain;
     animation: scrolldownMove 2s ease infinite;
 
     @keyframes scrolldownMove {
@@ -961,24 +1002,36 @@ textarea {
     margin-bottom: 32px;
 }
 
-.service__list {
-    // display: flex;
-    gap: 2.5%;
-
-    // @include mq("small") {
-    //     flex-direction: column;
-    // }
+.service__contact {
+    display: inline-block;
+    border-bottom: 1px solid $color-background;
 }
+
+.service__list {}
+
+.grid {}
+
+.grid-item {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.grid-item--width2 {
+    width: 300px;
+}
+
+.grid-item--width3 {
+    width: 450px;
+}
+
 
 .service__contents {
     border: 1px solid $color-accent1;
     border-radius: 20px;
-    flex: 0 0 25%;
+    box-shadow: 0 0 10px $color-accent1;
     overflow: hidden;
     transition: all 0.2s ease 0s;
-    padding: 2.5%;
     cursor: pointer;
-    display: block;
 
     @include mq("small") {
         border-radius: 10px;
@@ -992,7 +1045,7 @@ textarea {
     &:focus {
         box-shadow: 0 0 10px $color-accent1;
 
-        .service__wrapper {
+        .service__img-wrapper {
             filter: grayscale(0%);
         }
     }
@@ -1000,10 +1053,12 @@ textarea {
 
 .service__link {
     background: transparent;
+    padding: 10px;
 }
 
 .service__img-wrapper {
-    margin-bottom: 32px;
+    margin-bottom: 16px;
+    filter: grayscale(100%);
 }
 
 .service__img {
@@ -1117,7 +1172,7 @@ textarea {
 
 .modal__img {
     height: 400px;
-    object-fit: cover;
+    object-fit: contain1;
     object-position: center;
     margin-bottom: 32px;
 
@@ -1244,7 +1299,14 @@ textarea {
 
 .swiper-wrapper {}
 
-.swiper-slide {}
+.swiper-slide {
+    &-active {
+        .works__info {
+            display: block;
+            opacity: 1;
+        }
+    }
+}
 
 .works__link {
     transition: all 0.2s ease 0s;
@@ -1282,7 +1344,10 @@ textarea {
     filter: grayscale(100%);
 }
 
-.works__info {}
+.works__info {
+    display: none;
+    opacity: 0;
+}
 
 .works__tag {
     display: inline-block;
@@ -1314,8 +1379,7 @@ textarea {
 
 .works__ttl {
     font-size: rem(20);
-    margin-bottom: 24px;
-    // font-weight: bold;
+    margin-bottom: 16px;
 
     @include mq("small") {
         font-size: rem(16);
@@ -1397,7 +1461,7 @@ textarea {
     .works__icon1::before,
     .works__icon2::before {
         position: absolute;
-        content: "";
+        content: '';
     }
 
     .works__icon1::before {
@@ -1485,7 +1549,7 @@ textarea {
     .works__icon1::before,
     .works__icon2::before {
         position: absolute;
-        content: "";
+        content: '';
     }
 
     .works__icon1::before {
@@ -1866,8 +1930,7 @@ textarea {
     appearance: none;
 
     &.is-error {
-        border: none;
-        box-shadow: 0 0 10px $color-accent3;
+        border: 1px solid $color-accent3;
     }
 
     &:hover,
