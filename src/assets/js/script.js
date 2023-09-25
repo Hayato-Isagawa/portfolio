@@ -462,25 +462,10 @@ aboutButtons.forEach((item, index) => {
   });
 });
 
-/* service__masonry
------------------------------- */
-const elem = document.querySelector('.grid');
-const msnry = new Masonry(elem, {
-  itemSelector: ".grid-item",
-  columnWidth: 150,
-  gutter: 10,
-});
-
 /* service__modal
 ------------------------------ */
 let header = $(".header"),
   speed = 700;
-
-MicroModal.init({
-  disableScroll: true,
-  awaitOpenAnimation: true,
-  awaitCloseAnimation: true,
-});
 
 $(".service__link").on("click", function () {
   header.stop(true).animate(
@@ -491,15 +476,6 @@ $(".service__link").on("click", function () {
   );
 
   return false;
-});
-
-$(".modal__overlay, .modal__container .modal__close").on("click", function () {
-  header.stop(true).animate(
-    {
-      top: "0",
-    },
-    speed / 3
-  );
 });
 
 $(window).keyup(function (e) {
