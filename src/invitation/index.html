@@ -16,11 +16,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>haya Portfolio Website</title>
+  <title>haya. Portfolio</title>
   <meta name="description" content="hayaのポートフォリオウェブサイトです">
   <meta property="og:url" content="https://hayaportfolio202301.falconportfolio.site">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="haya Portfolio Website">
+  <meta property="og:title" content="haya. Portfolio">
   <meta property="og:description" content="hayaのポートフォリオウェブサイトです">
   <meta property="og:img" content="https://hayaportfolio202301.falconportfolio.site/assets/img/index/ogp.png">
 
@@ -29,7 +29,7 @@
   <meta name="twitter:site" content="@haya_1029384756" />
   <meta name="twitter:creator" content="@haya_1029384756" />
   <meta name="twitter:domain" content="hayaportfolio202301.falconportfolio.site" />
-  <meta name="twitter:title" content="haya Portfolio Website" />
+  <meta name="twitter:title" content="haya. Portfolio" />
   <meta name="twitter:description" content="hayaのポートフォリオウェブサイトです" />
   <meta name="twitter:image" content="https://hayaportfolio202301.falconportfolio.site/assets/img/index/ogp.png" />
 
@@ -46,7 +46,8 @@
   <!-- google-font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <!-- reset.css -->
   <link rel="stylesheet" type="text/css" href="../assets/css/reset.css">
   <!-- fontAwesome -->
@@ -88,6 +89,9 @@
     <nav class="header__nav">
       <ul id="nav__list">
         <li class="nav__item">
+          <a href="#concept" class="nav__link" aria-label="このサイトのコンセプト">Concept</a>
+        </li>
+        <li class="nav__item">
           <a href="https://hayaportfolio202301.falconportfolio.site#about" class="nav__link"
             aria-label="私について">About</a>
         </li>
@@ -120,7 +124,8 @@
     <main>
       <section id="works-desc">
         <div class="container works-desc__container">
-          <h2 class="section__ttl js-fadeIn">Works</h2>
+          <h2 class="section__ttl">Works</h2>
+          <h3 class="section__sub-ttl">- 実績</h3>
           <div class="swiper">
             <!-- Additional required wrapper -->
             <ul class="swiper-wrapper">
@@ -151,12 +156,16 @@
                 </figure>
               </li>
             </ul>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"><i class="fa-solid fa-circle-chevron-left swiper-icon"
-                style="color: #77cdff;"></i></div>
-            <div class="swiper-button-next"><i class="fa-solid fa-circle-chevron-right swiper-icon"
-                style="color: #77cdff;"></i></div>
+          </div>
+          <div class="swiper-button-prev">
+            <span class="works__icon1"></span>
+            <span class="works__icon2"></span>
+            <span class="works__icon3">&leftarrow;</span>
+          </div>
+          <div class="swiper-button-next">
+            <span class="works__icon1"></span>
+            <span class="works__icon2"></span>
+            <span class="works__icon3">&rightarrow;</span>
           </div>
           <div class="works-desc__list">
             <dl class="works-desc__row">
@@ -215,7 +224,7 @@
   <!-- /.wrapper -->
 
   <footer class="footer" id="footer">
-    <p class="footer__copyright"><small lang="en" class="copyright">&copy; haya Portfolio Website All Rights
+    <p class="footer__copyright"><small lang="en" class="copyright">&copy; haya. Portfolio All Rights
         Reserved.</small></p>
   </footer>
   <!-- /.footer -->

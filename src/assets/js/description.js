@@ -297,16 +297,10 @@ fadeInContents.forEach((fadeInContent) => {
 
 const swiper = new Swiper(".swiper", {
   autoplay: {
-    delay: 5000,
+    delay: 7500,
   },
   loop: true,
-
-  // If we need pagination
-  pagination: {
-    el: ".swiper-pagination",
-    type: "bullets",
-    clickable: true,
-  },
+  effect: "fade",
 
   navigation: {
     nextEl: ".swiper-button-next", // 「次へ」ボタン要素のクラス

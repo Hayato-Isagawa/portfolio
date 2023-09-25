@@ -407,7 +407,7 @@ aboutButtons.forEach((item, index) => {
           },
         ],
         {
-          duration: 100,
+          duration: 700,
           easing: "ease",
           fill: "forwards",
         }
@@ -444,7 +444,7 @@ aboutButtons.forEach((item, index) => {
           },
         ],
         {
-          duration: 500,
+          duration: 1500,
           easing: "ease",
           fill: "forwards",
         }
@@ -453,11 +453,11 @@ aboutButtons.forEach((item, index) => {
       setTimeout(function () {
         // bigImg.src = imgSrc;
         bigImg.setAttribute("src", `${imgSrc}`);
-      }, 300);
+      }, 700);
 
       setTimeout(function () {
         bigImgDesc[index].style.display = "block";
-      }, 1000);
+      }, 1500);
     }
   });
 });
@@ -561,7 +561,7 @@ input.forEach(function (item, index) {
         }
       );
       setTimeout(function () {
-        required[index].textContent = "OK!!";
+        required[index].textContent = "OK";
         required[index].style.borderColor = "#7fff7d";
       }, 550);
     } else {
