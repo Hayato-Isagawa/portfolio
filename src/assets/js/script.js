@@ -1,39 +1,76 @@
-"use strict";
+'use strict';
 
 /* common
 ============================== */
-const mediaQuery = window.matchMedia("(min-width: 768px)");
+const mediaQuery = window.matchMedia('(min-width: 768px)');
+
+/* mouse-stalker
+------------------------------ */
+const stalker = document.getElementById("mouse-stalker");
+let hovFlag = false;
+let stalkerX = 0;
+let stalkerY = 0;
+
+document.addEventListener("mousemove", (e) => {
+  // if (!hovFlag) {
+    stalkerX = e.clientX;
+    stalkerY = e.clientY;
+    stalker.style.transform = `translate(${stalkerX}px, ${stalkerY}px)`;
+  // }
+});
+
+const linkElem = document.querySelectorAll(
+  'a:not(.no_stick_), button, input, textarea, div[class^="swiper-button-"]'
+);
+for (let i = 0; i < linkElem.length; i++) {
+  linkElem[i].addEventListener("mouseover", (e) => {
+    hovFlag = true;
+    stalker.classList.add("is-active");
+
+    // let rect = e.target.getBoundingClientRect();
+    // let posX = rect.left + rect.width / 2;
+    // let posY = rect.top + rect.height / 2;
+
+    // stalker.style.transform = `translate(${posX}px, ${posY}px)`;
+  });
+  linkElem[i].addEventListener("mouseout", (e) => {
+    hovFlag = false;
+    stalker.classList.remove("is-active");
+    // stalker.style.transform = `translate(${stalkerX}px, ${stalkerY}px)`;
+  });
+}
+
 
 /* splash
 ============================== */
-const splash = document.querySelector("#splash");
-const splashText = document.querySelector("#splash__text");
-const space = document.querySelector("#space");
+const splash = document.querySelector('#splash');
+const splashText = document.querySelector('#splash__text');
+const space = document.querySelector('#space');
 
 var bar = new ProgressBar.Line(splash__text, {
-  easing: "easeInOut",
+  easing: 'easeInOut',
   duration: 2000,
   strokeWidth: 6,
-  color: "#fffdf7",
+  color: '#fffdf7',
   trailWidth: 3,
-  trailColor: "#3e3e3e",
-  svgStyle: { width: "80%" },
+  trailColor: '#3e3e3e',
+  svgStyle: { width: '80%' },
   text: {
     style: {
-      position: "absolute",
-      left: "50%",
-      top: "50%",
-      padding: "0",
-      margin: "-50px 0 0 0",
-      transform: "translate(-50%, -50%)",
-      "font-size": "1.5rem",
-      color: "#fffdf7",
-      font: "Bruno Ace",
+      position: 'absolute',
+      left: '50%',
+      top: '50%',
+      padding: '0',
+      margin: '-50px 0 0 0',
+      transform: 'translate(-50%, -50%)',
+      'font-size': '1.5rem',
+      color: '#fffdf7',
+      font: 'Bruno Ace',
     },
     autoStyleContainer: false,
   },
   step: function (state, bar) {
-    bar.setText(Math.round(bar.value() * 100) + "%");
+    bar.setText(Math.round(bar.value() * 100) + '%');
   },
 });
 
@@ -44,13 +81,13 @@ bar.animate(1.0, function () {
     opacity: [1, 0],
   };
   splashText.animate(splashFadeOutKeyframes, 100).finished.then(() => {
-    splashText.style.display = "none";
+    splashText.style.display = 'none';
   });
   window.warp = window.warp == 1 ? 0 : 1;
   executeFrame();
   setTimeout(() => {
     splash.animate(splashFadeOutKeyframes, 300).finished.then(() => {
-      splash.style.display = "none";
+      splash.style.display = 'none';
     });
   }, 1500);
   setTimeout(() => {
@@ -63,11 +100,11 @@ bar.animate(1.0, function () {
 window.requestAnimFrame = (function () {
   return window.requestAnimationFrame;
 })();
-var canvas = document.getElementById("space");
-var c = canvas.getContext("2d");
+var canvas = document.getElementById('space');
+var c = canvas.getContext('2d');
 
 var numStars = 1900;
-var radius = "0." + Math.floor(Math.random() * 9) + 1;
+var radius = '0.' + Math.floor(Math.random() * 9) + 1;
 var focalLength = canvas.width * 2;
 var warp = 0;
 var centerX, centerY;
@@ -96,7 +133,7 @@ function initializeStars() {
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       z: Math.random() * canvas.width,
-      o: "0." + Math.floor(Math.random() * 99) + 1,
+      o: '0.' + Math.floor(Math.random() * 99) + 1,
     };
     stars.push(star);
   }
@@ -123,10 +160,10 @@ function drawStars() {
     initializeStars();
   }
   if (warp == 0) {
-    c.fillStyle = "rgba(0,10,20,1)";
+    c.fillStyle = 'rgba(0,10,20,1)';
     c.fillRect(0, 0, canvas.width, canvas.height);
   }
-  c.fillStyle = "rgba(209, 255, 255, " + radius + ")";
+  c.fillStyle = 'rgba(209, 255, 255, ' + radius + ')';
   for (i = 0; i < numStars; i++) {
     star = stars[i];
 
@@ -137,7 +174,7 @@ function drawStars() {
     pixelRadius = 1 * (focalLength / star.z);
 
     c.fillRect(pixelX, pixelY, pixelRadius, pixelRadius);
-    c.fillStyle = "rgba(209, 255, 255, " + star.o + ")";
+    c.fillStyle = 'rgba(209, 255, 255, ' + star.o + ')';
     //c.fill();
   }
 }
@@ -156,13 +193,13 @@ const params__snow = {
       },
     },
     color: {
-      value: ["#FFFFFF"],
+      value: ['#FFFFFF'],
     },
     shape: {
-      type: "polygon", //形状は画像を指定
+      type: 'polygon', //形状は画像を指定
       stroke: {
         width: 0,
-        color: ["#FFFFFF"],
+        color: ['#FFFFFF'],
       },
     },
     opacity: {
@@ -191,10 +228,10 @@ const params__snow = {
     move: {
       enable: true,
       speed: 1, //この数値を小さくするとゆっくりな動きになる
-      direction: "none", //下に向かって落ちる
+      direction: 'none', //下に向かって落ちる
       random: true, //動きはランダム
       straight: true, //動きをとどめない
-      out_mode: "out", //画面の外に出るように描写
+      out_mode: 'out', //画面の外に出るように描写
       bounce: false, //跳ね返りなし
       attract: {
         enable: false,
@@ -204,7 +241,7 @@ const params__snow = {
     },
   },
   interactivity: {
-    detect_on: "canvas",
+    detect_on: 'canvas',
     events: {
       onhover: {
         enable: false,
@@ -218,37 +255,37 @@ const params__snow = {
   retina_detect: true,
 };
 
-particlesJS("particles-js", params__snow);
+particlesJS('particles-js', params__snow);
 
 /* header__drawer
 ============================== */
-particlesJS("drawer-background", params__snow);
+particlesJS('drawer-background', params__snow);
 
-const hamburger = $(".hamburger__menu");
-const headerNav = $(".header__nav");
+const hamburger = $('.hamburger__menu');
+const headerNav = $('.header__nav');
 
-hamburger.on("click", function () {
-  if (headerNav.hasClass("is-open")) {
-    $("body").css("overflowY", "visible");
-    $(this).attr("aria-expanded", "false");
+hamburger.on('click', function () {
+  if (headerNav.hasClass('is-open')) {
+    $('body').css('overflowY', 'visible');
+    $(this).attr('aria-expanded', 'false');
   } else {
-    $("body").css("overflowY", "hidden");
-    $(this).attr("aria-expanded", "true");
+    $('body').css('overflowY', 'hidden');
+    $(this).attr('aria-expanded', 'true');
   }
   $(
-    ".drawer-background, .hamburger__icon, .header__nav, #nav__list"
-  ).toggleClass("is-open");
+    '.drawer-background, .hamburger__icon, .header__nav, #nav__list'
+  ).toggleClass('is-open');
 
   return false;
 });
 
-headerNav.on("click", function () {
-  if (headerNav.hasClass("is-open")) {
+headerNav.on('click', function () {
+  if (headerNav.hasClass('is-open')) {
     $(
-      ".drawer-background, .hamburger__icon, .header__nav, #nav__list"
-    ).removeClass("is-open");
-    $("body").css("overflowY", "visible");
-    hamburger.attr("aria-expanded", "false");
+      '.drawer-background, .hamburger__icon, .header__nav, #nav__list'
+    ).removeClass('is-open');
+    $('body').css('overflowY', 'visible');
+    hamburger.attr('aria-expanded', 'false');
   }
 
   return false;
@@ -256,7 +293,7 @@ headerNav.on("click", function () {
 
 /* scrolldown-show
 ------------------------------ */
-const scrollDown = document.querySelector(".scrolldown");
+const scrollDown = document.querySelector('.scrolldown');
 
 const fadeInKeyframes = {
   opacity: [0, 1],
@@ -267,46 +304,46 @@ const fadeOutKeyframes = {
 };
 
 setTimeout(() => {
-  scrollDown.style.display = "block";
+  scrollDown.style.display = 'block';
   scrollDown.animate(fadeInKeyframes, 1000);
 }, 7000);
 
 /* link
 ------------------------------ */
-const headerNavs = document.querySelectorAll(".nav__link");
+const headerNavs = document.querySelectorAll('.nav__link');
 
 headerNavs.forEach((headerNav) => {
-  headerNav.addEventListener("click", (e) => {
+  headerNav.addEventListener('click', (e) => {
     e.preventDefault();
     console.log(this);
-    const targetId = e.currentTarget.getAttribute("href");
+    const targetId = e.currentTarget.getAttribute('href');
     console.log(targetId);
     const target = document.querySelector(targetId);
-    target.scrollIntoView({ behavior: "smooth" });
+    target.scrollIntoView({ behavior: 'smooth' });
   });
 });
 
-const sections = document.querySelectorAll("section");
+const sections = document.querySelectorAll('section');
 
 const navLinkOptions = {
   root: null,
-  rootMargin: "0px",
+  rootMargin: '0px',
   threshold: 0.5,
 };
 
 const navLinkCallback = (entries, observer) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      const targetSection = entry.target.getAttribute("id");
-      const link = document.querySelector(`a[href="#${targetSection}"]`);
+      const targetSection = entry.target.getAttribute('id');
+      const link = document.querySelector(`a[href='#${targetSection}']`);
       if (link) {
-        link.classList.add("is-active");
+        link.classList.add('is-active');
       }
     } else {
-      const targetSection = entry.target.getAttribute("id");
-      const link = document.querySelector(`a[href="#${targetSection}"]`);
+      const targetSection = entry.target.getAttribute('id');
+      const link = document.querySelector(`a[href='#${targetSection}']`);
       if (link) {
-        link.classList.remove("is-active");
+        link.classList.remove('is-active');
       }
     }
   });
@@ -323,10 +360,10 @@ sections.forEach((section) => {
 
 /* fadeIn-animation
 ------------------------------ */
-// const fadeInContents = document.querySelectorAll(".js-fadeIn");
+// const fadeInContents = document.querySelectorAll('.js-fadeIn');
 // const fadeInOptions = {
 //   root: null,
-//   rootMargin: "0px",
+//   rootMargin: '0px',
 //   threshold: 0, //閾値は0から1の範囲で指定し、0は要素が画面に少しでも表示されたとき、1は要素が完全に表示されたときを意味
 // };
 
@@ -337,12 +374,12 @@ sections.forEach((section) => {
 //       entry.target.animate(
 //         {
 //           opacity: [0, 1],
-//           translate: ["0 4rem", 0],
+//           translate: ['0 4rem', 0],
 //         },
 //         {
 //           duration: 1000,
-//           easing: "ease",
-//           fill: "forwards",
+//           easing: 'ease',
+//           fill: 'forwards',
 //         }
 //       );
 //       observer.unobserve(entry.target);
@@ -358,15 +395,15 @@ sections.forEach((section) => {
 
 /* about__desc
 ------------------------------ */
-const aboutButtons = document.querySelectorAll(".about__tab");
-const aboutDescs = document.querySelectorAll(".about__desc");
+const aboutButtons = document.querySelectorAll('.about__tab');
+const aboutDescs = document.querySelectorAll('.about__desc');
 
 aboutButtons.forEach((item, index) => {
-  item.addEventListener("click", () => {
+  item.addEventListener('click', () => {
     aboutButtons.forEach((btn) => {
-      btn.classList.remove("is-active");
+      btn.classList.remove('is-active');
     });
-    item.classList.add("is-active");
+    item.classList.add('is-active');
 
     aboutDescs.forEach((desc) => {
       desc.classList.remove('is-active');
@@ -377,13 +414,13 @@ aboutButtons.forEach((item, index) => {
 
 /* service__modal
 ------------------------------ */
-// let header = $(".header"),
+// let header = $('.header'),
 //   speed = 700;
 
-// $(".service__link").on("click", function () {
+// $('.service__link').on('click', function () {
 //   header.stop(true).animate(
 //     {
-//       top: "-60px",
+//       top: '-60px',
 //     },
 //     speed / 3
 //   );
@@ -395,7 +432,7 @@ aboutButtons.forEach((item, index) => {
 //   if (e.keyCode == 27) {
 //     header.stop(true).animate(
 //       {
-//         top: "0",
+//         top: '0',
 //       },
 //       speed / 3
 //     );
@@ -406,12 +443,12 @@ aboutButtons.forEach((item, index) => {
 
 /* works__swiper
 ------------------------------ */
-const worksSwiper = new Swiper(".works__swiper", {
+const worksSwiper = new Swiper('.works__swiper', {
   loop: true,
   spaceBetween: 10,
   slidesPerView: 1.2,
   speed: 1000,
-  effect: "slide",
+  effect: 'slide',
   parallax: true,
 
   breakpoints: {
@@ -422,60 +459,60 @@ const worksSwiper = new Swiper(".works__swiper", {
   },
 
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
   },
 });
 
 /* contact__form
 ------------------------------ */
-let required = document.querySelectorAll(".contact__required");
-let input = document.querySelectorAll("#js-form input, #js-form textarea");
-let inputMessage = document.querySelectorAll(".contact__input");
+let required = document.querySelectorAll('.contact__required');
+let input = document.querySelectorAll('#js-form input, #js-form textarea');
+let inputMessage = document.querySelectorAll('.contact__input');
 
 input.forEach(function (item, index) {
-  item.addEventListener("blur", function () {
+  item.addEventListener('blur', function () {
     checkText(index);
 
-    if (item.value !== "" && checkText(index) === true) {
+    if (item.value !== '' && checkText(index) === true) {
       required[index].animate(
         [
           {
-            transform: "rotateY(0deg)",
+            transform: 'rotateY(0deg)',
           },
           {
-            transform: "rotateY(360deg)",
+            transform: 'rotateY(360deg)',
           },
         ],
         {
           duration: 1000,
-          easing: "ease",
-          fill: "forwards",
+          easing: 'ease',
+          fill: 'forwards',
         }
       );
       setTimeout(function () {
-        required[index].textContent = "OK";
-        required[index].style.borderColor = "#7fff7d";
+        required[index].textContent = 'OK';
+        required[index].style.borderColor = '#7fff7d';
       }, 550);
     } else {
       required[index].animate(
         [
           {
-            transform: "rotateY(360deg)",
+            transform: 'rotateY(360deg)',
           },
           {
-            transform: "rotateY(0deg)",
+            transform: 'rotateY(0deg)',
           },
         ],
         {
           duration: 1000,
-          easing: "ease",
-          fill: "forwards",
+          easing: 'ease',
+          fill: 'forwards',
         }
       );
       setTimeout(function () {
-        required[index].textContent = "!";
-        required[index].style.borderColor = "#ff7a7a";
+        required[index].textContent = '!';
+        required[index].style.borderColor = '#ff7a7a';
       }, 550);
     }
   });
@@ -485,14 +522,14 @@ function checkText(index) {
   switch (index) {
     case 0:
       if (input[0].value.trim().length >= 2) {
-        input[0].classList.remove("is-error");
-        inputMessage[0].classList.remove("is-error");
-        input[0].classList.add("is-success");
+        input[0].classList.remove('is-error');
+        inputMessage[0].classList.remove('is-error');
+        input[0].classList.add('is-success');
         return true;
       } else {
-        input[0].classList.remove("is-success");
-        input[0].classList.add("is-error");
-        inputMessage[0].classList.add("is-error");
+        input[0].classList.remove('is-success');
+        input[0].classList.add('is-error');
+        inputMessage[0].classList.add('is-error');
         return false;
       }
     case 1:
@@ -501,26 +538,26 @@ function checkText(index) {
       var pattern = /[!#-9A-~]+@+[a-z0-9]+.+[^.]$/i;
       /* 入力された値がパターンにマッチするか調べる */
       if (input[1].value.match(pattern)) {
-        input[1].classList.remove("is-error");
-        inputMessage[1].classList.remove("is-error");
-        input[1].classList.add("is-success");
+        input[1].classList.remove('is-error');
+        inputMessage[1].classList.remove('is-error');
+        input[1].classList.add('is-success');
         return true;
       } else {
-        input[1].classList.remove("is-success");
-        input[1].classList.add("is-error");
-        inputMessage[1].classList.add("is-error");
+        input[1].classList.remove('is-success');
+        input[1].classList.add('is-error');
+        inputMessage[1].classList.add('is-error');
         return false;
       }
     case 2:
       if (input[2].value.trim().length >= 10) {
-        input[2].classList.remove("is-error");
-        inputMessage[2].classList.remove("is-error");
-        input[2].classList.add("is-success");
+        input[2].classList.remove('is-error');
+        inputMessage[2].classList.remove('is-error');
+        input[2].classList.add('is-success');
         return true;
       } else {
-        input[2].classList.remove("is-success");
-        input[2].classList.add("is-error");
-        inputMessage[2].classList.add("is-error");
+        input[2].classList.remove('is-success');
+        input[2].classList.add('is-error');
+        inputMessage[2].classList.add('is-error');
         return false;
       }
   }
@@ -606,37 +643,37 @@ function checkText(index) {
 //     }
 // }
 
-let submit = document.getElementById("contact__submit"),
-  submitBtn = document.getElementById("js-submit"),
-  contactForm = document.getElementById("js-form");
+let submit = document.getElementById('contact__submit'),
+  submitBtn = document.getElementById('js-submit'),
+  contactForm = document.getElementById('js-form');
 
-contactForm.addEventListener("change", function () {
+contactForm.addEventListener('change', function () {
   if (
-    input[0].value !== "" &&
+    input[0].value !== '' &&
     checkText(0) === true &&
-    input[1].value !== "" &&
+    input[1].value !== '' &&
     checkText(1) === true &&
-    input[2].value !== "" &&
+    input[2].value !== '' &&
     checkText(2) === true
   ) {
-    submit.classList.remove("is-disabled");
+    submit.classList.remove('is-disabled');
     submitBtn.disabled = false;
   } else {
-    submit.classList.add("is-disabled");
+    submit.classList.add('is-disabled');
     submitBtn.disabled = true;
   }
 });
 
-let $form = $("#js-form");
-let success = $("#js-success");
-let error = $("#js-error");
+let $form = $('#js-form');
+let success = $('#js-success');
+let error = $('#js-error');
 
-$form.on("submit", function () {
+$form.on('submit', function () {
   $.ajax({
-    url: $form.attr("action"),
+    url: $form.attr('action'),
     data: $form.serialize(),
-    type: "POST",
-    dataType: "xml",
+    type: 'POST',
+    dataType: 'xml',
     statusCode: {
       0: function () {
         //送信に成功したときの処理
