@@ -122,6 +122,7 @@ section {
 .section__sub-ttl {
   display: block;
   margin-bottom: 32px;
+  font-size: 0.875rem;
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .section__sub-ttl {
@@ -134,12 +135,12 @@ section {
   }
 }
 
-.section__txt {
+.section__text {
   margin-bottom: 32px;
 }
 
-.section__desc:not(:last-child) {
-  margin-bottom: 8px;
+.section__desc {
+  line-height: 2;
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .section__desc {
@@ -484,6 +485,7 @@ textarea:focus {
   white-space: nowrap;
   transition: all 0.5s ease 0s;
   transform-origin: bottom;
+  text-shadow: -1px -1px 0 #3e3e3e, -1px 0 0 #3e3e3e, -1px 1px 0 #3e3e3e, 0 -1px 0 #3e3e3e, 0 1px 0 #3e3e3e, 1px -1px 0 #3e3e3e, 1px 0 0 #3e3e3e, 1px 1px 0 #3e3e3e;
 }
 
 .header__hamburger {
@@ -697,6 +699,7 @@ textarea:focus {
 
 .about__wrapper {
   width: 100%;
+  height: 500px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border: 1px solid #77cdff;
@@ -709,12 +712,15 @@ textarea:focus {
   .about__wrapper {
     margin-bottom: 5%;
     border-radius: 10px;
+    padding: 10px;
   }
 }
 @media only screen and (max-width: 575px) {
   .about__wrapper {
+    height: 600px;
     margin-bottom: 5%;
     border-radius: 10px;
+    padding: 10px;
   }
 }
 
@@ -758,7 +764,7 @@ textarea:focus {
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .about__headline {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 @media only screen and (max-width: 575px) {
@@ -767,9 +773,37 @@ textarea:focus {
   }
 }
 
-@media only screen and (max-width: 575px) {
-  .about__txt {
+.about__sub-ttl {
+  font-size: 0.75rem;
+  margin-bottom: 32px;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .about__sub-ttl {
     font-size: 0.625rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .about__sub-ttl {
+    font-size: 0.625rem;
+  }
+}
+
+.about__text {
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+.about__text a {
+  display: inline-block;
+  border-bottom: 1px solid #fffdf7;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .about__text {
+    font-size: 0.75rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .about__text {
+    font-size: 0.75rem;
   }
 }
 
@@ -792,8 +826,8 @@ textarea:focus {
 }
 
 .about__tab {
-  width: 125px;
-  height: 125px;
+  width: 100px;
+  height: 100px;
   transition: all 0.2s ease 0s;
   border: 1px solid transparent;
   border-radius: 50%;
@@ -801,22 +835,10 @@ textarea:focus {
   box-shadow: 0 5px 0 #7d7d7d;
   transform: translateY(-3px);
 }
-@media (min-width: 768px) and (max-width: 991px) {
-  .about__tab {
-    width: 100px;
-    height: 100px;
-  }
-}
-@media (min-width: 576px) and (max-width: 767px) {
-  .about__tab {
-    width: 100px;
-    height: 100px;
-  }
-}
 @media only screen and (max-width: 575px) {
   .about__tab {
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
   }
 }
 .about__tab.is-active {
@@ -840,6 +862,17 @@ textarea:focus {
 .service__contact {
   display: inline-block;
   border-bottom: 1px solid #fffdf7;
+}
+
+.service__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+@media only screen and (max-width: 575px) {
+  .service__list {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }
 
 .service__contents {
@@ -869,6 +902,8 @@ textarea:focus {
 
 .service__link {
   background: transparent;
+  width: 100%;
+  height: 100%;
   padding: 10px;
 }
 
@@ -880,9 +915,27 @@ textarea:focus {
   overflow: hidden;
 }
 
+.service__img {
+  width: 80%;
+  height: 80%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 10px;
+}
+
 .service__head {
   color: #fffdf7;
   text-align: left;
+}
+@media only screen and (max-width: 575px) {
+  .service__head {
+    font-size: 0.875rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .service__head {
+    font-size: 0.875rem;
+  }
 }
 
 /* works
@@ -1241,14 +1294,14 @@ textarea:focus {
   .contact__label {
     text-align: left;
     padding: 0.5em 0;
-    width: 200px;
+    width: 150px;
   }
 }
 @media only screen and (max-width: 575px) {
   .contact__label {
     text-align: left;
     padding: 0.5em 0;
-    width: 200px;
+    width: 150px;
   }
 }
 
@@ -1265,16 +1318,18 @@ textarea:focus {
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .contact__required {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 0.875rem;
   }
 }
 @media only screen and (max-width: 575px) {
   .contact__required {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 0.875rem;
   }
 }
 
