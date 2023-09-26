@@ -31,7 +31,8 @@
     <meta name="twitter:domain" content="hayaportfolio202301.falconportfolio.site" />
     <meta name="twitter:title" content="haya. Portfolio" />
     <meta name="twitter:description" content="hayaのポートフォリオウェブサイトです" />
-    <meta name="twitter:image" content="https://hayaportfolio202301.falconportfolio.site/assets/img/index-jpeg/ogp.jpeg" />
+    <meta name="twitter:image"
+        content="https://hayaportfolio202301.falconportfolio.site/assets/img/index-jpeg/ogp.jpeg" />
 
     <!-- favicon & icon -->
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
@@ -91,19 +92,24 @@
         <nav class="header__nav">
             <ul id="nav__list">
                 <li class="nav__item">
-                    <a href="#concept" class="nav__link" aria-label="このサイトのコンセプト"><span class="nav__link-en">Concept</span><span class="nav__link-ja">コンセプト</span></a>
+                    <a href="#concept" class="nav__link" aria-label="このサイトのコンセプト"><span
+                            class="nav__link-en">Concept</span><span class="nav__link-ja">コンセプト</span></a>
                 </li>
                 <li class="nav__item">
-                    <a href="#about" class="nav__link" aria-label="私について"><span class="nav__link-en">About</span><span class="nav__link-ja">私について</span></a>
+                    <a href="#about" class="nav__link" aria-label="私について"><span class="nav__link-en">About</span><span
+                            class="nav__link-ja">私について</span></a>
                 </li>
                 <li class="nav__item">
-                    <a href="#service" class="nav__link" aria-label="サービス内容"><span class="nav__link-en">Service</span><span class="nav__link-ja">サービス</span></a>
+                    <a href="#service" class="nav__link" aria-label="サービス内容"><span
+                            class="nav__link-en">Service</span><span class="nav__link-ja">サービス</span></a>
                 </li>
                 <li class="nav__item">
-                    <a href="#works" class="nav__link" aria-label="これまでのお仕事"><span class="nav__link-en">Works</span><span class="nav__link-ja">実績</span></a>
+                    <a href="#works" class="nav__link" aria-label="これまでのお仕事"><span
+                            class="nav__link-en">Works</span><span class="nav__link-ja">実績</span></a>
                 </li>
                 <li class="nav__item">
-                    <a href="#contact" class="nav__link" aria-label="連絡する"><span class="nav__link-en">Contact</span><span class="nav__link-ja">お問い合わせ</span></a>
+                    <a href="#contact" class="nav__link" aria-label="連絡する"><span
+                            class="nav__link-en">Contact</span><span class="nav__link-ja">お問い合わせ</span></a>
                 </li>
             </ul>
         </nav>
@@ -168,14 +174,13 @@
                     <h3 class="section__sub-ttl">- 私について</h3>
                     <h4 class="section__txt">
                         <p class="section__desc">
-                            右側のボタンを押すとアニメーションが開始します。
+                            右側のボタンを押すと画面が切り替わります。
                         </p>
                     </h4>
                     <div class="about__row">
-                        <div class="about__big-img" id="about__big-img">
+                        <div class="about__wrapper">
                             <div class="about__inner">
-                                <img src="./assets/img/index-jpeg/about1.jpeg" alt="" class="big-img" id="big-img">
-                                <dl class="about__desc desc__job">
+                                <dl class="about__desc is-active">
                                     <dt class="about__headline">
                                         <h3>Web Creator</h3>
                                     </dt>
@@ -189,63 +194,49 @@
                                     <dt class="about__headline">
                                         <h3>I live in</h3>
                                     </dt>
+                                    <dd class="about__txt">
+                                        <p>
+                                            HTML / CSS / JavaScript / PHP / WordPress
+                                        </p>
+                                    </dd>
                                 </dl>
-                                <dl class="about__desc desc__like">
+                                <dl class="about__desc">
                                     <dt class="about__headline">
                                         <h3>I like</h3>
                                     </dt>
                                     <dd class="about__txt">
-                                        <ul>
-                                            <li class="text__like">Reading books & manga</li>
-                                            <li class="text__like">Listening to music & radio</li>
-                                            <li class="text__like">Watching movies and TV program</li>
-                                        </ul>
+                                        <p>
+                                            HTML / CSS / JavaScript / PHP / WordPress
+                                        </p>
                                     </dd>
                                 </dl>
-                                <dl class="about__desc desc__target">
+                                <dl class="about__desc">
                                     <dt class="about__headline">
                                         <h3>I have a dream.</h3>
                                     </dt>
-                                    <dd class="about__txt font--jp">
-                                        機能も感動も兼ね備えた<br>
-                                        ウェブサイトを制作すること
+                                    <dd class="about__txt">
+                                        <p>
+                                            HTML / CSS / JavaScript / PHP / WordPress
+                                        </p>
                                     </dd>
                                 </dl>
                             </div>
                         </div>
                         <ul class="about__list">
                             <li class="about__contents">
-                                <button class="about__tab" type="button"
-                                    aria-label="ウェブ製作者で、HTML、CSS、JavaScript、PHP、WordPressを使用できます">
-                                    <div class="about__wrapper">
-                                        <div class="about__img img__job" data-image="./assets/img/index-jpeg/about1.jpeg">
-                                        </div>
-                                    </div>
+                                <button class="about__tab is-active" type="button" aria-label="">
                                 </button>
                             </li>
                             <li class="about__contents">
-                                <button class="about__tab" type="button" aria-label="沖縄県に住んでいます">
-                                    <div class="about__wrapper">
-                                        <div class="about__img img__live" data-image="./assets/img/index-jpeg/about2.jpeg">
-                                        </div>
-                                    </div>
+                                <button class="about__tab" type="button" aria-label="">
                                 </button>
                             </li>
                             <li class="about__contents">
-                                <button class="about__tab" type="button"
-                                    aria-label="私は本やマンガを読むこと、音楽やラジオを聴くこと、映画やテレビ番組を見ることが好きです">
-                                    <div class="about__wrapper">
-                                        <div class="about__img img__like"
-                                            data-image="./assets/img/index-jpeg/about__like.jpeg"></div>
-                                    </div>
+                                <button class="about__tab" type="button" aria-label="">
                                 </button>
                             </li>
                             <li class="about__contents">
-                                <button class="about__tab" type="button" aria-label="機能も感動も兼ね備えたウェブサイトを制作することです。">
-                                    <div class="about__wrapper">
-                                        <div class="about__img img__target"
-                                            data-image="./assets/img/index-jpeg/aboutjpeg.png"></div>
-                                    </div>
+                                <button class="about__tab" type="button" aria-label="">
                                 </button>
                             </li>
                         </ul>
@@ -260,58 +251,52 @@
                     <h3 class="section__sub-ttl">- サービス</h3>
                     <h4 class="section__txt">
                         <p class="section__desc">
-                            サービス内容について詳しく知りたい方は、お気軽に<a href="#contact" class="service__contact">お問い合わせ</a>ください。
+                            サービス内容について詳しく知りたい方は、お気軽に<a href="#contact" class="service__contact">お問い合わせ <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77cdff;"></i></a>ください。
                         </p>
                     </h4>
-                    <ul class="service__list grid">
-                        <li class="service__contents grid-item grid-item--width2">
-                            <button class="service__link" data-micromodal-trigger="modal__website" type="button"
-                                aria-label="ウェブサイト制作について詳細を見る">
+                    <ul class="service__list">
+                        <li class="service__contents">
+                            <button class="service__link" type="button" aria-label="ウェブサイト制作について詳細を見る">
                                 <figure class="service__img-wrapper">
                                     <img src="./assets/img/index-jpeg/service1.jpeg" alt="" class="service__img">
                                 </figure>
                                 <h3 class="service__head">ウェブサイト制作</h3>
                             </button>
                         </li>
-                        <li class="service__contents grid-item grid-item--width2">
-                            <button class="service__link" data-micromodal-trigger="modal__cording" type="button"
-                                aria-label="コーディングについての詳細を見る">
+                        <li class="service__contents">
+                            <button class="service__link" type="button" aria-label="コーディングについての詳細を見る">
                                 <figure class="service__img-wrapper">
                                     <img src="./assets/img/index-jpeg/service2.jpeg" alt="" class="service__img">
                                 </figure>
                                 <h3 class="service__head">コーディング</h3>
                             </button>
                         </li>
-                        <li class="service__contents grid-item">
-                            <button class="service__link" data-micromodal-trigger="modal__support" type="button"
-                                aria-label="運用・保守代行について詳細を見る">
+                        <li class="service__contents">
+                            <button class="service__link" type="button" aria-label="運用・保守代行について詳細を見る">
                                 <figure class="service__img-wrapper">
                                     <img src="./assets/img/index-jpeg/service3.jpeg" alt="" class="service__img">
                                 </figure>
                                 <h3 class="service__head">運用・保守代行</h3>
                             </button>
                         </li>
-                        <li class="service__contents grid-item">
-                            <button class="service__link" data-micromodal-trigger="modal__web" type="button"
-                                aria-label="ウェブ全般について詳細を見る">
+                        <li class="service__contents">
+                            <button class="service__link" type="button" aria-label="ウェブ全般について詳細を見る">
                                 <figure class="service__img-wrapper">
                                     <img src="./assets/img/index-jpeg/service4.jpeg" alt="" class="service__img">
                                 </figure>
                                 <h3 class="service__head">ウェブ全般</h3>
                             </button>
                         </li>
-                        <li class="service__contents grid-item grid-item--width2">
-                            <button class="service__link" data-micromodal-trigger="modal__sp" type="button"
-                                aria-label="レスポンシブについて詳細を見る">
+                        <li class="service__contents">
+                            <button class="service__link" type="button" aria-label="レスポンシブについて詳細を見る">
                                 <figure class="service__img-wrapper">
                                     <img src="./assets/img/index-jpeg/service5.jpeg" alt="" class="service__img">
                                 </figure>
                                 <h3 class="service__head">レスポンシブ</h3>
                             </button>
                         </li>
-                        <li class="service__contents grid-item">
-                            <button class="service__link" data-micromodal-trigger="modal__movie" type="button"
-                                aria-label="動画編集について詳細を見る">
+                        <li class="service__contents">
+                            <button class="service__link" type="button" aria-label="動画編集について詳細を見る">
                                 <figure class="service__img-wrapper">
                                     <img src="./assets/img/index-jpeg/service6.jpeg" jpeg="" class="service__img">
                                 </figure>
@@ -365,7 +350,7 @@
                             <li class="swiper-slide">
                                 <a href="./Sample-Corp/index.html" class="works__link" aria-label="Sample-Corpの詳細を見る">
                                     <figure class="works__figure">
-                                        <img src="./assets/img/index-jpeg/works__Sample-Cojpeg.png" alt="Sample-Corp"
+                                        <img src="./assets/img/index-jpeg/works__Sample-Corp1.jpeg" alt="Sample-Corp"
                                             class="works__img">
                                     </figure>
                                     <div class="works__info">

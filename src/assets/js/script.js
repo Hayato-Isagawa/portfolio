@@ -156,17 +156,13 @@ const params__snow = {
       },
     },
     color: {
-      value: [
-        "#FFFFFF",
-      ],
+      value: ["#FFFFFF"],
     },
     shape: {
       type: "polygon", //形状は画像を指定
       stroke: {
         width: 0,
-        color: [
-          "#FFFFFF",
-        ],
+        color: ["#FFFFFF"],
       },
     },
     opacity: {
@@ -282,7 +278,9 @@ const headerNavs = document.querySelectorAll(".nav__link");
 headerNavs.forEach((headerNav) => {
   headerNav.addEventListener("click", (e) => {
     e.preventDefault();
-    const targetId = e.target.hash;
+    console.log(this);
+    const targetId = e.currentTarget.getAttribute("href");
+    console.log(targetId);
     const target = document.querySelector(targetId);
     target.scrollIntoView({ behavior: "smooth" });
   });
@@ -325,180 +323,91 @@ sections.forEach((section) => {
 
 /* fadeIn-animation
 ------------------------------ */
-const fadeInContents = document.querySelectorAll(".js-fadeIn");
-const fadeInOptions = {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0, //閾値は0から1の範囲で指定し、0は要素が画面に少しでも表示されたとき、1は要素が完全に表示されたときを意味
-};
+// const fadeInContents = document.querySelectorAll(".js-fadeIn");
+// const fadeInOptions = {
+//   root: null,
+//   rootMargin: "0px",
+//   threshold: 0, //閾値は0から1の範囲で指定し、0は要素が画面に少しでも表示されたとき、1は要素が完全に表示されたときを意味
+// };
 
-const fadeInCallback = (entries, observer) => {
-  entries.forEach((entry) => {
-    entry.target.style.opacity = 0;
-    if (entry.isIntersecting) {
-      entry.target.animate(
-        {
-          opacity: [0, 1],
-          translate: ["0 4rem", 0],
-        },
-        {
-          duration: 1000,
-          easing: "ease",
-          fill: "forwards",
-        }
-      );
-      observer.unobserve(entry.target);
-    }
-  });
-};
+// const fadeInCallback = (entries, observer) => {
+//   entries.forEach((entry) => {
+//     entry.target.style.opacity = 0;
+//     if (entry.isIntersecting) {
+//       entry.target.animate(
+//         {
+//           opacity: [0, 1],
+//           translate: ["0 4rem", 0],
+//         },
+//         {
+//           duration: 1000,
+//           easing: "ease",
+//           fill: "forwards",
+//         }
+//       );
+//       observer.unobserve(entry.target);
+//     }
+//   });
+// };
 
-const fadeInObserver = new IntersectionObserver(fadeInCallback, fadeInOptions);
+// const fadeInObserver = new IntersectionObserver(fadeInCallback, fadeInOptions);
 
-fadeInContents.forEach((fadeInContent) => {
-  fadeInObserver.observe(fadeInContent);
-});
+// fadeInContents.forEach((fadeInContent) => {
+//   fadeInObserver.observe(fadeInContent);
+// });
 
-/* about__big-img
+/* about__desc
 ------------------------------ */
-// const aboutContents = $('.about__contents');
-
-// aboutContents.on('click', function () {
-//     let imgSrc = $(this).find('img').attr('data-image');
-//     $('.big-img').attr('src', `${imgData}`);
-// })
-
 const aboutButtons = document.querySelectorAll(".about__tab");
-aboutButtons[0].style.boxShadow = "0 0 10px #76c1ec";
-aboutButtons[0].style.filter = "grayscale(0%)";
+const aboutDescs = document.querySelectorAll(".about__desc");
 
 aboutButtons.forEach((item, index) => {
   item.addEventListener("click", () => {
-    let imgSrc = item.querySelector(".about__img").getAttribute("data-image");
-    let bigImg = document.getElementById("big-img");
-    let bigImgSrc = bigImg.getAttribute("src");
-    let bigImgDesc = document
-      .getElementById("about__big-img")
-      .querySelectorAll("dl");
-
     aboutButtons.forEach((btn) => {
-      btn.removeAttribute("style");
+      btn.classList.remove("is-active");
     });
-    item.style.boxShadow = "0 0 10px #76c1ec";
-    item.style.filter = "grayscale(0%)";
+    item.classList.add("is-active");
 
-    if (bigImgSrc !== imgSrc) {
-      bigImgDesc.forEach(function (item, index) {
-        item.style.display = "none";
-      });
-
-      bigImg.animate(
-        [
-          {
-            offset: 0.0,
-            opacity: 1,
-          },
-          {
-            offset: 0.5,
-            opacity: 0,
-          },
-          {
-            offset: 1.0,
-            opacity: 1,
-          },
-        ],
-        {
-          duration: 700,
-          easing: "ease",
-          fill: "forwards",
-        }
-      );
-      bigImg.animate(
-        [
-          {
-            offset: 0.0,
-            transform: 'scale3d(1, 1, 1)',
-          },
-          {
-            offset: 0.1,
-            transform: 'scale3d(1, 1.6, 1)',
-          },
-          {
-            offset: 0.25,
-            transform: 'scale3d(1, 0.005, 1)',
-          },
-          {
-            offset: 0.5,
-            transform: 'scale3d(0, 0, 1)',
-          },
-          {
-            offset: 0.75,
-            transform: 'scale3d(1, 0.005, 1)',
-          },
-          {
-            offset: 0.9,
-            transform: 'scale3d(1, 1.6, 1)',
-          },
-          {
-            offset: 1,
-            transform: 'scale3d(1, 1, 1)',
-          },
-        ],
-        {
-          duration: 1500,
-          easing: "ease",
-          fill: "forwards",
-        }
-      );
-
-      setTimeout(function () {
-        // bigImg.src = imgSrc;
-        bigImg.setAttribute("src", `${imgSrc}`);
-      }, 700);
-
-      setTimeout(function () {
-        bigImgDesc[index].style.display = "block";
-      }, 1500);
-    }
+    aboutDescs.forEach((desc) => {
+      desc.classList.remove('is-active');
+    })
+    aboutDescs[index].classList.add('is-active');
   });
 });
 
 /* service__modal
 ------------------------------ */
-let header = $(".header"),
-  speed = 700;
+// let header = $(".header"),
+//   speed = 700;
 
-$(".service__link").on("click", function () {
-  header.stop(true).animate(
-    {
-      top: "-60px",
-    },
-    speed / 3
-  );
+// $(".service__link").on("click", function () {
+//   header.stop(true).animate(
+//     {
+//       top: "-60px",
+//     },
+//     speed / 3
+//   );
 
-  return false;
-});
+//   return false;
+// });
 
-$(window).keyup(function (e) {
-  if (e.keyCode == 27) {
-    header.stop(true).animate(
-      {
-        top: "0",
-      },
-      speed / 3
-    );
-  }
+// $(window).keyup(function (e) {
+//   if (e.keyCode == 27) {
+//     header.stop(true).animate(
+//       {
+//         top: "0",
+//       },
+//       speed / 3
+//     );
+//   }
 
-  return false;
-});
+//   return false;
+// });
 
 /* works__swiper
 ------------------------------ */
 const worksSwiper = new Swiper(".works__swiper", {
-  // direction: "horizontal",
   loop: true,
-  // autoplay: {
-  //   delay: 0,
-  // },
   spaceBetween: 10,
   slidesPerView: 1.2,
   speed: 1000,
@@ -517,7 +426,6 @@ const worksSwiper = new Swiper(".works__swiper", {
     prevEl: ".swiper-button-prev",
   },
 });
-
 
 /* contact__form
 ------------------------------ */
