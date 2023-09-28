@@ -441,6 +441,20 @@ aboutButtons.forEach((item, index) => {
 //   return false;
 // });
 
+/* service__accordion
+------------------------------ */
+const serviceButtons = document.querySelectorAll(".service__link");
+
+serviceButtons.forEach(serviceButton => {
+  serviceButton.addEventListener('click', (e) => {
+  if (serviceButton.classList.contains('is-open')) {
+    serviceButton.classList.remove('is-open');
+  } else {
+    serviceButton.classList.add('is-open');
+  }
+});
+});
+
 /* works__swiper
 ------------------------------ */
 const worksSwiper = new Swiper('.works__swiper', {
@@ -688,4 +702,62 @@ $form.on('submit', function () {
     },
   });
   return false;
+
 });
+
+
+
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+
+gsap.utils.toArray('.section__ttl').forEach((el) => {
+  const sectionTtlTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: 'body',
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: true,
+    }
+  })
+  sectionTtlTl.from(el, {
+    x: 100,
+    opacity: 0,
+    duration: 10,
+    ease: 'power4.out',
+  })
+})
+
+const topTtlTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#top',
+    start: 'top top',
+    // end: 'bottom bottom'
+    end: '+=800',
+    scrub: true,
+    pin: true,
+  }
+})
+
+topTtlTl.fromTo('.top__ttl', {
+  opacity:1 ,
+}, {
+  opacity:0.2, fontSize: 24, y:'-45vh', ease: 'Power4.out'
+})
+
+const headerLogoTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#top',
+    start: 'top top',
+    end: '+=800',
+    scrub: true,
+    pin: true,
+  }
+})
+
+headerLogoTl.from('.header__logo', {
+  fontSize: 108, y:'46vh'
+}, {
+  fontSize: 24, y:0, ease: 'Power4.out'
+})

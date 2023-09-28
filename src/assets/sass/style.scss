@@ -174,6 +174,7 @@ section {
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden;
 }
 
 .section__ttl {
@@ -182,7 +183,6 @@ section {
     font-size: rem(48);
     font-weight: 500;
     position: relative;
-    mix-blend-mode: difference;
 
     @include mq("small") {
         font-size: rem(40);
@@ -276,7 +276,13 @@ textarea {
         transition: transform .2s ease-out;
     }
 
+    @include mq("small") {
+        display: none;
+    }
 
+    @include mq("ex-small") {
+        display: none;
+    }
 }
 
 /* splash ローディング時のアニメーション
@@ -330,7 +336,7 @@ textarea {
     justify-content: space-between;
     width: 100%;
     height: 50px;
-    padding: 0 5%;
+    padding: 0 20px;
 
     &.is-open {
         transform: translateY(-60px);
@@ -347,7 +353,15 @@ textarea {
     }
 }
 
+.header__left {
+    position: relative;
+    height: 50px;
+}
+
 .header__logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     font-size: rem(24);
     font-family: $font-en;
     line-height: 1;
@@ -653,13 +667,11 @@ textarea {
     position: absolute;
     z-index: 10;
     font-family: $font-en;
-    font-size: rem(160);
+    font-size: rem(108);
     top: 50%;
     transform: translateY(-50%);
-    // color: $color-accent4;
-    // text-shadow: 0 0 20px $color-accent4;
     color: transparent;
-    -webkit-text-stroke: 1px $color-accent4;
+    // -webkit-text-stroke: 1px $color-accent4;
     animation: topTtlAnime 1s ease 5s forwards;
 
     @include mq('small') {
@@ -683,8 +695,7 @@ textarea {
         }
 
         100% {
-            color: $color-accent4;
-            text-shadow: 0 0 20px $color-accent4;
+            text-shadow: 0 0 10px rgba($color-accent4, 0.5);
         }
     }
 }
@@ -794,7 +805,7 @@ textarea {
     }
 
     @include mq('ex-small') {
-        height: 600px;
+        height: 400px;
         margin-bottom: 5%;
         border-radius: 10px;
         padding: 10px;
@@ -807,7 +818,7 @@ textarea {
     position: relative;
     border: 1px solid $color-accent1;
     border-radius: 15px;
-    overflow: hidden;
+    overflow-y: scroll;
     background-color: rgba($color-accent1, .05);
 
     @include mq("small") {
@@ -897,8 +908,8 @@ textarea {
 }
 
 .about__tab {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     transition: all 0.2s ease 0s;
     border: 1px solid transparent;
     border-radius: 50%;
@@ -916,6 +927,10 @@ textarea {
         filter: grayscale(0%);
         transform: translateY(4px);
         pointer-events: none;
+
+        .about__icon {
+            color: #2777c6;
+        }
     }
 
     &:hover {
@@ -923,6 +938,11 @@ textarea {
         transform: translateY(-1px);
         filter: grayscale(0%);
     }
+}
+
+.about__icon {
+    font-size: rem(48);
+    color: $color-disable;
 }
 
 /* service
@@ -961,12 +981,12 @@ textarea {
 
 
 .service__contents {
+    width: 100%;
     border: 1px solid $color-accent1;
     border-radius: 20px;
     box-shadow: 0 0 10px $color-accent1;
     overflow: hidden;
-    cursor: pointer;
-    display: inline-flex;
+    margin: 0;
 
     @include mq("small") {
         border-radius: 10px;
@@ -979,23 +999,41 @@ textarea {
     &:hover,
     &:focus {
         box-shadow: 0 0 10px $color-accent1;
-
-        .service__img-wrapper {
-            filter: grayscale(0%);
-        }
     }
 }
 
 .service__link {
     background: transparent;
     width: 100%;
-    height: 100%;
-    padding: 10px;
+    transition: all 1s ease 0s;
+    transform-style: preserve-3d;
+    position: relative;
+
+    &::before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+    }
+
+    &.is-open {
+        .link__back {
+            transform: rotateY(0);
+        }
+
+        .link__front {
+            transform: rotateY(180deg);
+        }
+
+        .service__icon {
+            &:nth-child(2) {
+                transform: rotate(90deg);
+            }
+        }
+    }
 }
 
 .service__img-wrapper {
     margin-bottom: 16px;
-    filter: grayscale(100%);
     transition: all 0.2s ease 0s;
     border-radius: 10px;
     overflow: hidden;
@@ -1011,15 +1049,67 @@ textarea {
 .service__head {
     color: $color-background;
     text-align: left;
+    margin-bottom: 8px;
 
-    @include mq("ex-small") {
-        font-size: rem(14);
-    }
+    @include mq("small") {}
 
     @include mq("ex-small") {
         font-size: rem(14);
     }
 }
+
+.link__front,
+.link__back {
+    transition: all .5s ease;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+.link__back {
+    transform: rotateY(-180deg);
+}
+
+.service__desc {
+    color: $color-background;
+    font-size: rem(14);
+    text-align: left;
+    margin-bottom: 16px;
+
+    @include mq("ex-small") {
+        font-size: rem(12);
+    }
+}
+
+.service__open {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.service__icon {
+    background-color: $color-background;
+    transition: all .2s ease 0s;
+    position: absolute;
+
+    &:nth-child(1) {
+        width: 22px;
+        height: 2px;
+        top: 10px;
+        left: 0;
+    }
+
+    &:nth-child(2) {
+        width: 2px;
+        height: 22px;
+        left: 10px;
+    }
+}
+
 
 /* works
 ------------------------------ */
@@ -1050,14 +1140,6 @@ textarea {
 .works__link {
     transition: all 0.2s ease 0s;
 
-    &:hover,
-    &:focus {
-
-        img {
-            filter: none;
-        }
-    }
-
 }
 
 .works__figure {
@@ -1080,7 +1162,6 @@ textarea {
     transition: all 0.5s ease 0s;
     object-fit: cover;
     object-position: bottom;
-    filter: grayscale(100%);
 }
 
 .works__info {
@@ -1402,7 +1483,7 @@ textarea {
     @include mq('ex-small') {
         text-align: left;
         padding: 0.5em 0;
-        width: 150px;
+        width: 125px;
     }
 }
 

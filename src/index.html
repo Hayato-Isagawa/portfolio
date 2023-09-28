@@ -73,8 +73,12 @@
     <script defer src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
     <!-- swiper.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- gsap.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/MotionPathPlugin.min.js"></script>
     <!-- my -->
-    <script defer src="./assets/js/script.js"></script>
+    <script defer type="module" src="./assets/js/script.js"></script>
 </head>
 
 <body>
@@ -90,7 +94,9 @@
     <!-- /#particles-js -->
 
     <header class="header" id="header">
-        <h1 class="header__logo">haya<strong class="text--bold">.</strong></h1>
+        <div class="header__left">
+            <h1 class="header__logo">haya<strong class="text--bold">.</strong></h1>
+        </div>
         <nav class="header__nav">
             <ul id="nav__list">
                 <li class="nav__item">
@@ -233,12 +239,17 @@
                                     <dd>
                                         <p class="about__text">
                                             私の夢は、機能も感動も兼ね備えた、魅力的なウェブサイトをつくることです。<br><br>
-                                            現在、師として(勝手に)崇めているのが、<br>
+                                            現在、師として(勝手に)崇めているのが、<br><br>
                                             アートディレクター、インタラクションデザイナーの「田渕将吾」さん<br>
-                                            田渕さんの<a href="https://www.s5-studios.com/">ポートフォリオサイト <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77cdff;"></i></a> や制作されたサイトはどれも魅力的で、見ていてとてもワクワクします。<br>
+                                            田渕さんの<a href="https://www.s5-studios.com/">ポートフォリオサイト <i
+                                                    class="fa-solid fa-arrow-up-right-from-square"
+                                                    style="color: #77cdff;"></i></a>
+                                            や制作されたサイトはどれも魅力的で、見ていてとてもワクワクします。<br>
                                             インタラクションがとても心地いいです。私もこのような表現ができるように努力します。<br><br>
                                             ウェブデザイナー、ディベロッパーの「Keita Yamada」さん<br>
-                                            山田さんの<a href="https://p5aholic.me/">ポートフォリオサイト <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77cdff;"></i></a> や制作されたサイトはどれも見ていて引き込まれます。<br>
+                                            山田さんの<a href="https://p5aholic.me/">ポートフォリオサイト <i
+                                                    class="fa-solid fa-arrow-up-right-from-square"
+                                                    style="color: #77cdff;"></i></a> や制作されたサイトはどれも見ていて引き込まれます。<br>
                                             シンプルながらも細部まで作り込まれています。私もこのように細部まで作り込めるように精進します。<br><br>
                                         </p>
                                     </dd>
@@ -247,19 +258,23 @@
                         </div>
                         <ul class="about__list">
                             <li class="about__contents">
-                                <button class="about__tab is-active" type="button" aria-label="">
+                                <button class="about__tab is-active" type="button" aria-label="自己紹介">
+                                    <i class="fa-solid fa-circle-dot about__icon"></i>
                                 </button>
                             </li>
                             <li class="about__contents">
-                                <button class="about__tab" type="button" aria-label="">
+                                <button class="about__tab" type="button" aria-label="スキル">
+                                    <i class="fa-solid fa-circle-dot about__icon"></i>
                                 </button>
                             </li>
                             <li class="about__contents">
-                                <button class="about__tab" type="button" aria-label="">
+                                <button class="about__tab" type="button" aria-label="経歴">
+                                    <i class="fa-solid fa-circle-dot about__icon"></i>
                                 </button>
                             </li>
                             <li class="about__contents">
-                                <button class="about__tab" type="button" aria-label="">
+                                <button class="about__tab" type="button" aria-label="私の夢">
+                                    <i class="fa-solid fa-circle-dot about__icon"></i>
                                 </button>
                             </li>
                         </ul>
@@ -274,72 +289,147 @@
                     <h3 class="section__sub-ttl">- サービス</h3>
                     <h4 class="section__text">
                         <p class="section__desc">
-                            サービス内容について詳しく知りたい方は、お気軽に<a href="#contact" class="service__contact">お問い合わせ <i class="fa-solid fa-arrow-up-right-from-square" style="color: #77cdff;"></i></a>ください。
+                            サービス内容について詳しく知りたい方は、お気軽に<a href="#contact" class="service__contact">お問い合わせ <i
+                                    class="fa-solid fa-arrow-up-right-from-square" style="color: #77cdff;"></i></a>ください。
                         </p>
                     </h4>
                     <ul class="service__list">
                         <li class="service__contents">
                             <button class="service__link" type="button" aria-label="ウェブサイト制作について詳細を見る">
-                                <figure class="service__img-wrapper">
-                                    <img src="./assets/img/index-jpeg/service1.jpeg" alt="" class="service__img">
-                                </figure>
-                                <h3 class="service__head">ウェブサイト制作</h3>
+                                <div class="link__front">
+                                    <figure class="service__img-wrapper">
+                                        <img src="./assets/img/index-jpeg/service1.jpeg" alt="" class="service__img">
+                                    </figure>
+                                    <h3 class="service__head">ウェブサイト制作</h3>
+                                </div>
+                                <div class="link__back">
+                                    <p class="service__desc">
+                                        ブログのような投稿機能がついたWordPress(ワードプレス)を用いたサイト、商品を紹介するための縦長のサイト、結婚式の招待状代わりのサイト等、さまざまなタイプのウェブサイトを制作します。
+                                    </p>
+                                </div>
+                                <div class="service__open">
+                                    <span class="service__icon"></span>
+                                    <span class="service__icon"></span>
+                                </div>
                             </button>
                         </li>
                         <li class="service__contents">
                             <button class="service__link" type="button" aria-label="コーディングについての詳細を見る">
-                                <figure class="service__img-wrapper">
-                                    <img src="./assets/img/index-jpeg/service2.jpeg" alt="" class="service__img">
-                                </figure>
-                                <h3 class="service__head">コーディング</h3>
+                                <div class="link__front">
+                                    <figure class="service__img-wrapper">
+                                        <img src="./assets/img/index-jpeg/service2.jpeg" alt="" class="service__img">
+                                    </figure>
+                                    <h3 class="service__head">コーディング</h3>
+                                </div>
+                                <div class="link__back">
+                                    <p class="service__desc">
+                                        すでにあるウェブサイトをWordPress化して投稿機能をつけたり、アニメーションを加えたりといった、部分的な作業も承っています。<br>
+                                        コーダーとしての人手が足りない際のリソースとしても対応可能です。
+                                    </p>
+                                </div>
+                                <div class="service__open">
+                                    <span class="service__icon"></span>
+                                    <span class="service__icon"></span>
+                                </div>
                             </button>
                         </li>
                         <li class="service__contents">
                             <button class="service__link" type="button" aria-label="運用・保守代行について詳細を見る">
-                                <figure class="service__img-wrapper">
-                                    <img src="./assets/img/index-jpeg/service3.jpeg" alt="" class="service__img">
-                                </figure>
-                                <h3 class="service__head">運用・保守代行</h3>
+                                <div class="link__front">
+                                    <figure class="service__img-wrapper">
+                                        <img src="./assets/img/index-jpeg/service3.jpeg" alt="" class="service__img">
+                                    </figure>
+                                    <h3 class="service__head">運用・保守代行</h3>
+                                </div>
+                                <div class="link__back">
+                                    <p class="service__desc">
+                                        ウェブの世界は移り変わりが激しいです。ウェブやパソコンに不慣れな方に代わって、ウェブサイトの運用・保守を代行します。<br>
+                                        その際、部分的なコーディング作業を承ることもできます。
+                                    </p>
+                                </div>
+                                <div class="service__open">
+                                    <span class="service__icon"></span>
+                                    <span class="service__icon"></span>
+                                </div>
                             </button>
                         </li>
                         <li class="service__contents">
                             <button class="service__link" type="button" aria-label="ウェブ全般について詳細を見る">
-                                <figure class="service__img-wrapper">
-                                    <img src="./assets/img/index-jpeg/service4.jpeg" alt="" class="service__img">
-                                </figure>
-                                <h3 class="service__head">ウェブ全般</h3>
+                                <div class="link__front">
+                                    <figure class="service__img-wrapper">
+                                        <img src="./assets/img/index-jpeg/service4.jpeg" alt="" class="service__img">
+                                    </figure>
+                                    <h3 class="service__head">ウェブ全般</h3>
+                                </div>
+                                <div class="link__back">
+                                    <p class="service__desc">
+                                        ウェブに関することならなんでもご相談に乗ります。<br>
+                                        レンタルサーバーの選定やサーバー内のデータの管理、表示速度の改善など、ウェブに関することは広く対応可能です。
+                                    </p>
+                                </div>
+                                <div class="service__open">
+                                    <span class="service__icon"></span>
+                                    <span class="service__icon"></span>
+                                </div>
                             </button>
                         </li>
                         <li class="service__contents">
                             <button class="service__link" type="button" aria-label="レスポンシブについて詳細を見る">
-                                <figure class="service__img-wrapper">
-                                    <img src="./assets/img/index-jpeg/service5.jpeg" alt="" class="service__img">
-                                </figure>
-                                <h3 class="service__head">レスポンシブ</h3>
+                                <div class="link__front">
+                                    <figure class="service__img-wrapper">
+                                        <img src="./assets/img/index-jpeg/service5.jpeg" alt="" class="service__img">
+                                    </figure>
+                                    <h3 class="service__head">レスポンシブ</h3>
+                                </div>
+                                <div class="link__back">
+                                    <p class="service__desc">
+                                        すでにあるウェブサイトをレスポンシブ対応(スマートフォン向けに見やすくする)させることができます。
+                                    </p>
+                                </div>
+                                <div class="service__open">
+                                    <span class="service__icon"></span>
+                                    <span class="service__icon"></span>
+                                </div>
                             </button>
                         </li>
                         <li class="service__contents">
                             <button class="service__link" type="button" aria-label="動画編集について詳細を見る">
-                                <figure class="service__img-wrapper">
-                                    <img src="./assets/img/index-jpeg/service6.jpeg" jpeg="" class="service__img">
-                                </figure>
-                                <h3 class="service__head">動画編集</h3>
+                                <div class="link__front">
+                                    <figure class="service__img-wrapper">
+                                        <img src="./assets/img/index-jpeg/service6.jpeg" jpeg="" class="service__img">
+                                    </figure>
+                                    <h3 class="service__head">動画編集</h3>
+                                </div>
+                                <div class="service__open">
+                                    <span class="service__icon"></span>
+                                    <span class="service__icon"></span>
+                                </div>
+                                <div class="link__back">
+                                    <p class="service__desc">
+                                        簡易な動画編集をすることができます。<br>
+                                        カット・テロップ入れ、効果音まで対応可能です。
+                                    </p>
+                                </div>
                             </button>
                         </li>
                         <li class="service__contents">
                             <button class="service__link" type="button" aria-label="動画編集について詳細を見る">
+                                <div class="link__front">
                                 <figure class="service__img-wrapper">
                                     <img src="./assets/img/index-jpeg/service7.jpeg" jpeg="" class="service__img">
                                 </figure>
                                 <h3 class="service__head">Coming Soon</h3>
+                                </div>
                             </button>
                         </li>
                         <li class="service__contents">
                             <button class="service__link" type="button" aria-label="動画編集について詳細を見る">
+                                <div class="link__front">
                                 <figure class="service__img-wrapper">
                                     <img src="./assets/img/index-jpeg/service7.jpeg" jpeg="" class="service__img">
                                 </figure>
                                 <h3 class="service__head">Coming Soon</h3>
+                                </div>
                             </button>
                         </li>
                     </ul>

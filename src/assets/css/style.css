@@ -98,6 +98,7 @@ section {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
 }
 
 .section__ttl {
@@ -106,7 +107,6 @@ section {
   font-size: 3rem;
   font-weight: 500;
   position: relative;
-  mix-blend-mode: difference;
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .section__ttl {
@@ -201,6 +201,16 @@ textarea:focus {
   height: 80px;
   transition: transform 0.2s ease-out;
 }
+@media (min-width: 576px) and (max-width: 767px) {
+  #mouse-stalker {
+    display: none;
+  }
+}
+@media only screen and (max-width: 575px) {
+  #mouse-stalker {
+    display: none;
+  }
+}
 
 /* splash ローディング時のアニメーション
 ============================== */
@@ -253,7 +263,7 @@ textarea:focus {
   justify-content: space-between;
   width: 100%;
   height: 50px;
-  padding: 0 5%;
+  padding: 0 20px;
 }
 .header.is-open {
   transform: translateY(-60px);
@@ -271,7 +281,15 @@ textarea:focus {
   }
 }
 
+.header__left {
+  position: relative;
+  height: 50px;
+}
+
 .header__logo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 1.5rem;
   font-family: "Bruno Ace", cursive;
   line-height: 1;
@@ -561,11 +579,10 @@ textarea:focus {
   position: absolute;
   z-index: 10;
   font-family: "Bruno Ace", cursive;
-  font-size: 10rem;
+  font-size: 6.75rem;
   top: 50%;
   transform: translateY(-50%);
   color: transparent;
-  -webkit-text-stroke: 1px #ffea1e;
   -webkit-animation: topTtlAnime 1s ease 5s forwards;
           animation: topTtlAnime 1s ease 5s forwards;
 }
@@ -591,8 +608,7 @@ textarea:focus {
     color: transparent;
   }
   100% {
-    color: #ffea1e;
-    text-shadow: 0 0 20px #ffea1e;
+    text-shadow: 0 0 10px rgba(255, 234, 30, 0.5);
   }
 }
 @keyframes topTtlAnime {
@@ -600,8 +616,7 @@ textarea:focus {
     color: transparent;
   }
   100% {
-    color: #ffea1e;
-    text-shadow: 0 0 20px #ffea1e;
+    text-shadow: 0 0 10px rgba(255, 234, 30, 0.5);
   }
 }
 
@@ -717,7 +732,7 @@ textarea:focus {
 }
 @media only screen and (max-width: 575px) {
   .about__wrapper {
-    height: 600px;
+    height: 400px;
     margin-bottom: 5%;
     border-radius: 10px;
     padding: 10px;
@@ -730,7 +745,7 @@ textarea:focus {
   position: relative;
   border: 1px solid #77cdff;
   border-radius: 15px;
-  overflow: hidden;
+  overflow-y: scroll;
   background-color: rgba(119, 205, 255, 0.05);
 }
 @media (min-width: 576px) and (max-width: 767px) {
@@ -826,8 +841,8 @@ textarea:focus {
 }
 
 .about__tab {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   transition: all 0.2s ease 0s;
   border: 1px solid transparent;
   border-radius: 50%;
@@ -847,10 +862,18 @@ textarea:focus {
   transform: translateY(4px);
   pointer-events: none;
 }
+.about__tab.is-active .about__icon {
+  color: #2777c6;
+}
 .about__tab:hover {
   box-shadow: 0 3px 0 #7d7d7d;
   transform: translateY(-1px);
   filter: grayscale(0%);
+}
+
+.about__icon {
+  font-size: 3rem;
+  color: #b2b2b2;
 }
 
 /* service
@@ -876,12 +899,12 @@ textarea:focus {
 }
 
 .service__contents {
+  width: 100%;
   border: 1px solid #77cdff;
   border-radius: 20px;
   box-shadow: 0 0 10px #77cdff;
   overflow: hidden;
-  cursor: pointer;
-  display: inline-flex;
+  margin: 0;
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .service__contents {
@@ -896,20 +919,31 @@ textarea:focus {
 .service__contents:hover, .service__contents:focus {
   box-shadow: 0 0 10px #77cdff;
 }
-.service__contents:hover .service__img-wrapper, .service__contents:focus .service__img-wrapper {
-  filter: grayscale(0%);
-}
 
 .service__link {
   background: transparent;
   width: 100%;
-  height: 100%;
-  padding: 10px;
+  transition: all 1s ease 0s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.service__link::before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.service__link.is-open .link__back {
+  transform: rotateY(0);
+}
+.service__link.is-open .link__front {
+  transform: rotateY(180deg);
+}
+.service__link.is-open .service__icon:nth-child(2) {
+  transform: rotate(90deg);
 }
 
 .service__img-wrapper {
   margin-bottom: 16px;
-  filter: grayscale(100%);
   transition: all 0.2s ease 0s;
   border-radius: 10px;
   overflow: hidden;
@@ -926,16 +960,64 @@ textarea:focus {
 .service__head {
   color: #fffdf7;
   text-align: left;
+  margin-bottom: 8px;
 }
 @media only screen and (max-width: 575px) {
   .service__head {
     font-size: 0.875rem;
   }
 }
+
+.link__front,
+.link__back {
+  transition: all 0.5s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.link__back {
+  transform: rotateY(-180deg);
+}
+
+.service__desc {
+  color: #fffdf7;
+  font-size: 0.875rem;
+  text-align: left;
+  margin-bottom: 16px;
+}
 @media only screen and (max-width: 575px) {
-  .service__head {
-    font-size: 0.875rem;
+  .service__desc {
+    font-size: 0.75rem;
   }
+}
+
+.service__open {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.service__icon {
+  background-color: #fffdf7;
+  transition: all 0.2s ease 0s;
+  position: absolute;
+}
+.service__icon:nth-child(1) {
+  width: 22px;
+  height: 2px;
+  top: 10px;
+  left: 0;
+}
+.service__icon:nth-child(2) {
+  width: 2px;
+  height: 22px;
+  left: 10px;
 }
 
 /* works
@@ -958,9 +1040,6 @@ textarea:focus {
 
 .works__link {
   transition: all 0.2s ease 0s;
-}
-.works__link:hover img, .works__link:focus img {
-  filter: none;
 }
 
 .works__figure {
@@ -987,7 +1066,6 @@ textarea:focus {
      object-fit: cover;
   -o-object-position: bottom;
      object-position: bottom;
-  filter: grayscale(100%);
 }
 
 .works__info {
@@ -1301,7 +1379,7 @@ textarea:focus {
   .contact__label {
     text-align: left;
     padding: 0.5em 0;
-    width: 150px;
+    width: 125px;
   }
 }
 

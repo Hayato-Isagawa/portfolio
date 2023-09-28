@@ -144,6 +144,12 @@ textarea:focus {
   font-family: "Noto Sans JP", sans-serif;
 }
 
+.text--bold {
+  font-weight: bold;
+  color: #ffea1e;
+  text-shadow: 0 0 20px #ffea1e;
+}
+
 /* background 背景の星のアニメーション
 ============================== */
 #particles-js--desc {
@@ -751,10 +757,8 @@ textarea:focus {
 }
 
 .works-desc__label {
-  font-weight: bold;
   position: relative;
   flex: 0 0 150px;
-  font-family: "Bruno Ace", cursive;
   text-align: left;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
@@ -778,7 +782,7 @@ textarea:focus {
 .works-desc__desc {
   flex: 1 1 600px;
   margin-left: 32px;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .works-desc__desc {
@@ -798,16 +802,6 @@ textarea:focus {
 
 .works-desc__comment .works-desc__text:not(:last-child) {
   margin-bottom: 16px;
-}
-@media (min-width: 576px) and (max-width: 767px) {
-  .works-desc__comment .works-desc__text:not(:last-child) {
-    margin-bottom: 8px;
-  }
-}
-@media only screen and (max-width: 575px) {
-  .works-desc__comment .works-desc__text:not(:last-child) {
-    margin-bottom: 8px;
-  }
 }
 
 /* footer

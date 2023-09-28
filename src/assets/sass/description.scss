@@ -224,6 +224,12 @@ textarea {
   font-family: $font-jp;
 }
 
+.text--bold {
+  font-weight: bold;
+  color: $color-accent4;
+  text-shadow: 0 0 20px $color-accent4;
+}
+
 /* background 背景の星のアニメーション
 ============================== */
 #particles-js--desc {
@@ -858,10 +864,8 @@ textarea {
 }
 
 .works-desc__label {
-  font-weight: bold;
   position: relative;
   flex: 0 0 150px;
-  font-family: $font-en;
   text-align: left;
   backface-visibility: hidden;
   perspective: 1000; //正の値
@@ -882,7 +886,7 @@ textarea {
 .works-desc__desc {
   flex: 1 1 600px;
   margin-left: 32px;
-  line-height: 1.5;
+  line-height: 1.7;
 
   @include mq('small') {
     margin-left: 0;
@@ -902,14 +906,6 @@ textarea {
   .works-desc__text {
     &:not(:last-child) {
       margin-bottom: 16px;
-
-      @include mq("small") {
-        margin-bottom: 8px;
-      }
-
-      @include mq("ex-small") {
-        margin-bottom: 8px;
-      }
     }
   }
 }
