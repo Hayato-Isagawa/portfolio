@@ -51,6 +51,7 @@
 ============================== */
 html {
   font-size: 16px;
+  overflow-x: hidden;
   background-color: #000a14;
 }
 
@@ -59,6 +60,7 @@ body {
   font-weight: normal;
   line-height: 1.5;
   color: #fffdf7;
+  overflow-x: hidden;
 }
 
 #wrapper {
@@ -214,34 +216,6 @@ textarea:focus {
 
 /* splash ローディング時のアニメーション
 ============================== */
-#splash {
-  position: fixed;
-  z-index: 998;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background-color: #000a14;
-}
-
-#space {
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-}
-
-#splash__text {
-  position: absolute;
-  z-index: inherit;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  transform: translate(-50%, -50%);
-}
-
-#splash__text svg {
-  height: 2px;
-}
-
 /* background 背景の星のアニメーション
 ============================== */
 #particles-js {
@@ -809,7 +783,7 @@ textarea:focus {
 }
 .about__text a {
   display: inline-block;
-  border-bottom: 1px solid #fffdf7;
+  border-bottom: 1px solid #77cdff;
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .about__text {
@@ -884,7 +858,7 @@ textarea:focus {
 
 .service__contact {
   display: inline-block;
-  border-bottom: 1px solid #fffdf7;
+  border-bottom: 1px solid #77cdff;
 }
 
 .service__list {
@@ -941,6 +915,9 @@ textarea:focus {
 .service__link.is-open .service__icon:nth-child(2) {
   transform: rotate(90deg);
 }
+.service__link:hover .service__open {
+  border: 1px solid #fffdf7;
+}
 
 .service__img-wrapper {
   margin-bottom: 16px;
@@ -978,6 +955,13 @@ textarea:focus {
   width: 100%;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  padding: 20px;
+}
+@media only screen and (max-width: 575px) {
+  .link__front,
+.link__back {
+    padding: 10px;
+  }
 }
 
 .link__back {
@@ -1001,6 +985,9 @@ textarea:focus {
   height: 24px;
   position: relative;
   margin: 0 auto;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  transition: all 0.2s ease 0s;
 }
 
 .service__icon {
@@ -1009,15 +996,16 @@ textarea:focus {
   position: absolute;
 }
 .service__icon:nth-child(1) {
-  width: 22px;
-  height: 2px;
-  top: 10px;
-  left: 0;
+  width: 16px;
+  height: 1px;
+  top: 11px;
+  left: 3px;
 }
 .service__icon:nth-child(2) {
-  width: 2px;
-  height: 22px;
-  left: 10px;
+  width: 1px;
+  height: 16px;
+  left: 11px;
+  top: 3px;
 }
 
 /* works

@@ -129,6 +129,7 @@ $layer: (
 ============================== */
 html {
     font-size: $baseFontSize + px;
+    overflow-x: hidden;
     background-color: $color-space;
 }
 
@@ -137,6 +138,7 @@ body {
     font-weight: normal;
     line-height: 1.5;
     color: $color-background;
+    overflow-x: hidden;
 }
 
 #wrapper {
@@ -287,33 +289,33 @@ textarea {
 
 /* splash ローディング時のアニメーション
 ============================== */
-#splash {
-    position: fixed;
-    z-index: 998;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    background-color: $color-space;
-}
+// #splash {
+//     position: fixed;
+//     z-index: 998;
+//     width: 100%;
+//     height: 100%;
+//     text-align: center;
+//     background-color: $color-space;
+// }
 
-#space {
-    width: 100%;
-    height: 100%;
-    z-index: 999;
-}
+// #space {
+//     width: 100%;
+//     height: 100%;
+//     z-index: 999;
+// }
 
-#splash__text {
-    position: absolute;
-    z-index: inherit;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
-}
+// #splash__text {
+//     position: absolute;
+//     z-index: inherit;
+//     top: 50%;
+//     left: 50%;
+//     width: 100%;
+//     transform: translate(-50%, -50%);
+// }
 
-#splash__text svg {
-    height: 2px;
-}
+// #splash__text svg {
+//     height: 2px;
+// }
 
 /* background 背景の星のアニメーション
 ============================== */
@@ -879,7 +881,7 @@ textarea {
 
     a {
         display: inline-block;
-        border-bottom: 1px solid $color-background;
+        border-bottom: 1px solid $color-accent1;
     }
 
     @include mq('small') {
@@ -953,7 +955,7 @@ textarea {
 
 .service__contact {
     display: inline-block;
-    border-bottom: 1px solid $color-background;
+    border-bottom: 1px solid $color-accent1;
 }
 
 .service__list {
@@ -965,20 +967,6 @@ textarea {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 }
-
-// .grid-item {
-//     width: 150px;
-//     margin-bottom: 10px;
-// }
-
-// .grid-item--width2 {
-//     width: 300px;
-// }
-
-// .grid-item--width3 {
-//     width: 450px;
-// }
-
 
 .service__contents {
     width: 100%;
@@ -1030,6 +1018,12 @@ textarea {
             }
         }
     }
+
+    &:hover {
+        .service__open {
+            border: 1px solid $color-background;
+        }
+    }
 }
 
 .service__img-wrapper {
@@ -1067,6 +1061,11 @@ textarea {
     height: 100%;
     width: 100%;
     backface-visibility: hidden;
+    padding: 20px;
+
+    @include mq("ex-small") {
+        padding: 10px;
+    }
 }
 
 .link__back {
@@ -1089,6 +1088,9 @@ textarea {
     height: 24px;
     position: relative;
     margin: 0 auto;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    transition: all .2s ease 0s;
 }
 
 .service__icon {
@@ -1097,19 +1099,19 @@ textarea {
     position: absolute;
 
     &:nth-child(1) {
-        width: 22px;
-        height: 2px;
-        top: 10px;
-        left: 0;
+        width: 16px;
+        height: 1px;
+        top: 11px;
+        left: 3px;
     }
 
     &:nth-child(2) {
-        width: 2px;
-        height: 22px;
-        left: 10px;
+        width: 1px;
+        height: 16px;
+        left: 11px;
+        top: 3px;
     }
 }
-
 
 /* works
 ------------------------------ */
