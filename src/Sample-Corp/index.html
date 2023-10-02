@@ -60,11 +60,6 @@
   <!-- js -->
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <!-- progressbar.js -->
-  <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
-  <!-- progressbar.js IE11用 -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
   <!-- particles.js -->
   <script defer src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <!-- swiper.js -->
@@ -74,18 +69,19 @@
 </head>
 
 <body>
+  <div id="mouse-stalker"></div>
 
-  <div id="splash">
+  <!-- <div id="splash">
     <div id="splash__text"></div>
     <canvas id="space"></canvas>
-  </div>
+  </div> -->
   <!-- /#splash -->
 
   <div id="particles-js--desc"></div>
   <!-- /#particles-js -->
 
   <header class="header" id="header">
-    <h1 class="header__logo"><a href="http://hayaportfolio202301.falconportfolio.site">haya<strong class="text--bold">.</strong></a></h1>
+    <h1 class="header__logo"><a href="http://hayaportfolio202301.falconportfolio.site">haya</a></h1>
     <nav class="header__nav">
       <ul id="nav__list">
         <li class="nav__item">
@@ -202,9 +198,9 @@
               <dt class="works-desc__label">URL</dt>
               <dd class="works-desc__desc">
                 <a href="./Sample-Corp.html" target="_blank">
-                  <p class="works-desc__text">
+                  <p class="works-desc__text works-desc__text--link">
                     https://hayaportfolio202301.falconportfolio.site/Sample-Corp/Sample-Corp.html <i
-                      class="fa-solid fa-arrow-up-right-from-square" style="color: #77cdff;"></i>
+                      class="fa-solid fa-arrow-up-right-from-square"></i>
                   </p>
                 </a>
 

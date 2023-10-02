@@ -62,15 +62,8 @@
     <!-- js -->
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <!-- progressbar.js -->
-    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
-    <!-- progressbar.js IE11用 -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
     <!-- particles.js -->
     <script defer src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <!-- IntersectionObserver IE11用 -->
-    <script defer src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver"></script>
     <!-- swiper.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- gsap.js -->
@@ -95,7 +88,7 @@
 
     <header class="header" id="header">
         <div class="header__left">
-            <h1 class="header__logo">haya<strong class="text--bold">.</strong></h1>
+            <h1 class="header__logo">haya<strong class="text--accent">.</strong></h1>
         </div>
         <nav class="header__nav">
             <ul id="nav__list">
@@ -116,7 +109,7 @@
                             class="nav__link-ja">実績</span></a>
                 </li>
                 <li class="nav__item">
-                    <a href="#contact" class="nav__link" aria-label="連絡する"><span
+                    <a href="#contact" class="nav__link nav__contact" aria-label="連絡する"><span
                             class="nav__link-en">Contact</span><span class="nav__link-ja">お問い合わせ</span></a>
                 </li>
             </ul>
@@ -137,7 +130,7 @@
         <main>
             <section id="top">
                 <div class="container top__container">
-                    <h2 class="top__ttl">haya.</h2>
+                    <h2 class="top__ttl"></h2>
                     <div class="scrolldown">
                         <span class="scrolldown__icon"></span>
                         <span class="scrolldown__icon"></span>
@@ -152,13 +145,11 @@
                     <h3 class="section__sub-ttl">- コンセプト</h3>
                     <h4 class="section__text concept__text">
                         <p class="section__desc">
-                            このウェブサイトは、<strong class="text--bold">ウェブクリエイターhaya.のポートフォリオ兼アウトプットサイト</strong>です。<br>
-                            hayaが学んだことや、現在のトレンドの表現をアウトプットする場所も兼ねています。<br>
-                            特にJavaScriptが好きなので、その記述が多くなる傾向があります。<br>
-                            かなり見づらいとはと思いますが、あらかじめご了承ください。<br>
-                            また、書いたり消したりを繰り返しているので、コードはかなりメチャクチャです。<br>
-                            それでも、自分ができるようになったことを表現するのはとても楽しいので、しばらくはこのままでいくつもりです。<br>
-                            いつまでも<strong class="text--bold">「アソビゴコロ」</strong>を持ち続けながら、活動し続けたいです。
+                            このウェブサイトは、ウェブクリエイターhaya.のポートフォリオ兼アウトプットサイトです。<br><br>
+                            hayaが学んだことや、現在のトレンドの表現をアウトプットする場所も兼ねています。<br><br>
+                            書いたり消したりを繰り返しているので、コードはかなりメチャクチャです。<br>
+                            しかし自分ができるようになったことを表現するのはとても楽しいので、しばらくはこのままでいくつもりです。<br><br>
+                            いつまでも「アソビゴコロ」を持ち続けながら、活動し続けたいです。
                         </p>
                     </h4>
                 </div>
@@ -170,115 +161,74 @@
                     <h3 class="section__sub-ttl">- 私について</h3>
                     <h4 class="section__text">
                         <p class="section__desc">
-                            右側(スマートフォンの場合は下側)のボタンを押すと画面が切り替わります。<br>
                             私のスキルや人となりについて知っていただけると幸いです。
                         </p>
                     </h4>
-                    <div class="about__row">
-                        <div class="about__wrapper">
-                            <div class="about__inner">
-                                <dl class="about__desc is-active">
-                                    <dt>
-                                        <h4 class="about__headline">Self-introduction</h4>
-                                        <h5 class="about__sub-ttl">- 自己紹介</h5>
-                                    </dt>
-                                    <dd>
-                                        <p class="about__text">
-                                            私のポートフォリオサイトへの訪問ありがとうございます。<br>
-                                            初めまして、ウェブクリエイターのhaya.です。<br><br>
-                                            ウェブ制作の分野を生業としています。<br>
-                                            ウェブ制作の分野の活動ができるため、通常ならば、コーダーやマークアップエンジニアという言い方が一般的ですが、<br>
-                                            私は<span class="text--bold">ウェブクリエイター</span>であると名乗っています。<br><br>
-                                            それは、コーディングのみならず、音楽や映像、今まで学んできたこと、経験してきたこと全てを用いてウェブサイトを制作したいと考えているためです。<br>
-                                            そのため、コーディングの技法に限らず、デザインやマーケティング、動画編集など多くの分野から日々学び、実践しながら活動しています。<br><br>
-                                            よろしくお願いいたします。
-                                        </p>
-                                    </dd>
-                                </dl>
-                                <dl class="about__desc">
-                                    <dt>
-                                        <h4 class="about__headline">Skill</h4>
-                                        <h5 class="about__sub-ttl">- スキル</h5>
-                                    </dt>
-                                    <dd>
-                                        <p class="about__text">
-                                            [使⽤⾔語] <br>
-                                            HTML / CSS / JavaScript / Google Apps Script / PHP / MySQL<br><br>
-                                            [ライブラリ・フレームワーク・CMS]<br>
-                                            jQuery / Bootstrap / WordPress<br><br>
-                                            [バージョン管理ツール・タスクランナー]<br>
-                                            Git / Github / gulp<br><br>
-                                            [使⽤ツール]<br>
-                                            VScode / Adobe XD / Figma / Canve / Midjourney / ChatGPT GPT4 / Google
-                                            Workspace全般
-                                        </p>
-                                    </dd>
-                                </dl>
-                                <dl class="about__desc">
-                                    <dt>
-                                        <h4 class="about__headline">Career</h4>
-                                        <h5 class="about__sub-ttl">- 経歴</h5>
-                                    </dt>
-                                    <dd>
-                                        <p class="about__text">
-                                            沖縄県生まれ、沖縄県育ち。<br><br>
-                                            両親の仕事の都合で、県内各地を転々とする。<br><br>
-                                            沖縄県立の高等学校を卒業後、国立大学法人の教育学部へ進学。<br><br>
-                                            大学卒業後は、小学校教師として10年ほど勤務。<br>
-                                            非常勤講師、臨時的任用教師、そして本採用として働いた後、2022年に退職。<br><br>
-                                            業務の中で出会ったJavaScriptの魅力に魅せられ、「⾃分の可能性をどんどん広げていきたい」「より多くの⼈の役に⽴ちたい」と思い、ウェブ制作の分野の学習を開始。<br><br>
-                                            現在に至る。
-                                        </p>
-                                    </dd>
-                                </dl>
-                                <dl class="about__desc">
-                                    <dt>
-                                        <h4 class="about__headline">Dream</h4>
-                                        <h5 class="about__sub-ttl">- 私の夢</h5>
-                                    </dt>
-                                    <dd>
-                                        <p class="about__text">
-                                            私の夢は、機能も感動も兼ね備えた、魅力的なウェブサイトをつくることです。<br><br>
-                                            現在、師として(勝手に)崇めているのが、<br><br>
-                                            アートディレクター、インタラクションデザイナーの「田渕将吾」さん<br>
-                                            田渕さんの<a href="https://www.s5-studios.com/">ポートフォリオサイト <i
-                                                    class="fa-solid fa-arrow-up-right-from-square"
-                                                    style="color: #77cdff;"></i></a>
-                                            や制作されたサイトはどれも魅力的で、見ていてとてもワクワクします。<br>
-                                            インタラクションがとても心地いいです。私もこのような表現ができるように努力します。<br><br>
-                                            ウェブデザイナー、ディベロッパーの「Keita Yamada」さん<br>
-                                            山田さんの<a href="https://p5aholic.me/">ポートフォリオサイト <i
-                                                    class="fa-solid fa-arrow-up-right-from-square"
-                                                    style="color: #77cdff;"></i></a> や制作されたサイトはどれも見ていて引き込まれます。<br>
-                                            シンプルながらも細部まで作り込まれています。私もこのように細部まで作り込めるように精進します。<br><br>
-                                        </p>
-                                    </dd>
-                                </dl>
-                            </div>
-                        </div>
-                        <ul class="about__list">
-                            <li class="about__contents">
-                                <button class="about__tab is-active" type="button" aria-label="自己紹介">
-                                    <i class="fa-solid fa-circle-dot about__icon"></i>
-                                </button>
-                            </li>
-                            <li class="about__contents">
-                                <button class="about__tab" type="button" aria-label="スキル">
-                                    <i class="fa-solid fa-circle-dot about__icon"></i>
-                                </button>
-                            </li>
-                            <li class="about__contents">
-                                <button class="about__tab" type="button" aria-label="経歴">
-                                    <i class="fa-solid fa-circle-dot about__icon"></i>
-                                </button>
-                            </li>
-                            <li class="about__contents">
-                                <button class="about__tab" type="button" aria-label="私の夢">
-                                    <i class="fa-solid fa-circle-dot about__icon"></i>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul class="about__wrapper">
+                        <li>
+                            <dl class="about__desc">
+                                <dt>
+                                    <h4 class="about__headline">Self-introduction</h4>
+                                    <h5 class="about__sub-ttl">- 自己紹介</h5>
+                                </dt>
+                                <dd>
+                                    <p class="about__text">
+                                        初めまして、ウェブクリエイターのhaya.です。<br><br>
+                                        ウェブ制作の分野を生業としています。<br>
+                                        ウェブ制作の分野の活動ができるため、通常ならば、コーダーやマークアップエンジニアという言い方が一般的ですが、<br>
+                                        私はウェブクリエイターであると名乗っています。<br><br>
+                                        それは、コーディングのみならず、音楽や映像、今まで学んできたこと、経験してきたこと全てを用いてウェブサイトを制作したいと考えているためです。<br>
+                                        そのため、コーディングの技法に限らず、デザインやマーケティング、動画編集など多くの分野から日々学び、実践しながら活動しています。
+                                    </p>
+                                </dd>
+                            </dl>
+                        </li>
+                        <!-- <li>
+                            <dl class="about__desc">
+                                <dt>
+                                    <h4 class="about__headline">Skill</h4>
+                                    <h5 class="about__sub-ttl">- スキル</h5>
+                                </dt>
+                                <dd>
+                                    <p class="about__text">
+                                        [使⽤⾔語] <br>
+                                        HTML / CSS / JavaScript / Google Apps Script / PHP / MySQL<br><br>
+                                        [ライブラリ・フレームワーク・CMS]<br>
+                                        jQuery / Bootstrap / WordPress<br><br>
+                                        [バージョン管理ツール・タスクランナー]<br>
+                                        Git / Github / gulp<br><br>
+                                        [使⽤ツール]<br>
+                                        VScode / Adobe XD / Figma / Canve / Midjourney / ChatGPT GPT4 / Google
+                                        Workspace全般
+                                    </p>
+                                </dd>
+                            </dl>
+                        </li> -->
+                        <li>
+                            <dl class="about__desc">
+                                <dt>
+                                    <h4 class="about__headline">Dream</h4>
+                                    <h5 class="about__sub-ttl">- 私の夢</h5>
+                                </dt>
+                                <dd>
+                                    <p class="about__text">
+                                        私の夢は、機能も感動も兼ね備えた、魅力的なウェブサイトをつくることです。<br><br>
+                                        現在、師として(勝手に)崇めているのが、<br><br>
+                                        アートディレクター、インタラクションデザイナーの「田渕将吾」さん<br>
+                                        田渕さんの<a href="https://www.s5-studios.com/">ポートフォリオサイト <i
+                                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                        や制作されたサイトはどれも魅力的で、見ていてとてもワクワクします。<br>
+                                        インタラクションがとても心地いいです。私もこのような表現ができるように努力します。<br><br>
+                                        ウェブデザイナー、ディベロッパーの「Keita Yamada」さん<br>
+                                        山田さんの<a href="https://p5aholic.me/">ポートフォリオサイト <i
+                                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                        や制作されたサイトはどれも見ていて引き込まれます。<br>
+                                        シンプルながらも細部まで作り込まれています。私もこのように細部まで作り込めるように精進します。<br><br>
+                                    </p>
+                                </dd>
+                            </dl>
+                        </li>
+                    </ul>
                 </div>
             </section>
             <!-- /#about -->
@@ -290,7 +240,7 @@
                     <h4 class="section__text">
                         <p class="section__desc">
                             サービス内容について詳しく知りたい方は、お気軽に<a href="#contact" class="service__contact">お問い合わせ <i
-                                    class="fa-solid fa-arrow-up-right-from-square" style="color: #77cdff;"></i></a>ください。
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>ください。
                         </p>
                     </h4>
                     <ul class="service__list">
@@ -413,7 +363,7 @@
                                 </div>
                             </button>
                         </li>
-                        <li class="service__contents">
+                        <!-- <li class="service__contents">
                             <button class="service__link" type="button" aria-label="動画編集について詳細を見る">
                                 <div class="link__front">
                                     <figure class="service__img-wrapper">
@@ -450,7 +400,7 @@
                                     </p>
                                 </div>
                             </button>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </section>
@@ -463,7 +413,9 @@
                     <h4 class="section__text">
                         <p class="section__desc">
                             画面右側にある矢印を押していただくと、次の実績紹介に移ります。<br>
-                            それぞれの画像を押していただくと、より詳細な情報を知ることができます。
+                            それぞれの画像を押していただくと、より詳細な情報を知ることができます。<br><br>
+                            また、このポートフォリオサイトも自身でデザインからコーディングまでを行なっております。<br>
+                            そのため、こちらも実績の一部と考えてください。
                         </p>
                     </h4>
                     <div class="works__swiper">
@@ -534,9 +486,11 @@
             <!-- /#works-->
 
             <section id="contact">
-                <div class="container contact__container">
+                <div class="contact__ttls">
                     <h2 class="section__ttl">Contact</h2>
                     <h3 class="section__sub-ttl">- お問い合わせ</h3>
+                </div>
+                <div class="container contact__container">
                     <h4 class="section__text">
                         <p class="section__desc">
                             ウェブに関することならなんでもご相談に乗ります。<br>
@@ -578,7 +532,7 @@
                             </dl>
                             <div class="contact__submit is-disabled" id="contact__submit">
                                 <input class="submit__btn" id="js-submit" type="submit" aria-label="入力内容を送信する"
-                                    value="送　信" disabled>
+                                    value="送信" disabled>
                             </div>
                         </div>
                     </form>

@@ -60,11 +60,6 @@
   <!-- js -->
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <!-- progressbar.js -->
-  <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
-  <!-- progressbar.js IE11用 -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
   <!-- particles.js -->
   <script defer src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <!-- swiper.js -->
@@ -74,22 +69,25 @@
 </head>
 
 <body>
+  <div id="mouse-stalker"></div>
 
+  <!--
   <div id="splash">
     <div id="splash__text"></div>
     <canvas id="space"></canvas>
-  </div>
+  </div> -->
   <!-- /#splash -->
 
   <div id="particles-js--desc"></div>
   <!-- /#particles-js -->
 
   <header class="header" id="header">
-    <h1 class="header__logo"><a href="http://hayaportfolio202301.falconportfolio.site">haya<strong class="text--bold">.</strong></a></h1>
+    <h1 class="header__logo"><a href="http://hayaportfolio202301.falconportfolio.site">haya</a></h1>
     <nav class="header__nav">
       <ul id="nav__list">
         <li class="nav__item">
-          <a href="https://hayaportfolio202301.falconportfolio.site#concept" class="nav__link" aria-label="このサイトのコンセプト">Concept</a>
+          <a href="https://hayaportfolio202301.falconportfolio.site#concept" class="nav__link"
+            aria-label="このサイトのコンセプト">Concept</a>
         </li>
         <li class="nav__item">
           <a href="https://hayaportfolio202301.falconportfolio.site#about" class="nav__link"
@@ -189,7 +187,7 @@
             <dl class="works-desc__row">
               <dt class="works-desc__label">Comment</dt>
               <dd class="works-desc__desc">
-                  <p class="works-desc__text">
+                <p class="works-desc__text">
                   LINEやメールで送りやすい形として、ウェディングフォトを使用した結婚式招待状用のLPを制作しました。<br><br>
                   ウェディングフォトに合わせた色使いとテーマでデザインし、結婚式当日まで、何日かのカウントダウンタイマーも組み込みました。<br>
                   また、Data属性を利用し、結婚式の時間帯、結婚式終了後にはカウントダウンタイマーを非表示にして、別の文字が表示されるように工夫しました。<br>
@@ -202,9 +200,9 @@
               <dt class="works-desc__label">URL</dt>
               <dd class="works-desc__desc">
                 <a href="./invitation.html" target="_blank">
-                  <p class="works-desc__text">
+                  <p class="works-desc__text works-desc__text--link">
                     https://hayaportfolio202301.falconportfolio.site/invitation/invitation.html <i
-                      class="fa-solid fa-arrow-up-right-from-square" style="color: #77cdff;"></i>
+                      class="fa-solid fa-arrow-up-right-from-square"></i>
                   </p>
                 </a>
 

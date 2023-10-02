@@ -13,18 +13,14 @@
 /* color-scheme
 ============================== */
 $color-main: #3e3e3e;
-// $color-text: ;
-// $color-text2: ;
-// $color-border: ;
-$color-background: #fffdf7;
-$color-space : rgba(0, 10, 20, 1);
-$color-dots: #7d7d7d;
+$color-background: #d2d2d2;
+$color-space : #000a14;
 $color-linear: #e1e1e1;
 $color-disable: #b2b2b2;
-$color-accent1: #77cdff;
-$color-accent2: #7fff7d;
-$color-accent3: #ff7a7a;
-$color-accent4: #ffea1e;
+$color-accent1: #7fff7d;
+$color-accent2: #ff7a7a;
+$color-gradation1: rgba(219, 87, 205, 1);
+$color-gradation2: rgba(47, 237, 167, 1);
 
 /* font
 ============================== */
@@ -224,10 +220,38 @@ textarea {
   font-family: $font-jp;
 }
 
-.text--bold {
-  font-weight: bold;
-  color: $color-accent4;
-  text-shadow: 0 0 20px $color-accent4;
+.text--accent {}
+
+//マウスストーカー
+#mouse-stalker {
+  pointer-events: none;
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: $color-background;
+  border-radius: 50%;
+  transform: translate(0, 0);
+  transition: transform .2s ease-out;
+  z-index: 999;
+  mix-blend-mode: difference;
+
+  &.is-active {
+    top: -40px;
+    left: -40px;
+    width: 80px;
+    height: 80px;
+    transition: transform .2s ease-out;
+  }
+
+  @include mq("small") {
+    display: none;
+  }
+
+  @include mq("ex-small") {
+    display: none;
+  }
 }
 
 /* background 背景の星のアニメーション
@@ -242,33 +266,33 @@ textarea {
 
 /* splash ローディング時のアニメーション
 ============================== */
-#splash {
-  position: fixed;
-  z-index: 998;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background-color: rgba(0, 10, 20, 1);
-}
+// #splash {
+//   position: fixed;
+//   z-index: 998;
+//   width: 100%;
+//   height: 100%;
+//   text-align: center;
+//   background-color: rgba(0, 10, 20, 1);
+// }
 
-#space {
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-}
+// #space {
+//   width: 100%;
+//   height: 100%;
+//   z-index: 999;
+// }
 
-#splash__text {
-  position: absolute;
-  z-index: inherit;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  transform: translate(-50%, -50%);
-}
+// #splash__text {
+//   position: absolute;
+//   z-index: inherit;
+//   top: 50%;
+//   left: 50%;
+//   width: 100%;
+//   transform: translate(-50%, -50%);
+// }
 
-#splash__text svg {
-  height: 2px;
-}
+// #splash__text svg {
+//   height: 2px;
+// }
 
 /* header
 ------------------------------ */
@@ -900,6 +924,13 @@ textarea {
 
 .works-desc__text {
   word-wrap: break-word;
+
+  &--link {
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
+    border-image-slice: 1;
+    display: inline-block;
+  }
 }
 
 .works-desc__comment {

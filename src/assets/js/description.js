@@ -4,144 +4,44 @@
 ============================== */
 const mediaQuery = window.matchMedia("(min-width: 768px)");
 
+/* mouse-stalker
+------------------------------ */
+const stalker = document.getElementById("mouse-stalker");
+let hovFlag = false;
+let stalkerX = 0;
+let stalkerY = 0;
+
+document.addEventListener("mousemove", (e) => {
+  // if (!hovFlag) {
+  stalkerX = e.clientX;
+  stalkerY = e.clientY;
+  stalker.style.transform = `translate(${stalkerX}px, ${stalkerY}px)`;
+  // }
+});
+
+const linkElem = document.querySelectorAll(
+  'a:not(.no_stick_), button, input, textarea, div[class^="swiper-button-"]'
+);
+for (let i = 0; i < linkElem.length; i++) {
+  linkElem[i].addEventListener("mouseover", (e) => {
+    hovFlag = true;
+    stalker.classList.add("is-active");
+
+    // let rect = e.target.getBoundingClientRect();
+    // let posX = rect.left + rect.width / 2;
+    // let posY = rect.top + rect.height / 2;
+
+    // stalker.style.transform = `translate(${posX}px, ${posY}px)`;
+  });
+  linkElem[i].addEventListener("mouseout", (e) => {
+    hovFlag = false;
+    stalker.classList.remove("is-active");
+    // stalker.style.transform = `translate(${stalkerX}px, ${stalkerY}px)`;
+  });
+}
+
 /* splash
 ============================== */
-const splash = document.querySelector("#splash");
-const splashText = document.querySelector("#splash__text");
-const space = document.querySelector("#space");
-
-var bar = new ProgressBar.Line(splash__text, {
-  easing: "easeInOut",
-  duration: 2000,
-  strokeWidth: 6,
-  color: "#fffdf7",
-  trailWidth: 3,
-  trailColor: "#3e3e3e",
-  svgStyle: { width: "80%" },
-  text: {
-    style: {
-      position: "absolute",
-      left: "50%",
-      top: "50%",
-      padding: "0",
-      margin: "-50px 0 0 0",
-      transform: "translate(-50%, -50%)",
-      "font-size": "1.5rem",
-      color: "#fffdf7",
-      font: "Bruno Ace",
-    },
-    autoStyleContainer: false,
-  },
-  step: function (state, bar) {
-    bar.setText(Math.round(bar.value() * 100) + "%");
-  },
-});
-
-bar.text.style.fontFamily = '"Bruno Ace", Helvetica, sans-serif';
-
-bar.animate(1.0, function () {
-  const splashFadeOutKeyframes = {
-    opacity: [1, 0],
-  };
-  splashText.animate(splashFadeOutKeyframes, 100).finished.then(() => {
-    splashText.style.display = "none";
-  });
-  window.warp = window.warp == 1 ? 0 : 1;
-  executeFrame();
-  setTimeout(() => {
-    splash.animate(splashFadeOutKeyframes, 300).finished.then(() => {
-      splash.style.display = "none";
-    });
-  }, 1500);
-  setTimeout(() => {
-    stroke.play();
-  }, 3000);
-});
-
-//based on an Example by @curran
-window.requestAnimFrame = (function () {
-  return window.requestAnimationFrame;
-})();
-var canvas = document.getElementById("space");
-var c = canvas.getContext("2d");
-
-var numStars = 1900;
-var radius = "0." + Math.floor(Math.random() * 9) + 1;
-var focalLength = canvas.width * 2;
-var warp = 0;
-var centerX, centerY;
-
-var stars = [],
-  star;
-var i;
-
-var animate = true;
-
-initializeStars();
-
-function executeFrame() {
-  if (animate) requestAnimFrame(executeFrame);
-  moveStars();
-  drawStars();
-}
-
-function initializeStars() {
-  centerX = canvas.width / 2;
-  centerY = canvas.height / 2;
-
-  stars = [];
-  for (i = 0; i < numStars; i++) {
-    star = {
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      z: Math.random() * canvas.width,
-      o: "0." + Math.floor(Math.random() * 99) + 1,
-    };
-    stars.push(star);
-  }
-}
-
-function moveStars() {
-  for (i = 0; i < numStars; i++) {
-    star = stars[i];
-    star.z--;
-
-    if (star.z <= 0) {
-      star.z = canvas.width;
-    }
-  }
-}
-
-function drawStars() {
-  var pixelX, pixelY, pixelRadius;
-
-  // Resize to the screen
-  if (canvas.width != window.innerWidth || canvas.width != window.innerWidth) {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    initializeStars();
-  }
-  if (warp == 0) {
-    c.fillStyle = "rgba(0,10,20,1)";
-    c.fillRect(0, 0, canvas.width, canvas.height);
-  }
-  c.fillStyle = "rgba(209, 255, 255, " + radius + ")";
-  for (i = 0; i < numStars; i++) {
-    star = stars[i];
-
-    pixelX = (star.x - centerX) * (focalLength / star.z);
-    pixelX += centerX;
-    pixelY = (star.y - centerY) * (focalLength / star.z);
-    pixelY += centerY;
-    pixelRadius = 1 * (focalLength / star.z);
-
-    c.fillRect(pixelX, pixelY, pixelRadius, pixelRadius);
-    c.fillStyle = "rgba(209, 255, 255, " + star.o + ")";
-    //c.fill();
-  }
-}
-
-executeFrame();
 
 /* background
 ============================== */
@@ -155,17 +55,13 @@ const params__snow = {
       },
     },
     color: {
-      value: [
-        "#FFFFFF",
-      ],
+      value: ["#FFFFFF"],
     },
     shape: {
       type: "polygon", //形状は画像を指定
       stroke: {
         width: 0,
-        color: [
-          "#FFFFFF",
-        ],
+        color: ["#FFFFFF"],
       },
     },
     opacity: {

@@ -13,15 +13,15 @@
 /* color-scheme
 ============================== */
 $color-main: #3e3e3e;
-$color-background: #fffdf7;
+$color-background: #d2d2d2;
 $color-space : #000a14;
-$color-dots: #7d7d7d;
 $color-linear: #e1e1e1;
 $color-disable: #b2b2b2;
-$color-accent1: #77cdff;
-$color-accent2: #7fff7d;
-$color-accent3: #ff7a7a;
-$color-accent4: #ffea1e;
+$color-accent1: #7fff7d;
+$color-accent2: #ff7a7a;
+$color-gradation1: rgba(219, 87, 205, 1);
+$color-gradation2: rgba(47, 237, 167, 1);
+
 
 /* font
 ============================== */
@@ -129,7 +129,6 @@ $layer: (
 ============================== */
 html {
     font-size: $baseFontSize + px;
-    overflow-x: hidden;
     background-color: $color-space;
 }
 
@@ -138,7 +137,10 @@ body {
     font-weight: normal;
     line-height: 1.5;
     color: $color-background;
-    overflow-x: hidden;
+
+    &.disable-hover {
+        pointer-events: none;
+    }
 }
 
 #wrapper {
@@ -149,8 +151,8 @@ body {
 
 section {
     width: 100%;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 200px;
+    padding-bottom: 200px;
     height: 100%;
     padding-left: 20px;
     padding-right: 20px;
@@ -197,7 +199,7 @@ section {
 
 .section__sub-ttl {
     display: block;
-    margin-bottom: 32px;
+    margin-bottom: 100px;
     font-size: rem(14);
 
     @include mq("small") {
@@ -249,11 +251,7 @@ textarea {
     font-family: $font-jp;
 }
 
-.text--bold {
-    font-weight: bold;
-    color: $color-accent4;
-    text-shadow: 0 0 20px $color-accent4;
-}
+.text--accent {}
 
 //マウスストーカー
 #mouse-stalker {
@@ -324,7 +322,6 @@ textarea {
     z-index: -1;
     width: 100%;
     height: 100%;
-    background-color: $color-space;
 }
 
 /* header
@@ -476,7 +473,7 @@ textarea {
                 height: 1px;
                 content: '';
                 transform: translateX(-50%);
-                background: $color-accent1;
+                background: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
             }
         }
     }
@@ -497,7 +494,7 @@ textarea {
                 height: 1px;
                 content: '';
                 transform: translateX(-50%);
-                background: $color-accent1;
+                background: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
             }
         }
     }
@@ -516,7 +513,9 @@ textarea {
         width: 50%;
         content: '';
         opacity: 0;
-        border-bottom: 1px solid $color-accent1;
+        border-bottom: 1px solid transparent;
+        border-image: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
+        border-image-slice: 1;
     }
 
     &.is-active {
@@ -566,9 +565,9 @@ textarea {
 
 .nav__link-en {
     transition: all 0.5s ease 0s;
-    text-shadow: -1px -1px 0 $color-main, -1px 0 0 $color-main, -1px 1px 0 $color-main,
-        0 -1px 0 $color-main, 0 1px 0 $color-main,
-        1px -1px 0 $color-main, 1px 0 0 $color-main, 1px 1px 0 $color-main;
+    // text-shadow: -1px -1px 0 $color-main, -1px 0 0 $color-main, -1px 1px 0 $color-main,
+    //     0 -1px 0 $color-main, 0 1px 0 $color-main,
+    //     1px -1px 0 $color-main, 1px 0 0 $color-main, 1px 1px 0 $color-main;
 }
 
 .nav__link-ja {
@@ -582,9 +581,15 @@ textarea {
     white-space: nowrap;
     transition: all 0.5s ease 0s;
     transform-origin: bottom;
-    text-shadow: -1px -1px 0 $color-main, -1px 0 0 $color-main, -1px 1px 0 $color-main,
-        0 -1px 0 $color-main, 0 1px 0 $color-main,
-        1px -1px 0 $color-main, 1px 0 0 $color-main, 1px 1px 0 $color-main;
+    // text-shadow: -1px -1px 0 $color-main, -1px 0 0 $color-main, -1px 1px 0 $color-main,
+    //     0 -1px 0 $color-main, 0 1px 0 $color-main,
+    //     1px -1px 0 $color-main, 1px 0 0 $color-main, 1px 1px 0 $color-main;
+}
+
+.nav__contact {
+    border: 1px solid $color-main;
+    border-radius: 50px;
+    background-color: $color-main;
 }
 
 .header__hamburger {
@@ -661,45 +666,12 @@ textarea {
 ------------------------------ */
 #top {
     position: relative;
-    // width: 100%;
     height: 100vh;
-}
-
-.top__ttl {
-    position: absolute;
-    z-index: 10;
-    font-family: $font-en;
-    font-size: rem(108);
-    top: 50%;
-    transform: translateY(-50%);
-    color: transparent;
-    // -webkit-text-stroke: 1px $color-accent4;
-    animation: topTtlAnime 1s ease 5s forwards;
-
-    @include mq('small') {
-        height: auto;
-        padding: 32px 0;
-        margin-bottom: 2.5%;
-        transform: translateY(-50%);
-    }
-
-    @include mq('ex-small') {
-        height: auto;
-        padding: 32px 0;
-        margin-bottom: 2.5%;
-        transform: translateY(-50%);
-        font-size: rem(80);
-    }
-
-    @keyframes topTtlAnime {
-        0% {
-            color: transparent;
-        }
-
-        100% {
-            text-shadow: 0 0 10px rgba($color-accent4, 0.5);
-        }
-    }
+    background-image: url(../img/index-jpeg/top-bg.jpg);
+    // background-color: $color-gradation2;
+    // background-blend-mode: hard-light;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 // スクロール可能を示すアイコンのアニメーション
@@ -741,7 +713,6 @@ textarea {
     position: absolute;
     display: block;
     background-color: $color-background;
-    border-radius: 50px;
 
     &:first-of-type {
         width: 2px;
@@ -759,7 +730,10 @@ textarea {
 
 /* concept
 ------------------------------ */
-#concept {}
+#concept {
+    // background-color: $color-background;
+    // color: $color-main;
+}
 
 .concept__container {}
 
@@ -773,79 +747,23 @@ textarea {
     margin: 0 auto;
 }
 
-.about__row {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1000px;
-    margin: 0 auto;
-    gap: 2.5%;
-
-    @include mq('small') {
-        flex-direction: column;
-    }
-
-    @include mq('ex-small') {
-        flex-direction: column;
-    }
-}
-
 .about__wrapper {
     width: 100%;
-    height: 500px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border: 1px solid $color-accent1;
-    border-radius: 20px;
-    box-shadow: 0 0 10px $color-accent1;
-    background-color: rgba($color-accent1, .05);
-    padding: 20px;
-
-    @include mq('small') {
-        margin-bottom: 5%;
-        border-radius: 10px;
-        padding: 10px;
-    }
-
-    @include mq('ex-small') {
-        height: 400px;
-        margin-bottom: 5%;
-        border-radius: 10px;
-        padding: 10px;
-    }
-}
-
-.about__inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    border: 1px solid $color-accent1;
-    border-radius: 15px;
-    overflow-y: scroll;
-    background-color: rgba($color-accent1, .05);
-
-    @include mq("small") {
-        border-radius: 5px;
-    }
-
-    @include mq("ex-small") {
-        border-radius: 5px;
-    }
 }
 
 .about__desc {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
     width: 100%;
     height: 100%;
-    padding: 10px;
+    padding: 20px;
     transition: all 1s ease 0s;
-    text-shadow: -1px -1px 0 $color-main, -1px 0 0 $color-main, -1px 1px 0 $color-main,
-        0 -1px 0 $color-main, 0 1px 0 $color-main,
-        1px -1px 0 $color-main, 1px 0 0 $color-main, 1px 1px 0 $color-main;
+    // text-shadow: -1px -1px 0 $color-main, -1px 0 0 $color-main, -1px 1px 0 $color-main,
+    //     0 -1px 0 $color-main, 0 1px 0 $color-main,
+    //     1px -1px 0 $color-main, 1px 0 0 $color-main, 1px 1px 0 $color-main;
+    margin-bottom: 24px;
+    display: flex;
 
-    &.is-active {
-        opacity: 1;
+    dt {
+        flex: 0 0 400px;
     }
 }
 
@@ -876,79 +794,29 @@ textarea {
 }
 
 .about__text {
-    font-size: rem(14);
+    margin-top: 80px;
     line-height: 1.7;
 
     a {
         display: inline-block;
         border-bottom: 1px solid $color-accent1;
+        border-image: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
+        border-image-slice: 1;
     }
 
     @include mq('small') {
-        font-size: rem(12);
+        font-size: rem(14);
     }
 
     @include mq('ex-small') {
-        font-size: rem(12);
+        font-size: rem(14);
     }
-}
-
-.about__list {
-    display: flex;
-    flex: 0 1 18%;
-    flex-direction: column;
-    justify-content: space-evenly;
-    gap: 15px;
-
-    @include mq('small') {
-        flex-direction: row;
-    }
-
-    @include mq('ex-small') {
-        flex-direction: row;
-    }
-}
-
-.about__tab {
-    width: 50px;
-    height: 50px;
-    transition: all 0.2s ease 0s;
-    border: 1px solid transparent;
-    border-radius: 50%;
-    filter: grayscale(100%);
-    box-shadow: 0 5px 0 $color-dots;
-    transform: translateY(-3px);
-
-    @include mq("ex-small") {
-        width: 50px;
-        height: 50px;
-    }
-
-    &.is-active {
-        box-shadow: 0 0 10px $color-accent1;
-        filter: grayscale(0%);
-        transform: translateY(4px);
-        pointer-events: none;
-
-        .about__icon {
-            color: #2777c6;
-        }
-    }
-
-    &:hover {
-        box-shadow: 0 3px 0 $color-dots;
-        transform: translateY(-1px);
-        filter: grayscale(0%);
-    }
-}
-
-.about__icon {
-    font-size: rem(48);
-    color: $color-disable;
 }
 
 /* service
 ------------------------------ */
+#service {}
+
 .service__container {
     margin-bottom: 32px;
 }
@@ -956,6 +824,8 @@ textarea {
 .service__contact {
     display: inline-block;
     border-bottom: 1px solid $color-accent1;
+    border-image: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
+    border-image-slice: 1;
 }
 
 .service__list {
@@ -970,21 +840,12 @@ textarea {
 
 .service__contents {
     width: 100%;
-    border: 1px solid $color-accent1;
-    border-radius: 20px;
-    box-shadow: 0 0 10px $color-accent1;
+    border: 1px solid $color-background;
+    box-shadow: 0 0 10px $color-main;
     overflow: hidden;
+    // box-shadow: 0 0 10px $color-accent1;
     margin: 0;
 
-    @include mq("small") {
-        border-radius: 10px;
-    }
-
-    @include mq("ex-small") {
-        border-radius: 10px;
-    }
-
-    &:hover,
     &:focus {
         box-shadow: 0 0 10px $color-accent1;
     }
@@ -1029,15 +890,13 @@ textarea {
 .service__img-wrapper {
     margin-bottom: 16px;
     transition: all 0.2s ease 0s;
-    border-radius: 10px;
     overflow: hidden;
 }
 
 .service__img {
-    width: 80%;
-    height: 80%;
+    width: 50%;
+    height: 50%;
     object-fit: contain;
-    border-radius: 10px;
 }
 
 .service__head {
@@ -1147,15 +1006,6 @@ textarea {
 .works__figure {
     overflow: hidden;
     margin-bottom: 32px;
-    border-radius: 20px;
-
-    @include mq("small") {
-        border-radius: 10px;
-    }
-
-    @include mq("ex-small") {
-        border-radius: 10px;
-    }
 }
 
 .works__img {
@@ -1425,13 +1275,33 @@ textarea {
 
 /* contact
 ------------------------------ */
-#contact {}
+#contact {
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
 
 .contact__container {
     position: relative;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-.contact__ttl {}
+.contact__ttls {
+    background-image: url(../img/index-jpeg/contact-bg.jpg);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 32px;
+
+    .section__ttl,
+    .section__sub-ttl {
+        max-width: 1000px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
 
 .contact__form {
 
@@ -1666,6 +1536,8 @@ textarea {
     transition: all 0.2s ease 0s;
     border: none;
     border-bottom: 1px solid $color-accent1;
+    border-image: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
+    border-image-slice: 1;
     color: $color-background;
     background: transparent;
     box-shadow: none;
@@ -1676,10 +1548,9 @@ textarea {
     }
 
     &.is-error {
-        border-bottom: 1px solid $color-accent3;
+        border-bottom: 1px solid $color-accent2;
     }
 
-    &:hover,
     &:focus {
         box-shadow: 0px 8px 10px -10px $color-accent1;
     }
@@ -1706,6 +1577,8 @@ textarea {
     transition: all 0.2s ease 0s;
     border: none;
     border-bottom: 1px solid $color-accent1;
+    border-image: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
+    border-image-slice: 1;
     color: $color-background;
     background: transparent;
     box-shadow: none;
@@ -1716,10 +1589,9 @@ textarea {
     }
 
     &.is-error {
-        border-bottom: 1px solid $color-accent3;
+        border-bottom: 1px solid $color-accent2;
     }
 
-    &:hover,
     &:focus {
         box-shadow: 0px 8px 10px -10px $color-accent1;
     }
@@ -1747,17 +1619,17 @@ textarea {
     transition: all 0.2s ease 0s;
     border: none;
     border: 1px solid $color-accent1;
-    border-radius: 20px;
+    border-image: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
+    border-image-slice: 1;
     color: $color-background;
     background: transparent;
     box-shadow: none;
     appearance: none;
 
     &.is-error {
-        border: 1px solid $color-accent3;
+        border: 1px solid $color-accent2;
     }
 
-    &:hover,
     &:focus {
         box-shadow: 0 0 10px $color-accent1;
     }
@@ -1766,14 +1638,12 @@ textarea {
         height: 300px;
         min-height: 100px;
         max-width: 700px;
-        border-radius: 10px;
     }
 
     @include mq('ex-small') {
         height: 200px;
         min-height: 100px;
         max-width: 700px;
-        border-radius: 10px;
     }
 }
 
@@ -1788,7 +1658,6 @@ textarea {
 
     [type='submit'] {
         font-family: inherit;
-        font-size: rem(20);
         padding: 10px;
         width: 200px;
         text-align: center;
@@ -1830,20 +1699,11 @@ textarea {
     display: inline-block;
     padding: 20%;
     font-weight: bold;
-    border-radius: 20px;
 
     br {
         display: block;
         margin-bottom: 16px;
         content: '';
-    }
-
-    @include mq("small") {
-        border-radius: 10px;
-    }
-
-    @include mq("ex-small") {
-        border-radius: 10px;
     }
 }
 
