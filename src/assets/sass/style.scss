@@ -25,7 +25,7 @@ $color-gradation2: rgba(47, 237, 167, 1);
 
 /* font
 ============================== */
-$font-jp: 'Noto Sans JP', sans-serif;
+$font-jp: "Sawarabi Gothic", 'Noto Sans JP', sans-serif;
 $font-en: 'Bruno Ace', cursive;
 
 /* media-query
@@ -103,6 +103,12 @@ $baseFontSize: 16;
 
 ;
 
+@function goldenRatio($pixels) {
+    @return calc($pixels / 1.618)
+}
+
+;
+
 /* z-index
 ============================== */
 $layer: (
@@ -130,6 +136,7 @@ $layer: (
 html {
     font-size: $baseFontSize + px;
     background-color: $color-space;
+    overflow-x: hidden;
 }
 
 body {
@@ -150,6 +157,7 @@ body {
 }
 
 section {
+    overflow-x: hidden;
     width: 100%;
     padding-top: 200px;
     padding-bottom: 200px;
@@ -158,15 +166,15 @@ section {
     padding-right: 20px;
 
     @include mq("small") {
-        padding-top: 75px;
-        padding-bottom: 75px;
+        padding-top: 100px;
+        padding-bottom: 100px;
         padding-left: 10px;
         padding-right: 10px;
     }
 
     @include mq("ex-small") {
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding-top: 100px;
+        padding-bottom: 100px;
         padding-left: 10px;
         padding-right: 10px;
     }
@@ -184,31 +192,15 @@ section {
 .section__ttl {
     font-family: $font-en;
     display: block;
-    font-size: rem(48);
+    font-size: clamp(rem(32), 6.5vw, rem(90));
     font-weight: 500;
     position: relative;
-
-    @include mq("small") {
-        font-size: rem(40);
-    }
-
-    @include mq("ex-small") {
-        font-size: rem(32);
-    }
 }
 
 .section__sub-ttl {
     display: block;
-    margin-bottom: 100px;
-    font-size: rem(14);
-
-    @include mq("small") {
-        font-size: rem(12);
-    }
-
-    @include mq("ex-small") {
-        font-size: rem(12);
-    }
+    margin-bottom: 80px;
+    font-size: clamp(rem(12), 2vw, rem(16));
 }
 
 .section__text {
@@ -217,14 +209,7 @@ section {
 
 .section__desc {
     line-height: 2;
-
-    @include mq("small") {
-        font-size: rem(12);
-    }
-
-    @include mq("ex-small") {
-        font-size: rem(12);
-    }
+    font-size: clamp(rem(12), 2vw, rem(16));
 }
 
 img {
@@ -282,6 +267,16 @@ textarea {
 
     @include mq("ex-small") {
         display: none;
+    }
+}
+
+@keyframes borderAnime {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
     }
 }
 
@@ -440,11 +435,11 @@ textarea {
     }
 
     @keyframes drawerNavAnime {
-        0% {
+        from {
             opacity: 0;
         }
 
-        100% {
+        to {
             opacity: 1;
         }
     }
@@ -553,11 +548,11 @@ textarea {
     }
 
     @keyframes navHover {
-        0% {
+        from {
             width: 0;
         }
 
-        100% {
+        to {
             width: 50%;
         }
     }
@@ -587,9 +582,9 @@ textarea {
 }
 
 .nav__contact {
-    border: 1px solid $color-main;
+    color: #fff;
     border-radius: 50px;
-    background-color: $color-main;
+    background-image: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
 }
 
 .header__hamburger {
@@ -667,11 +662,29 @@ textarea {
 #top {
     position: relative;
     height: 100vh;
-    background-image: url(../img/index-jpeg/top-bg.jpg);
+    width: 100%;
+    background-image: url(../img/index-jpg/top-bg.jpg);
     // background-color: $color-gradation2;
     // background-blend-mode: hard-light;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
+}
+
+.top__ttl {
+    position: absolute;
+    top: 55%;
+    left: 20px;
+    font-family: $font-en;
+    font-size: 2.8rem;
+
+    @include mq("small") {
+        left: 10px;
+    }
+
+    @include mq("ex-small") {
+        left: 10px;
+    }
 }
 
 // スクロール可能を示すアイコンのアニメーション
@@ -728,37 +741,63 @@ textarea {
     }
 }
 
-/* concept
+/* thisis
 ------------------------------ */
-#concept {
+#thisis {
     // background-color: $color-background;
     // color: $color-main;
 }
 
-.concept__container {}
+.thisis__container {}
 
-.concept__text {}
+.thisis__text {}
 
-
-/* about
+/* concept
 ------------------------------ */
-.about__container {
+#concept {
+    width: 100%;
+    position: relative;
+
+    &::after {
+        position: absolute;
+        content: '';
+        width: 50vw;
+        height: goldenRatio(50vw);
+        background-image: url(../img/index-jpg/concept.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        bottom: 0;
+        right: 20px;
+        z-index: -1;
+
+        @include mq("small") {
+            width: 80vw;
+            height: goldenRatio(80vw);
+            right: 10px;
+        }
+
+        @include mq("ex-small") {
+            width: 80vw;
+            height: goldenRatio(80vw);
+            right: 10px;
+        }
+    }
+}
+
+.concept__container {
     width: 100%;
     margin: 0 auto;
 }
 
-.about__wrapper {
+.concept__wrapper {
     width: 100%;
 }
 
-.about__desc {
+.concept__desc {
     width: 100%;
     height: 100%;
     padding: 20px;
     transition: all 1s ease 0s;
-    // text-shadow: -1px -1px 0 $color-main, -1px 0 0 $color-main, -1px 1px 0 $color-main,
-    //     0 -1px 0 $color-main, 0 1px 0 $color-main,
-    //     1px -1px 0 $color-main, 1px 0 0 $color-main, 1px 1px 0 $color-main;
     margin-bottom: 24px;
     display: flex;
 
@@ -767,7 +806,7 @@ textarea {
     }
 }
 
-.about__headline {
+.concept__headline {
     font-size: rem(32);
     font-family: $font-en;
 
@@ -780,7 +819,7 @@ textarea {
     }
 }
 
-.about__sub-ttl {
+.concept__sub-ttl {
     font-size: rem(12);
     margin-bottom: 32px;
 
@@ -793,7 +832,7 @@ textarea {
     }
 }
 
-.about__text {
+.concept__text {
     margin-top: 80px;
     line-height: 1.7;
 
@@ -813,6 +852,69 @@ textarea {
     }
 }
 
+/* news
+------------------------------ */
+#news {}
+
+.news__container {}
+
+.news__text {}
+
+.news__area {
+    border: 1px solid $color-background;
+    padding: 20px;
+
+    .news__link {
+        padding-bottom: 10px;
+        border-bottom: 1px solid $color-main;
+        // &:not(:last-child) {
+        // }
+    }
+}
+
+.news__link {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    position: relative;
+
+    &::after {
+        position: absolute;
+        content: '';
+        border-bottom: 1px solid transparent;
+        width: 0;
+        bottom: -1px;
+        left: 0;
+    }
+
+    @include mq("small") {
+        font-size: rem(12);
+    }
+
+    @include mq("ex-small") {
+        font-size: rem(12);
+    }
+
+    &:hover {
+        border-bottom: 1px solid transparent;
+        border-image: none;
+        border-image-slice: 0;
+
+        &::after {
+            border-bottom: 1px solid $color-accent1;
+            border-image: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
+            border-image-slice: 1;
+            animation: borderAnime .5s ease 0s forwards;
+        }
+    }
+}
+
+.news__date {
+    flex: 0 0 125px;
+}
+
+.news__ttl {}
+
 /* service
 ------------------------------ */
 #service {}
@@ -826,24 +928,53 @@ textarea {
     border-bottom: 1px solid $color-accent1;
     border-image: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
     border-image-slice: 1;
+    position: relative;
+
+    &::after {
+        position: absolute;
+        content: '';
+        border-bottom: 1px solid transparent;
+        width: 0;
+        bottom: -1px;
+        left: 0;
+    }
+
+    &:hover {
+        border-bottom: 1px solid transparent;
+        border-image: none;
+        border-image-slice: 0;
+
+        &::after {
+            border-bottom: 1px solid $color-accent1;
+            border-image: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
+            border-image-slice: 1;
+            animation: borderAnime .5s ease 0s forwards;
+        }
+    }
 }
 
 .service__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 10px;
+    height: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 2px;
+
+    @include mq("small") {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+    }
 
     @include mq("ex-small") {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
     }
 }
 
 .service__contents {
-    width: 100%;
-    border: 1px solid $color-background;
+    border: 1px solid transparent;
     box-shadow: 0 0 10px $color-main;
     overflow: hidden;
-    // box-shadow: 0 0 10px $color-accent1;
     margin: 0;
 
     &:focus {
@@ -861,7 +992,7 @@ textarea {
     &::before {
         content: "";
         display: block;
-        padding-top: 100%;
+        padding-top: 75%;
     }
 
     &.is-open {
@@ -887,7 +1018,7 @@ textarea {
     }
 }
 
-.service__img-wrapper {
+.service__figure {
     margin-bottom: 16px;
     transition: all 0.2s ease 0s;
     overflow: hidden;
@@ -978,12 +1109,11 @@ textarea {
 
 .works__container {
     position: relative;
+
 }
 
 .works__swiper {
-    position: relative;
     width: 100%;
-    max-width: 1000px;
     overflow: hidden;
 }
 
@@ -1062,14 +1192,20 @@ textarea {
     }
 }
 
+.swiper__buttons {
+    position: relative;
+    height: 60px;
+    width: 100%;
+}
+
 .swiper-button-prev::after,
 .swiper-button-next::after {
     content: '';
 }
 
-.swiper-button-prev {
-    top: 30px;
-    left: 85%;
+.swiper-button-prev,
+.swiper-button-next {
+    bottom: 0;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -1085,10 +1221,14 @@ textarea {
     }
 
     @include mq("small") {
+        width: 40px;
+        height: 40px;
         left: 80%;
     }
 
     @include mq("ex-small") {
+        width: 40px;
+        height: 40px;
         left: 70%;
     }
 
@@ -1153,123 +1293,102 @@ textarea {
 
     .works__icon3 {
         position: absolute;
-        top: 50%;
+        top: 46%;
         left: 50%;
         transform: translate(-50%, -50%);
         font-size: rem(24);
         z-index: 10;
         color: $color-background;
         transition: transform .3s ease .6s;
+
+        @include mq("small") {
+            font-size: rem(16);
+        }
+
+        @include mq("ex-small") {
+            font-size: rem(16);
+        }
     }
 }
 
-.swiper-button-next {
-    top: 30px;
-    right: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.2s ease 0s;
+.swiper-button-prev {
+    left: 85%;
 
-    &::after {
-        position: absolute;
-        content: '';
-        inset: 0;
-        border: 1px solid $color-disable;
-        border-radius: 50%;
+    @include mq("small") {
+        left: 80%;
     }
 
-    &:hover {
-        border: 1px solid $color-background;
-        // animation: filling 0.2s ease-in 0.8s forwards;
-
-        &::after {
-            display: none;
-        }
-
-        .works__icon1::before {
-            animation: draw .3s linear forwards;
-        }
-
-        .works__icon2::before {
-            animation: draw .3s ease-out .3s forwards;
-        }
-
-        .works__icon3 {
-            transform: translate(-30%, -50%);
-        }
-    }
-
-    .works__icon1,
-    .works__icon2 {
-        position: absolute;
-        overflow: hidden;
-        width: 55%;
-        height: 110%;
-        top: -5%;
-    }
-
-    .works__icon1 {
-        left: 50%;
-    }
-
-    .works__icon2 {
-        left: -5%;
-    }
-
-    .works__icon1::before,
-    .works__icon2::before {
-        position: absolute;
-        content: '';
-    }
-
-    .works__icon1::before {
-        width: 100%;
-        height: 200%;
-        background-color: $color-space;
-        transform-origin: 0 25%;
-    }
-
-    .works__icon2::before {
-        left: -10%;
-        width: 110%;
-        height: 120%;
-        background-color: $color-space;
-        transform-origin: 100% 40%;
-    }
-
-    .works__icon3 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: rem(24);
-        z-index: 10;
-        color: $color-background;
-        transition: transform .3s ease .6s;
+    @include mq("ex-small") {
+        left: 70%;
     }
 }
+
+.swiper-button-next {}
 
 /* 円を描くアニメーション */
 @keyframes draw {
-    0% {
+    from {
         transform: rotate(0deg);
     }
 
-    100% {
+    to {
         transform: rotate(180deg);
     }
 }
 
 /* 塗りのアニメーション */
 @keyframes filling {
-    0% {
+    from {
         box-shadow: inset 0 0 0 9px #fff;
     }
 
-    100% {
+    to {
         box-shadow: inset 0 0 0 50px #fff;
+    }
+}
+
+/* blog
+------------------------------ */
+#blog {}
+
+.blog__container {}
+
+.blog__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 2px;
+}
+
+.blog__contents {
+    box-shadow: 0 0 10px $color-main;
+}
+
+.blog__link {
+    border: 1px solid transparent;
+}
+
+.blog__figure {}
+
+.blog__img {}
+
+.blog__info {
+    padding: 8px;
+}
+
+.blog__date {
+    font-size: rem(12);
+}
+
+.blog__ttl {
+    margin-bottom: 8px;
+}
+
+.blog__tags {}
+
+.blog__tag {
+    &+& {
+        margin-left: 8px;
     }
 }
 
@@ -1285,22 +1404,51 @@ textarea {
     position: relative;
     padding-left: 20px;
     padding-right: 20px;
+
+    @include mq("small") {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    @include mq("ex-small") {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 
 .contact__ttls {
-    background-image: url(../img/index-jpeg/contact-bg.jpg);
+    background-image: url(../img/index-jpg/contact-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 32px;
 
+    @include mq("small") {
+        height: 200px;
+    }
+
+    @include mq("ex-small") {
+        height: 200px;
+    }
+
     .section__ttl,
     .section__sub-ttl {
         max-width: 1000px;
         width: 100%;
         margin: 0 auto;
+
+        @include mq("small") {
+            margin-left: 10px;
+        }
+
+        @include mq("ex-small") {
+            margin-left: 10px;
+        }
     }
+
 }
 
 .contact__form {
@@ -1437,23 +1585,6 @@ textarea {
             width: 100%;
             animation: errorText 0.5s ease forwards;
         }
-
-        &::after {
-            content: '';
-            $errorWidth: 165px;
-            width: $errorWidth;
-            animation: errorBorder 0.5s ease forwards;
-
-            @keyframes errorBorder {
-                from {
-                    width: 0;
-                }
-
-                to {
-                    width: $errorWidth;
-                }
-            }
-        }
     }
 }
 
@@ -1463,23 +1594,6 @@ textarea {
             content: '半角英数字で〇〇@〇〇で入力してください';
             width: 100%;
             animation: errorText 0.5s ease forwards;
-        }
-
-        &::after {
-            content: '';
-            $errorWidth: 240px;
-            width: $errorWidth;
-            animation: errorBorder2 0.5s ease forwards;
-
-            @keyframes errorBorder2 {
-                from {
-                    width: 0;
-                }
-
-                to {
-                    width: $errorWidth;
-                }
-            }
         }
     }
 }
@@ -1491,23 +1605,6 @@ textarea {
             width: 100%;
             bottom: -30px;
             animation: errorText 0.5s ease forwards;
-        }
-
-        &::after {
-            content: '';
-            $errorWidth: 170px;
-            width: $errorWidth;
-            animation: errorBorder3 0.5s ease forwards;
-
-            @keyframes errorBorder3 {
-                from {
-                    width: 0;
-                }
-
-                to {
-                    width: $errorWidth;
-                }
-            }
         }
     }
 }
@@ -1521,7 +1618,7 @@ textarea {
         opacity: 50%;
     }
 
-    100% {
+    to {
         opacity: 100%;
     }
 }
@@ -1548,11 +1645,9 @@ textarea {
     }
 
     &.is-error {
+        border-image: none;
+        border-image-slice: 0;
         border-bottom: 1px solid $color-accent2;
-    }
-
-    &:focus {
-        box-shadow: 0px 8px 10px -10px $color-accent1;
     }
 
     @include mq("small") {
@@ -1589,11 +1684,9 @@ textarea {
     }
 
     &.is-error {
+        border-image: none;
+        border-image-slice: 0;
         border-bottom: 1px solid $color-accent2;
-    }
-
-    &:focus {
-        box-shadow: 0px 8px 10px -10px $color-accent1;
     }
 
     @include mq('small') {
@@ -1628,10 +1721,8 @@ textarea {
 
     &.is-error {
         border: 1px solid $color-accent2;
-    }
-
-    &:focus {
-        box-shadow: 0 0 10px $color-accent1;
+        border-image: none;
+        border-image-slice: 0;
     }
 
     @include mq('small') {
@@ -1677,12 +1768,10 @@ textarea {
     @include mq('ex-large') {
         &:focus-within {
             outline: none;
-            box-shadow: 0 0 20px $color-accent1;
         }
 
         &:hover {
             background: $color-space;
-            box-shadow: 0 0 10px $color-accent1;
         }
     }
 }

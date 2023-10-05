@@ -62,84 +62,6 @@ window.addEventListener(
 /* splash
 ============================== */
 
-/* background
-============================== */
-// const params__snow = {
-//   particles: {
-//     number: {
-//       value: 100, //この数値を変更すると星の数が増減できる
-//       density: {
-//         enable: true,
-//         value_area: 800,
-//       },
-//     },
-//     color: {
-//       value: ['#FFFFFF'],
-//     },
-//     shape: {
-//       type: 'polygon', //形状は画像を指定
-//       stroke: {
-//         width: 0,
-//         color: ['#FFFFFF'],
-//       },
-//     },
-//     opacity: {
-//       value: 1,
-//       random: true,
-//       anim: {
-//         enable: true,
-//         speed: 1,
-//         opacity_min: 0,
-//         sync: false,
-//       },
-//     },
-//     size: {
-//       value: 1,
-//       random: true,
-//       anim: {
-//         enable: false,
-//         speed: 1,
-//         size_min: 0.1,
-//         sync: false,
-//       },
-//     },
-//     line_linked: {
-//       enable: false,
-//     },
-//     move: {
-//       enable: true,
-//       speed: 1, //この数値を小さくするとゆっくりな動きになる
-//       direction: 'none', //下に向かって落ちる
-//       random: true, //動きはランダム
-//       straight: true, //動きをとどめない
-//       out_mode: 'out', //画面の外に出るように描写
-//       bounce: false, //跳ね返りなし
-//       attract: {
-//         enable: false,
-//         rotateX: 600,
-//         rotateY: 600,
-//       },
-//     },
-//   },
-//   interactivity: {
-//     detect_on: 'canvas',
-//     events: {
-//       onhover: {
-//         enable: true,
-//         mode: 'bubble',
-//       },
-//       onclick: {
-//         enable: true,
-//         mode: 'repulse'
-//       },
-//       resize: true,
-//     },
-//   },
-//   retina_detect: true,
-// };
-
-// particlesJS('particles-js', params__snow);
-
 /* header__drawer
 ============================== */
 
@@ -328,12 +250,12 @@ const worksSwiper = new Swiper(".works__swiper", {
   effect: "slide",
   parallax: true,
 
-  breakpoints: {
-    768: {
-      spaceBetween: 20,
-      slidePerView: 1.5,
-    },
-  },
+  // breakpoints: {
+  //   768: {
+  //     spaceBetween: 20,
+  //     slidesPerView: 1.5,
+  //   },
+  // },
 
   navigation: {
     nextEl: ".swiper-button-next",
@@ -440,86 +362,6 @@ function checkText(index) {
   }
 }
 
-// let required = $('.contact__required');
-// let requiredText = $('.contact__required .required__add');
-// let input = $('input, textarea');
-// let inputMessage = $('.contact__input');
-
-// input.each(function (index, item) {
-//     $(item).on('blur', function () {
-//         checkText(index);
-
-//         if ($(item).val() !== '' && checkText(index) === true) {
-//             $(required[index]).animate(
-//                 {
-//                     transform: 'rotateY(720deg)',
-//                 },
-//                 1000,
-//                 'linear'
-//             );
-//             setTimeout(function () {
-//                 $(requiredText[index]).text('OK!!');
-//             }, 550);
-//         } else {
-//             $(required[index]).animate(
-//                 {
-//                     transform: 'rotateY(360deg)',
-//                 },
-//                 1000,
-//                 'linear'
-//             );
-//             setTimeout(function () {
-//                 $(requiredText[index]).text('必須');
-//             }, 550);
-//         }
-//     });
-// });
-
-// function checkText(index) {
-//     switch (index) {
-//         case 0:
-//             if ($(input[0]).val().trim().length >= 2) {
-//                 $(input[0]).removeClass('is-error');
-//                 $(inputMessage[0]).removeClass('is-error');
-//                 $(input[0]).addClass('is-success');
-//                 return true;
-//             } else {
-//                 $(input[0]).removeClass('is-success');
-//                 $(input[0]).addClass('is-error');
-//                 $(inputMessage[0]).addClass('is-error');
-//                 return false;
-//             }
-//             break;
-//         case 1:
-//             var pattern = /[!#-9A-~]+@+[a-z0-9]+.+[^.]$/i;
-//             if ($(input[1]).val().match(pattern)) {
-//                 $(input[1]).removeClass('is-error');
-//                 $(inputMessage[1]).removeClass('is-error');
-//                 $(input[1]).addClass('is-success');
-//                 return true;
-//             } else {
-//                 $(input[1]).removeClass('is-success');
-//                 $(input[1]).addClass('is-error');
-//                 $(inputMessage[1]).addClass('is-error');
-//                 return false;
-//             }
-//             break;
-//         case 2:
-//             if ($(input[2]).val().trim().length >= 10) {
-//                 $(input[2]).removeClass('is-error');
-//                 $(inputMessage[2]).removeClass('is-error');
-//                 $(input[2]).addClass('is-success');
-//                 return true;
-//             } else {
-//                 $(input[2]).removeClass('is-success');
-//                 $(input[2]).addClass('is-error');
-//                 $(inputMessage[2]).addClass('is-error');
-//                 return false;
-//             }
-//             break;
-//     }
-// }
-
 let submit = document.getElementById("contact__submit"),
   submitBtn = document.getElementById("js-submit"),
   contactForm = document.getElementById("js-form");
@@ -578,7 +420,7 @@ gsap.utils.toArray(".section__ttl").forEach((el, index) => {
       start: "top center",
       end: "",
       scrub: true,
-      markers: true
+      // markers: true
     },
   });
   sectionTtlTl.from(el, {
