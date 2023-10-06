@@ -212,6 +212,19 @@ section {
     font-size: clamp(rem(12), 2vw, rem(16));
 }
 
+.section__more {
+    text-align: center;
+    margin-top: 32px;
+}
+
+.more__button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 50px;
+    background-image: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
+}
+
 img {
     width: 100%;
 }
@@ -252,6 +265,7 @@ textarea {
     transition: transform .2s ease-out;
     z-index: 999;
     mix-blend-mode: difference;
+    box-shadow: inset 0 0 15px 0 $color-space;
 
     &.is-active {
         top: -40px;

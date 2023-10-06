@@ -129,6 +129,19 @@ section {
   font-size: clamp(0.75rem, 2vw, 1rem);
 }
 
+.section__more {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.more__button {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 50px;
+  background-image: linear-gradient(163deg, rgb(219, 87, 205), rgb(47, 237, 167));
+}
+
 img {
   width: 100%;
 }
@@ -163,6 +176,7 @@ textarea:focus {
   transition: transform 0.2s ease-out;
   z-index: 999;
   mix-blend-mode: difference;
+  box-shadow: inset 0 0 15px 0 #000a14;
 }
 #mouse-stalker.is-active {
   top: -40px;
