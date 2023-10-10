@@ -1,11 +1,5 @@
 @charset "UTF-8";
-/* ====================================
-※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
-このCSSファイルはSassから生成されていますので、
-編集しないようご注意ください。
-※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
-==================================== */
-/* import
+/* function
 ============================== */
 /* color-scheme
 ============================== */
@@ -43,10 +37,187 @@
     display: none;
   }
 }
-/* function
-============================== */
 /* z-index
 ============================== */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+button,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: normal;
+  font-size: 100%;
+  vertical-align: baseline;
+  font: inherit;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+li,
+dd {
+  list-style-type: none;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+img {
+  border: none;
+  vertical-align: bottom;
+  width: 100%;
+  height: auto;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption,
+th,
+td {
+  font-weight: normal;
+  text-align: left;
+  vertical-align: middle;
+}
+
+q,
+blockquote {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote:after {
+  content: "";
+  content: none;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
 /* common
 ============================== */
 html {
@@ -215,15 +386,162 @@ textarea:focus {
 }
 /* splash ローディング時のアニメーション
 ============================== */
-/* background 背景の星のアニメーション
-============================== */
-#particles-js {
-  position: fixed;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
+/* works-description
+------------------------------ */
+.works-desc__container {
+  position: relative;
 }
 
+@media (min-width: 576px) and (max-width: 767px) {
+  .works-desc__form {
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .works-desc__form {
+    margin: 0 auto;
+  }
+}
+
+.works-desc__row {
+  display: flex;
+}
+.works-desc__row:not(:last-child) {
+  margin-bottom: 32px;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .works-desc__row {
+    display: block;
+  }
+  .works-desc__row:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .works-desc__row {
+    display: block;
+  }
+  .works-desc__row:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+
+.works-desc__label {
+  position: relative;
+  flex: 0 0 150px;
+  text-align: left;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  font-weight: bold;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .works-desc__label {
+    text-align: left;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .works-desc__label {
+    text-align: left;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+}
+
+.works-desc__desc {
+  flex: 1 1 600px;
+  margin-left: 32px;
+  line-height: 1.7;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .works-desc__desc {
+    margin-left: 0;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .works-desc__desc {
+    margin-left: 0;
+    font-size: 0.75rem;
+  }
+}
+
+.works-desc__text {
+  word-wrap: break-word;
+}
+.works-desc__text--link {
+  position: relative;
+  border-bottom: 1px solid #3e3e3e;
+  display: inline-block;
+}
+.works-desc__text--link::after {
+  position: absolute;
+  content: "";
+  border-bottom: 1px solid transparent;
+  width: 0;
+  bottom: -1px;
+  left: 0;
+}
+.works-desc__text--link:hover {
+  border-bottom: 1px solid transparent;
+}
+.works-desc__text--link:hover::after {
+  border-bottom: 1px solid #7fff7d;
+  -o-border-image: linear-gradient(163deg, rgb(219, 87, 205), rgb(47, 237, 167));
+     border-image: linear-gradient(163deg, rgb(219, 87, 205), rgb(47, 237, 167));
+  border-image-slice: 1;
+  -webkit-animation: borderAnime 0.5s ease 0s forwards;
+          animation: borderAnime 0.5s ease 0s forwards;
+}
+
+.works-desc__comment .works-desc__text:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.desc-swiper {
+  width: 100%;
+  margin-bottom: 32px;
+}
+.desc-swiper figure {
+  width: 100%;
+  max-height: 586px;
+  height: 100%;
+  overflow: hidden;
+}
+.desc-swiper img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  .desc-swiper {
+    margin-bottom: 48px;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .desc-swiper {
+    margin-bottom: 32px;
+    width: 100%;
+  }
+}
+
+#desc-swiper-prev,
+#desc-swiper-next {
+  top: 35px;
+}
+
+/* ====================================
+※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+このCSSファイルはSassから生成されていますので、
+編集しないようご注意ください。
+※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+==================================== */
+/* import
+============================== */
+/* splash ローディング時のアニメーション
+============================== */
 /* header
 ------------------------------ */
 .header {
@@ -755,16 +1073,14 @@ textarea:focus {
   border: 1px solid #d2d2d2;
   padding: 20px;
 }
-.news__area .news__link {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #3e3e3e;
-}
 
 .news__link {
   display: flex;
   align-items: center;
   padding-top: 10px;
   position: relative;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #3e3e3e;
 }
 .news__link::after {
   position: absolute;
@@ -849,13 +1165,13 @@ textarea:focus {
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .service__list {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 10px;
   }
 }
 @media only screen and (max-width: 575px) {
   .service__list {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
   }
 }
@@ -940,6 +1256,8 @@ textarea:focus {
 
 .link__back {
   transform: rotateY(-180deg);
+  display: flex;
+  align-items: center;
 }
 
 .service__desc {
@@ -1056,11 +1374,13 @@ textarea:focus {
 @media (min-width: 576px) and (max-width: 767px) {
   .works__ttl {
     font-size: 1rem;
+    height: 48px;
   }
 }
 @media only screen and (max-width: 575px) {
   .works__ttl {
     font-size: 1rem;
+    height: 48px;
   }
 }
 
@@ -1097,7 +1417,6 @@ textarea:focus {
 .swiper-button-next {
     width: 40px;
     height: 40px;
-    left: 80%;
   }
 }
 @media only screen and (max-width: 575px) {
@@ -1105,7 +1424,6 @@ textarea:focus {
 .swiper-button-next {
     width: 40px;
     height: 40px;
-    left: 70%;
   }
 }
 .swiper-button-prev:hover,

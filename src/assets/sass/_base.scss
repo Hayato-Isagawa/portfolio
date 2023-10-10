@@ -1,0 +1,164 @@
+@use './global' as global;
+
+/* common
+============================== */
+html {
+  font-size: global.$baseFontSize + px;
+  background-color: global.$color-space;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: global.$font-jp;
+  font-weight: normal;
+  line-height: 1.5;
+  color: global.$color-background;
+
+  &.disable-hover {
+    pointer-events: none;
+  }
+}
+
+#wrapper {
+  position: relative;
+  z-index: 1;
+  overflow: auto;
+}
+
+section {
+  overflow-x: hidden;
+  width: 100%;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include global.mq("small") {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  @include global.mq("ex-small") {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.section__ttl {
+  font-family: global.$font-en;
+  display: block;
+  font-size: clamp(global.rem(32), 6.5vw, global.rem(90));
+  font-weight: 500;
+  position: relative;
+}
+
+.section__sub-ttl {
+  display: block;
+  margin-bottom: 80px;
+  font-size: clamp(global.rem(12), 2vw, global.rem(16));
+}
+
+.section__text {
+  margin-bottom: 32px;
+}
+
+.section__desc {
+  line-height: 2;
+  font-size: clamp(global.rem(12), 2vw, global.rem(16));
+}
+
+.section__more {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.more__button {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 50px;
+  background-image: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
+}
+
+img {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+a,
+input,
+textarea {
+  &:focus {
+    outline: none;
+  }
+}
+
+.font--jp {
+  font-family: global.$font-jp;
+}
+
+.text--accent {}
+
+//マウスストーカー
+#mouse-stalker {
+  pointer-events: none;
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: global.$color-background;
+  border-radius: 50%;
+  transform: translate(0, 0);
+  transition: transform .2s ease-out;
+  z-index: 999;
+  mix-blend-mode: difference;
+  box-shadow: inset 0 0 15px 0 global.$color-space;
+
+  &.is-active {
+    top: -40px;
+    left: -40px;
+    width: 80px;
+    height: 80px;
+    transition: transform .2s ease-out;
+  }
+
+  @include global.mq("small") {
+    display: none;
+  }
+
+  @include global.mq("ex-small") {
+    display: none;
+  }
+}
+
+@keyframes borderAnime {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}

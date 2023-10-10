@@ -55,7 +55,7 @@
   <!-- swiper.css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <!-- myself -->
-  <link rel="stylesheet" type="text/css" href="../assets/css/description.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 
   <!-- js -->
   <!-- jQuery -->
@@ -77,32 +77,31 @@
   </div> -->
   <!-- /#splash -->
 
-  <div id="particles-js--desc"></div>
-  <!-- /#particles-js -->
-
   <header class="header" id="header">
-    <h1 class="header__logo"><a href="http://hayaportfolio202301.falconportfolio.site">haya</a></h1>
+    <div class="header__left">
+      <h1 class="header__logo">haya<strong class="text--accent">.</strong></h1>
+    </div>
     <nav class="header__nav">
       <ul id="nav__list">
         <li class="nav__item">
-          <a href="https://hayaportfolio202301.falconportfolio.site#concept" class="nav__link"
-            aria-label="このサイトのコンセプト">Concept</a>
+          <a href="#news" class="nav__link" aria-label="お知らせ"><span class="nav__link-en">News</span><span
+              class="nav__link-ja">お知らせ</span></a>
         </li>
         <li class="nav__item">
-          <a href="https://hayaportfolio202301.falconportfolio.site#about" class="nav__link"
-            aria-label="私について">About</a>
+          <a href="#service" class="nav__link" aria-label="サービス内容"><span class="nav__link-en">Service</span><span
+              class="nav__link-ja">サービス</span></a>
         </li>
         <li class="nav__item">
-          <a href="https://hayaportfolio202301.falconportfolio.site#service" class="nav__link"
-            aria-label="サービス内容">Service</a>
+          <a href="#works" class="nav__link" aria-label="これまでの実績"><span class="nav__link-en">Works</span><span
+              class="nav__link-ja">実績</span></a>
         </li>
         <li class="nav__item">
-          <a href="https://hayaportfolio202301.falconportfolio.site#works" class="nav__link"
-            aria-label="これまでのお仕事">Works</a>
+          <a href="#blog" class="nav__link" aria-label="ブログ"><span class="nav__link-en">Blog</span><span
+              class="nav__link-ja">ブログ</span></a>
         </li>
         <li class="nav__item">
-          <a href="https://hayaportfolio202301.falconportfolio.site#contact" class="nav__link"
-            aria-label="連絡する">Contact</a>
+          <a href="#contact" class="nav__link nav__contact" aria-label="連絡する"><span
+              class="nav__link-en">Contact</span><span class="nav__link-ja">お問い合わせ</span></a>
         </li>
       </ul>
     </nav>
@@ -123,7 +122,7 @@
         <div class="container works-desc__container">
           <h2 class="section__ttl">Works</h2>
           <h3 class="section__sub-ttl">- 実績</h3>
-          <div class="swiper">
+          <div class="works-swiper">
             <!-- Additional required wrapper -->
             <ul class="swiper-wrapper">
               <!-- Slides -->
@@ -154,12 +153,12 @@
               </li>
             </ul>
           </div>
-          <div class="swiper-button-prev">
+          <div class="swiper-button-prev" id="desc-swiper-prev">
             <span class="works__icon1"></span>
             <span class="works__icon2"></span>
             <span class="works__icon3">&leftarrow;</span>
           </div>
-          <div class="swiper-button-next">
+          <div class="swiper-button-next" id="desc-swiper-next">
             <span class="works__icon1"></span>
             <span class="works__icon2"></span>
             <span class="works__icon3">&rightarrow;</span>

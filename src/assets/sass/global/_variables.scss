@@ -1,0 +1,81 @@
+/* color-scheme
+============================== */
+$color-main: #3e3e3e;
+$color-background: #d2d2d2;
+$color-space : #000a14;
+$color-linear: #e1e1e1;
+$color-disable: #b2b2b2;
+$color-accent1: #7fff7d;
+$color-accent2: #ff7a7a;
+$color-gradation1: rgba(219, 87, 205, 1);
+$color-gradation2: rgba(47, 237, 167, 1);
+
+
+/* font
+============================== */
+$font-jp: "Sawarabi Gothic", 'Noto Sans JP', sans-serif;
+$font-en: 'Bruno Ace', cursive;
+
+/* media-query
+============================== */
+$breakpoints: (
+  //キー : 値
+  'ex-small':'only screen and (max-width: 575px)',
+  'small' :'(min-width: 576px) and (max-width: 767px)',
+  'medium' : '(min-width: 768px) and (max-width: 991px)',
+  'large' : '(min-width: 992px) and (max-width: 1199px)',
+  'ex-large': '(min-width: 1200px)',
+  // 'retina' : 'only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)'
+  ) !default;
+
+@mixin mq($breakpoint: ex-small) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+      @content;
+    }
+  }
+
+  @else {
+    @error '$breakpoints に #{$breakpoint} ってキーは無いですよ！';
+  }
+}
+
+@include mq('ex-small') {
+
+  .is-tab,
+  .is-pc {
+    display: none;
+  }
+}
+
+@include mq('small') {
+
+  .is-tab,
+  .is-pc {
+    display: none;
+  }
+}
+
+@include mq('medium') {
+
+  .is-sp,
+  .is-pc {
+    display: none;
+  }
+}
+
+@include mq('large') {
+
+  .is-sp,
+  .is-pc {
+    display: none;
+  }
+}
+
+@include mq('ex-large') {
+
+  .is-sp,
+  .is-tab {
+    display: none;
+  }
+}

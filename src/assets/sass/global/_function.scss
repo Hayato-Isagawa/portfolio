@@ -1,0 +1,15 @@
+/* function
+============================== */
+$baseFontSize: 16;
+
+@function rem ($pixels, $context: $baseFontSize) {
+  @return calc($pixels / $context * 1rem);
+}
+
+;
+
+@function goldenRatio($pixels) {
+  @return calc($pixels / 1.618)
+}
+
+;

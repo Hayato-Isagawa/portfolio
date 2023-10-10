@@ -1,0 +1,21 @@
+/* z-index
+============================== */
+$layer: (
+  splash: 999,
+  header__nav: 999,
+  hamburger: 999,
+  modal: 900,
+  page-top: 100,
+  header: 50,
+  footer: 50,
+  ttl: 10,
+  drawer__bg: 3,
+  required: 3,
+  required__add: 2,
+  default: 1,
+  bg: -1,
+);
+
+@mixin z-index($key) {
+  z-index: map-get($layer, $key);
+}
