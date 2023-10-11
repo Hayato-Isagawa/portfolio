@@ -407,6 +407,8 @@
     font-family: global.$font-en;
     font-size: 2.8rem;
     overflow: hidden;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 
     @include global.mq("small") {
         left: 10px;
@@ -501,10 +503,10 @@
     content: '';
     width: 50vw;
     height: global.goldenRatio(50vw);
-    background-image: url(../img/index-jpg/concept.jpg);
+    background-image: url(../img/index-jpg/concept-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    top: 20px;
+    top: 335px;
     right: 20px;
     z-index: -1;
     transform-origin: bottom right;
@@ -592,15 +594,10 @@
 
 /* news
 ------------------------------ */
-#news {}
-
-.news__container {}
-
-.news__text {}
-
 .news__area {
     border: 1px solid global.$color-background;
     padding: 20px;
+    box-shadow: 0 0 20px global.$color-main;
 }
 
 .news__link {
@@ -876,6 +873,7 @@
 .works__img {
     width: 100%;
     height: 61.8%;
+    max-height: 530px;
     transition: all 0.5s ease 0s;
     object-fit: cover;
     object-position: bottom;
@@ -1164,7 +1162,6 @@
     background-image: url(../img/index-jpg/contact-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top;
     height: 300px;
     display: flex;
     flex-direction: column;

@@ -35,11 +35,11 @@
         content="https://hayaportfolio202301.falconportfolio.site/assets/img/index-jpg/ogp.jpg" />
 
     <!-- favicon & icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="./assets/favicon/site.webmanifest">
-    <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon_package_v0.16/site.webmanifest">
+    <link rel="mask-icon" href="./assets/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
@@ -51,8 +51,6 @@
         href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
-    <!-- reset.css -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <!-- fontAwesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
     <!-- swiper.css -->
@@ -63,8 +61,6 @@
     <!-- js -->
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <!-- particles.js -->
-    <script defer src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <!-- swiper.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- gsap.js -->
@@ -128,7 +124,7 @@
 
     <div id="wrapper">
         <main>
-            <section id="top">
+            <section id="top" class="js-bg">
                 <div class="container top__container">
                     <h2 class="top__ttl"><span class="top__rect"></span>Web Creator</h2>
                     <div class="scrolldown">
@@ -156,7 +152,7 @@
             <!-- /#thisis -->
 
             <section id="concept">
-                <div class="concept__bg"></div>
+                <div class="concept__bg js-bg"></div>
                 <div class="container concept__container">
                     <h2 class="section__ttl"><span class="section__rect"></span>Concept</h2>
                     <h3 class="section__sub-ttl">- コンセプト</h3>
@@ -208,6 +204,9 @@
                                 タイトルが入ります。
                             </p>
                         </a>
+                    </div>
+                    <div class="section__more">
+                        <a href="" type="button" class="more__button">お知らせ一覧を見る</a>
                     </div>
                 </div>
             </section>
@@ -424,6 +423,9 @@
                             <span class="works__icon3">&rightarrow;</span>
                         </div>
                     </div>
+                    <div class="section__more">
+                        <a href="" type="button" class="more__button">実績一覧を見る</a>
+                    </div>
                 </div>
             </section>
             <!-- /#works-->
@@ -530,12 +532,15 @@
                             </a>
                         </li>
                     </ul>
+                    <div class="section__more">
+                        <a href="" type="button" class="more__button">ブログ一覧を見る</a>
+                    </div>
                 </div>
             </section>
             <!-- /#service -->
 
             <section id="contact">
-                <div class="contact__ttls">
+                <div class="contact__ttls js-bg">
                     <h2 class="section__ttl">Contact</h2>
                     <h3 class="section__sub-ttl">- お問い合わせ</h3>
                 </div>

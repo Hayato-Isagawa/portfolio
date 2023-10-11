@@ -424,6 +424,12 @@ $form.on("submit", function () {
 ------------------------------ */
 gsap.registerPlugin(ScrollTrigger);
 
+// mouse-stalker 初期位置
+const stalkerTl = gsap
+  .timeline()
+  .set("#mouse-stalker", { x: 368, y: 498, opacity: 0 })
+  .from("#mouse-stalker", { x: 368, y: 498, opacity: 1, delay: 3 });
+
 // header__logo & top__ttl
 window.addEventListener("DOMContentLoaded", () => {
   gsap.utils.toArray(".header__logo, .top__ttl").forEach((el, index) => {
@@ -434,6 +440,16 @@ window.addEventListener("DOMContentLoaded", () => {
         x: "105%",
         duration: 0.5,
         ease: "power4.out",
+        delay: 2,
+      })
+      .set('.header__logo', {
+        color: "#fff",
+      })
+      .set(".top__ttl", {
+        backgroundImage:
+          "linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1))",
+        color: "#fff",
+        duration: 0.5,
       })
       .to(topRect, {
         x: "105%",
@@ -501,50 +517,28 @@ const conceptBgTl = gsap
       // end: '+=900',
       // scrub: true,
       scrub: 0.5,
-      markers: true,
+      // markers: true,
       // pin: true,
       // pinSpacer: false,
     },
   })
   .to(".concept__bg", {
-    y: "100%",
-    scale: 0.8,
+    y: "50%",
+    scale: 0.9,
   });
 
-const contactBgTl = gsap
-  .timeline({
-    scrollTrigger: {
-      trigger: "#contact",
-      start: "top center",
-      end: 'center center',
-      scrub: 0.5,
-      markers: true,
-    },
-  })
-  .to(".contact__ttls", {
-    backgroundPositionY: 10,
-  });
-
-// topのタイトル
-// const topTtlTl = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: '#top',
-//     start: 'top top',
-//     end: 'bottom bottom',
-//     scrub: true,
-//     // pin: true,
-//   },
-// });
-
-// topTtlTl.fromTo(
-//   '.top__ttl',
-//   {
-//     opacity: 1,
-//   },
-//   {
-//     opacity: 0.2,
-//     fontSize: 24,
-//     y: '-45vh',
-//     ease: 'Power4.out',
-//   }
-// );
+gsap.utils.toArray(".js-bg").forEach((el, index) => {
+  const BgTl = gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: el,
+        start: "center center",
+        end: "bottom center+=100",
+        scrub: 1,
+        // markers: true,
+      },
+    })
+    .to(el, {
+      backgroundPositionY: 2,
+    });
+});

@@ -898,6 +898,9 @@ textarea:focus {
   font-family: "Bruno Ace", cursive;
   font-size: 2.8rem;
   overflow: hidden;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 @media (min-width: 576px) and (max-width: 767px) {
   .top__ttl {
@@ -995,10 +998,10 @@ textarea:focus {
   content: "";
   width: 50vw;
   height: 30.9023485785vw;
-  background-image: url(../img/index-jpg/concept.jpg);
+  background-image: url(../img/index-jpg/concept-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  top: 20px;
+  top: 335px;
   right: 20px;
   z-index: -1;
   transform-origin: bottom right;
@@ -1096,6 +1099,7 @@ textarea:focus {
 .news__area {
   border: 1px solid #d2d2d2;
   padding: 20px;
+  box-shadow: 0 0 20px #3e3e3e;
 }
 
 .news__link {
@@ -1352,6 +1356,7 @@ textarea:focus {
 .works__img {
   width: 100%;
   height: 61.8%;
+  max-height: 530px;
   transition: all 0.5s ease 0s;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1649,7 +1654,6 @@ textarea:focus {
   background-image: url(../img/index-jpg/contact-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top;
   height: 300px;
   display: flex;
   flex-direction: column;
