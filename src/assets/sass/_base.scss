@@ -60,10 +60,17 @@ section {
 
 .section__ttl {
   font-family: global.$font-en;
-  display: block;
+  display: inline-block;
   font-size: clamp(global.rem(32), 6.5vw, global.rem(90));
   font-weight: 500;
   position: relative;
+  overflow: hidden;
+}
+
+.section__rect {
+  position: absolute;
+  inset: 0;
+  background-color: #fff;
 }
 
 .section__sub-ttl {

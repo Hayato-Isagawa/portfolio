@@ -81,25 +81,30 @@
 .works-desc__label {
   position: relative;
   flex: 0 0 150px;
+  font-size: clamp(0.75rem, 2vw, 1rem);
   text-align: left;
   backface-visibility: hidden;
-  font-weight: bold;
+  font-family: global.$font-en;
+  background-image: linear-gradient(163deg, rgba(219, 87, 205, 1), rgba(47, 237, 167, 1));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 
   @include global.mq('small') {
     text-align: left;
-    font-size: global.rem(20);
     margin-bottom: 8px;
+    display: inline-block;
   }
 
   @include global.mq('ex-small') {
     text-align: left;
-    font-size: global.rem(20);
     margin-bottom: 8px;
+    display: inline-block;
   }
 }
 
 .works-desc__desc {
   flex: 1 1 600px;
+  font-size: clamp(0.75rem, 2vw, 1rem);
   margin-left: 32px;
   line-height: 1.7;
 

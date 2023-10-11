@@ -44,7 +44,7 @@ for (let i = 0; i < linkElem.length; i++) {
 ============================== */
 
 /* header__drawer
-============================== */
+------------------------------ */
 
 const hamburger = $(".hamburger__menu");
 const headerNav = $(".header__nav");
@@ -76,44 +76,9 @@ headerNav.on("click", function () {
   return false;
 });
 
-/* fadeIn-animation
------------------------------- */
-const fadeInContents = document.querySelectorAll(".js-fadeIn");
-const fadeInOptions = {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0, //閾値は0から1の範囲で指定し、0は要素が画面に少しでも表示されたとき、1は要素が完全に表示されたときを意味
-};
-
-const fadeInCallback = (entries, observer) => {
-  entries.forEach((entry) => {
-    entry.target.style.opacity = 0;
-    if (entry.isIntersecting) {
-      entry.target.animate(
-        {
-          opacity: [0, 1],
-          translate: ["0 4rem", 0],
-        },
-        {
-          duration: 1000,
-          easing: "ease",
-          fill: "forwards",
-        }
-      );
-      observer.unobserve(entry.target);
-    }
-  });
-};
-
-const fadeInObserver = new IntersectionObserver(fadeInCallback, fadeInOptions);
-
-fadeInContents.forEach((fadeInContent) => {
-  fadeInObserver.observe(fadeInContent);
-});
-
 /* desc-swiper
 ------------------------------ */
-const swiper = new Swiper(".desc-swiper", {
+const descSwiper = new Swiper(".desc-swiper", {
   autoplay: {
     delay: 7500,
   },

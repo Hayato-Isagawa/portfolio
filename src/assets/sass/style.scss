@@ -87,6 +87,7 @@
     font-size: global.rem(24);
     font-family: global.$font-en;
     line-height: 1;
+    overflow: hidden;
 
     @include global.mq("small") {
         margin-top: 3px;
@@ -405,6 +406,7 @@
     left: 20px;
     font-family: global.$font-en;
     font-size: 2.8rem;
+    overflow: hidden;
 
     @include global.mq("small") {
         left: 10px;
@@ -413,6 +415,13 @@
     @include global.mq("ex-small") {
         left: 10px;
     }
+}
+
+.top__rect {
+    position: absolute;
+    inset: 0;
+    height: 110%;
+    background-color: #fff;
 }
 
 // スクロール可能を示すアイコンのアニメーション
@@ -485,30 +494,31 @@
 #concept {
     width: 100%;
     position: relative;
+}
 
-    &::after {
-        position: absolute;
-        content: '';
-        width: 50vw;
-        height: global.goldenRatio(50vw);
-        background-image: url(../img/index-jpg/concept.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        bottom: 0;
-        right: 20px;
-        z-index: -1;
+.concept__bg {
+    position: absolute;
+    content: '';
+    width: 50vw;
+    height: global.goldenRatio(50vw);
+    background-image: url(../img/index-jpg/concept.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 20px;
+    right: 20px;
+    z-index: -1;
+    transform-origin: bottom right;
 
-        @include global.mq("small") {
-            width: 80vw;
-            height: global.goldenRatio(80vw);
-            right: 10px;
-        }
+    @include global.mq("small") {
+        width: 80vw;
+        height: global.goldenRatio(80vw);
+        right: 10px;
+    }
 
-        @include global.mq("ex-small") {
-            width: 80vw;
-            height: global.goldenRatio(80vw);
-            right: 10px;
-        }
+    @include global.mq("ex-small") {
+        width: 80vw;
+        height: global.goldenRatio(80vw);
+        right: 10px;
     }
 }
 
@@ -872,7 +882,7 @@
 }
 
 .works__info {
-    display: none;
+    // display: none;
     opacity: 0;
 }
 
@@ -912,7 +922,7 @@
         font-size: global.rem(16);
         height: 48px;
     }
-    
+
     @include global.mq("ex-small") {
         font-size: global.rem(16);
         height: 48px;
@@ -972,10 +982,6 @@
 
         .works__icon2::before {
             animation: draw .3s ease-out .3s forwards;
-        }
-
-        .works__icon3 {
-            transform: translate(-70%, -50%);
         }
     }
 
@@ -1047,9 +1053,21 @@
     @include global.mq("ex-small") {
         left: 70%;
     }
+
+    &:hover {
+        .works__icon3 {
+            transform: translate(-70%, -50%);
+        }
+    }
 }
 
-.swiper-button-next {}
+.swiper-button-next {
+    &:hover {
+        .works__icon3 {
+            transform: translate(-30%, -50%);
+        }
+    }
+}
 
 /* 円を描くアニメーション */
 @keyframes draw {
@@ -1146,6 +1164,7 @@
     background-image: url(../img/index-jpg/contact-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: top;
     height: 300px;
     display: flex;
     flex-direction: column;

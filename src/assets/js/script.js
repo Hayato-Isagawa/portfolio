@@ -4,6 +4,17 @@
 ============================== */
 const mediaQuery = window.matchMedia("(min-width: 768px)");
 
+/* 慣性スクロール
+------------------------------ */
+const lenis = new Lenis();
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
 /* mouse-stalker
 ------------------------------ */
 const stalker = document.getElementById("mouse-stalker");
@@ -63,7 +74,7 @@ window.addEventListener(
 ============================== */
 
 /* header__drawer
-============================== */
+------------------------------ */
 
 const hamburger = $(".hamburger__menu");
 const headerNav = $(".header__nav");
@@ -226,7 +237,7 @@ sections.forEach((section) => {
 //   return false;
 // });
 
-/* service__accordion
+/* service__card
 ------------------------------ */
 const serviceButtons = document.querySelectorAll(".service__link");
 
@@ -413,65 +424,127 @@ $form.on("submit", function () {
 ------------------------------ */
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.utils.toArray(".section__ttl").forEach((el, index) => {
-  const sectionTtlTl = gsap.timeline({
+// header__logo & top__ttl
+window.addEventListener("DOMContentLoaded", () => {
+  gsap.utils.toArray(".header__logo, .top__ttl").forEach((el, index) => {
+    const topRect = el.querySelector(".top__rect");
+    const headerTopTl = gsap
+      .timeline()
+      .from(topRect, {
+        x: "105%",
+        duration: 0.5,
+        ease: "power4.out",
+      })
+      .to(topRect, {
+        x: "105%",
+        duration: 0.25,
+        ease: "power4.out",
+      });
+  });
+});
+
+// header__logo
+const headerLogoTl = gsap
+  .timeline({
     scrollTrigger: {
-      trigger: sections[index + 1],
-      start: "top center",
-      end: "",
+      trigger: "#top",
+      start: "top top",
+      end: "+=800",
       scrub: true,
-      // markers: true
     },
+  })
+  .from(
+    ".header__logo",
+    {
+      fontSize: 108,
+      y: "46vh",
+    },
+    {
+      fontSize: 24,
+      y: 0,
+      ease: "Power4.out",
+    }
+  );
+
+// section__ttl
+gsap.utils.toArray(".section__ttl").forEach((el, index) => {
+  const elRect = el.querySelector(".section__rect");
+  const sectionTtlTl = gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: sections[index + 1],
+        start: "top bottom",
+        end: "center center",
+        scrub: true,
+        // markers: true
+      },
+    })
+    .from(el, {
+      y: 70,
+      opacity: 0,
+      duration: 0.1,
+      ease: "power4.out",
+    })
+    .to(elRect, {
+      x: "105%",
+      duration: 0.1,
+      ease: "power4.out",
+    });
+});
+
+const conceptBgTl = gsap
+  .timeline({
+    scrollTrigger: {
+      trigger: "#concept",
+      start: "center center",
+      // end: 'center center',
+      // end: '+=900',
+      // scrub: true,
+      scrub: 0.5,
+      markers: true,
+      // pin: true,
+      // pinSpacer: false,
+    },
+  })
+  .to(".concept__bg", {
+    y: "100%",
+    scale: 0.8,
   });
-  sectionTtlTl.from(el, {
-    x: 100,
-    opacity: 0,
-    duration: 2,
-    ease: "power4.out",
+
+const contactBgTl = gsap
+  .timeline({
+    scrollTrigger: {
+      trigger: "#contact",
+      start: "top center",
+      end: 'center center',
+      scrub: 0.5,
+      markers: true,
+    },
+  })
+  .to(".contact__ttls", {
+    backgroundPositionY: 10,
   });
-});
 
-const topTtlTl = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#top",
-    start: "top top",
-    end: "bottom bottom",
-    scrub: true,
-    // pin: true,
-  },
-});
+// topのタイトル
+// const topTtlTl = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: '#top',
+//     start: 'top top',
+//     end: 'bottom bottom',
+//     scrub: true,
+//     // pin: true,
+//   },
+// });
 
-topTtlTl.fromTo(
-  ".top__ttl",
-  {
-    opacity: 1,
-  },
-  {
-    opacity: 0.2,
-    fontSize: 24,
-    y: "-45vh",
-    ease: "Power4.out",
-  }
-);
-
-const headerLogoTl = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#top",
-    start: "top top",
-    end: "+=800",
-    scrub: true,
-  },
-});
-
-headerLogoTl.from(
-  ".header__logo",
-  {
-    fontSize: 108,
-    y: "46vh",
-  },
-  {
-    fontSize: 24,
-    y: 0,
-    ease: "Power4.out",
-  }
-);
+// topTtlTl.fromTo(
+//   '.top__ttl',
+//   {
+//     opacity: 1,
+//   },
+//   {
+//     opacity: 0.2,
+//     fontSize: 24,
+//     y: '-45vh',
+//     ease: 'Power4.out',
+//   }
+// );
