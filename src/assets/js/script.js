@@ -76,34 +76,31 @@ window.addEventListener(
 /* header__drawer
 ------------------------------ */
 
-const hamburger = $(".hamburger__menu");
-const headerNav = $(".header__nav");
+const hamburger = document.querySelector(".hamburger__menu");
+const headerNav = document.querySelector(".header__nav");
+const drawerBg = document.querySelector(".drawer-background");
 
-hamburger.on("click", function () {
-  if (headerNav.hasClass("is-open")) {
-    $("body").css("overflowY", "visible");
-    $(this).attr("aria-expanded", "false");
+hamburger.addEventListener("click", () => {
+  if (headerNav.classList.contains("is-open")) {
+    document.body.style.overflowY = "visible";
+    hamburger.setAttribute("aria-expanded", "false");
   } else {
-    $("body").css("overflowY", "hidden");
-    $(this).attr("aria-expanded", "true");
+    document.body.style.overflowY = "hidden";
+    hamburger.setAttribute("aria-expanded", "true");
   }
-  $(
-    ".drawer-background, .hamburger__icon, .header__nav, #nav__list"
-  ).toggleClass("is-open");
-
-  return false;
+  hamburger.classList.toggle("is-open");
+  headerNav.classList.toggle("is-open");
+  drawerBg.classList.toggle("is-open");
 });
 
-headerNav.on("click", function () {
-  if (headerNav.hasClass("is-open")) {
-    $(
-      ".drawer-background, .hamburger__icon, .header__nav, #nav__list"
-    ).removeClass("is-open");
-    $("body").css("overflowY", "visible");
-    hamburger.attr("aria-expanded", "false");
+headerNav.addEventListener("click", () => {
+  if (headerNav.classList.contains("is-open")) {
+    document.querySelectorAll(".is-open").forEach((el) => {
+      el.classList.remove("is-open");
+    });
+    document.body.style.overflowY = "visible";
+    hamburger.setAttribute("aria-expanded", "false");
   }
-
-  return false;
 });
 
 /* scrolldown-show
@@ -442,7 +439,7 @@ window.addEventListener("DOMContentLoaded", () => {
         ease: "power4.out",
         delay: 2,
       })
-      .set('.header__logo', {
+      .set(".header__logo", {
         color: "#fff",
       })
       .set(".top__ttl", {
